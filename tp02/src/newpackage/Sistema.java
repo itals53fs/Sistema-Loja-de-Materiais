@@ -10,12 +10,40 @@ package newpackage;
  * @author tales
  */
 public class Sistema {
+    private Colaborador[] colaboradores;
+    private Venda[] vendas;
+    private Cliente[] clientes;
+    private Material[] estoque;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public Colaborador[] getColaboradores() {
+        return colaboradores;
     }
-    
+
+    public void setColaboradores(Colaborador[] colaboradores) {
+        this.colaboradores = colaboradores;
+    }
+
+    public Venda[] getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(Venda[] vendas) {
+        this.vendas = vendas;
+    }
+
+    public Cliente[] getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(Cliente[] clientes) {
+        this.clientes = clientes;
+    }
+
+    public Material[] getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Material[] estoque) {
+        this.estoque = estoque;
+    }
 }
