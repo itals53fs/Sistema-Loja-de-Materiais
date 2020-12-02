@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package newpackage;
 
 /**
  *
  * @author tales
  */
-public class Material {
+public class material {
     private String nome;
     private int quantidade;
     private float preco;
