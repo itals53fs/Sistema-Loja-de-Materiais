@@ -9,7 +9,7 @@ package newpackage;
  *
  * @author tales
  */
-public class material {
+public class Material {
     private String nome;
     private int quantidade;
     private float preco;
