@@ -2,8 +2,7 @@
 package newpackage;
 
 
-public class Adm {
+public class Adm extends Colaborador {
     
-   
    
 }
