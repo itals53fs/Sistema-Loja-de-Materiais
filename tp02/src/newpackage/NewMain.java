@@ -9,11 +9,13 @@ package newpackage;
  *
  * @author tales
  */
-public abstract class Pessoa {
-    private String nome;
-    private String endereco;
-    private String email;
-    private String cpf;
-    private String telefone;
-    //mergin
+public class NewMain {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+    
 }
