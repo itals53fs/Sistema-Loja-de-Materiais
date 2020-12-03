@@ -1,7 +1,7 @@
 
 package newpackage;
 
-public class Cliente {
+public class Cliente extends Pessoa {
 
     
     public boolean ImprimirInfoCliente(){

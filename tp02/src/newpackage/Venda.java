@@ -14,4 +14,41 @@ public class Venda {
    private int data;
    private float valorTotal;
    private Material[] materiais;
+
+    public int getIdVenda() {
+        return idVenda;
+    }
+
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
+    }
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public float getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Material[] getMateriais() {
+        return materiais;
+    }
+
+    public void setMateriais(Material[] materiais) {
+        this.materiais = materiais;
+    }
+   
+   public boolean GerarExtrato() {
+       return false;
+   }
+   
 }
