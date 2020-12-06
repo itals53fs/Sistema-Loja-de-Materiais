@@ -16,11 +16,10 @@ import java.util.List;
  * @author tales
  */
 public class Sistema {
-    private Colaborador[] colaboradores;
-    private Venda[] vendas;
-    private Cliente[] clientes;
-    private List<Material> lista = new ArrayList<Material>();
-    private Material[] estoque = new Material[100];
+    private final List<Colaborador> colaboradors = new ArrayList<Colaborador>();
+    private final List<Cliente> vendas = new ArrayList<Cliente>();
+    private final List<Cliente> cliente = new ArrayList<Cliente>();
+    private final List<Material> lista = new ArrayList<Material>();
    private Scanner scan = new Scanner(System.in);
     Scanner in;
   
@@ -72,10 +71,12 @@ public class Sistema {
                 }
             }
     public static void main(String[] args){
+        System.out.println("ola mundo");
+        
        Sistema sistema = new Sistema();
        sistema.incluirMaterial(sistema.incluirMaterial());
        sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.incluirMaterial(sistema.incluirMaterial());
+       
         sistema.print();
     }
 }

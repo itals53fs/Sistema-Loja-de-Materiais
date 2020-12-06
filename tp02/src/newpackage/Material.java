@@ -66,8 +66,14 @@ public class Material {
         this.fornecedor = fornecedor;
     }
     
-    public void printTodos(){
+        public void printTodos(){
         System.out.println("nome: " + this.getNome() +
-                 "  Preco: " + this.getPreco());
+                 "  Preco: " + this.getPreco() +
+                " Quantidade: "+ 
+                this.getQuantidade()+
+                "  Espercificação: "+ 
+                this.getEspecificacao() +
+                " Margem Lucro: "
+                + this.getMargemLucro());
     }
 }
