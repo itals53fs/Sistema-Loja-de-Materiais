@@ -17,12 +17,42 @@ import java.util.List;
  */
 public class Sistema {
     private final List<Colaborador> colaboradors = new ArrayList<Colaborador>();
-    private final List<Cliente> vendas = new ArrayList<Cliente>();
+    private final List<Venda> venda = new ArrayList<Venda>();
     private final List<Cliente> cliente = new ArrayList<Cliente>();
     private final List<Material> lista = new ArrayList<Material>();
    private Scanner scan = new Scanner(System.in);
     Scanner in;
+    
+    
+    
+    
+    
+    public Venda incluirVendas(){
+      Venda vendas = new Venda();
+       String Svalue;
+       int Intvalue;
+       float FloatValue;
+       
+        System.out.println("Digite o id da venda: ");
+        Intvalue = scan.nextInt();
+        vendas.setIdVenda(Intvalue);
+        
+        System.out.println("Digite o valor total: ");
+        FloatValue = scan.nextInt();
+        vendas.setValorTotal(FloatValue);
+        return vendas;
   
+  }
+    
+             public boolean incluirVendas(Venda venda){
+            try{
+                this.venda.add(venda);
+            }catch(Exception e){
+                return false;
+            }
+            return true;
+        }
+         
 
     /*public void setEstoque(Material[] estoque){
         this.estoque = estoque;
@@ -74,9 +104,9 @@ public class Sistema {
         System.out.println("ola mundo");
         
        Sistema sistema = new Sistema();
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       
+       /*sistema.incluirMaterial(sistema.incluirMaterial());
+       sistema.incluirMaterial(sistema.incluirMaterial());*/
+       sistema.incluirVendas(sistema.incluirVendas());
         sistema.print();
     }
 }

@@ -12,6 +12,8 @@ package newpackage;
 public class Venda {
    private int idVenda;
    private int data;
+   private float valorTotal;
+   private Material[] materiais;
 
     public int getIdVenda() {
         return idVenda;
@@ -44,6 +46,5 @@ public class Venda {
     public void setMateriais(Material[] materiais) {
         this.materiais = materiais;
     }
-   private float valorTotal;
-   private Material[] materiais;
+   
 }
