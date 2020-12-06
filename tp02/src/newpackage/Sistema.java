@@ -19,14 +19,47 @@ public class Sistema {
     private final List<Colaborador> colaboradors = new ArrayList<Colaborador>();
     private final List<Cliente> vendas = new ArrayList<Cliente>();
     private final List<Cliente> cliente = new ArrayList<Cliente>();
-    private final List<Material> lista = new ArrayList<Material>();
+    private final List<Material> estoque = new ArrayList<Material>();
    private Scanner scan = new Scanner(System.in);
     Scanner in;
   
 
-    /*public void setEstoque(Material[] estoque){
-        this.estoque = estoque;
-    }*/
+    public Colaborador  incluirColaborador(){
+         Colaborador colaborador = new Colaborador();
+         String value;
+         System.out.print("Insira o seu nome:  ");
+         value = scan.next();
+         colaborador.setNome(value);
+         System.out.print("Insira sua CPF:  ");
+         value = scan.next();
+         colaborador.setCpf(value);
+         System.out.print("Insira  seu email:  ");
+         value = scan.next();
+         colaborador.setEmail(value);
+         System.out.print("Insira seu Telefone:  ");
+         value = scan.next();
+         colaborador.setTelefone(value);
+          System.out.print("Insira seu Endereço:  ");
+          value = scan.next();
+         colaborador.setEndereco(value);
+         System.out.print("Insira seu Login:  ");
+         value = scan.next();
+         colaborador.setLogin(value);
+         System.out.print("Insira sua senha:  ");
+         value = scan.next();
+         colaborador.setSenha(value);
+         return colaborador;
+    }
+    public boolean IncluirColaborador(Colaborador colaborador){
+         try{
+                this.colaboradors.add(colaborador);
+            }catch(Exception e){
+                return false;
+            }
+            return true;
+    }
+    
+    
     public Material incluirMaterial(){
         Material material = new Material();
         String Svalue;
@@ -57,26 +90,36 @@ public class Sistema {
        material.setMargemLucro(FloatValue);
        return material;
     }
-         public boolean incluirMaterial(Material material){
-            try{
-                lista.add(material);
+    
+    public boolean IncluirCliente(Cliente cliente){
+         try{
+                this.cliente.add(cliente);
             }catch(Exception e){
                 return false;
             }
             return true;
-        }
-         public void print(){
-                for(int i =0;i<this.lista.size(); i++){
-                   this.lista.get(i).printTodos();
-                }
-            }
+    }
+    public boolean incluirMaterial(Material material){
+       try{
+           this.estoque.add(material);
+       }catch(Exception e){
+           return false;
+       }
+       return true;
+    }
+    public void MostrarListaMaterial(){
+           for(int i =0;i<this.estoque.size(); i++){
+              this.estoque.get(i).printTodos();
+           }
+       }
+         
     public static void main(String[] args){
         System.out.println("ola mundo");
         
        Sistema sistema = new Sistema();
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       
-        sistema.print();
+       /*sistema.incluirMaterial(sistema.incluirMaterial());
+       sistema.incluirMaterial(sistema.incluirMaterial());*/
+       sistema.IncluirColaborador(sistema.incluirColaborador());
+        sistema.MostrarListaMaterial();
     }
 }
