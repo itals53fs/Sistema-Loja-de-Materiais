@@ -65,4 +65,9 @@ public class Material {
     public void setFornecedor(String fornecedor) {
         this.fornecedor = fornecedor;
     }
+    
+    public void printTodos(){
+        System.out.println("nome: " + this.getNome() +
+                 "  Preco: " + this.getPreco());
+    }
 }
