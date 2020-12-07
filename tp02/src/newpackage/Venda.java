@@ -47,4 +47,15 @@ public class Venda {
         this.materiais = materiais;
     }
    
+   public boolean GerarExtrato() {
+       return false;
+   }
+
+    @Override
+    public String toString() {
+        return "Venda{" + "idVenda=" + idVenda + ", data=" + data + ", valorTotal=" + valorTotal + ", materiais=" + materiais + '}';
+    } 
+    
+   
+ 
 }

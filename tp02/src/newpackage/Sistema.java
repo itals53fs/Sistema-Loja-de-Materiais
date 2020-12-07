@@ -197,4 +197,32 @@ public boolean incluirVendas(Venda venda){
        //sistema.readFile();*/
     
     }
+    
+    public boolean incluirColaborador(Colaborador[] colaborador){
+        return false;
+    }
+    
+    public boolean incluirCliente(Cliente[] cliente){
+        return false;
+    }
+    
+    public boolean realizarVenda(Venda[] venda){
+        return false;
+    }
+    
+    public boolean cancelarVenda(Venda[] venda){
+        return false;
+    }
+    
+        
+    public boolean incluirMaterial(Material[] material){
+        return false;
+    }
+    
+    public boolean consultarVenda(){
+        return  false;
+    }
+    
+
+    
 }
