@@ -23,7 +23,7 @@ public class Sistema {
    private Scanner scan = new Scanner(System.in);
     Scanner in;
     
-       public Colaborador  incluirColaborador(){
+    public Colaborador  incluirColaborador(){
          Colaborador colaborador = new Colaborador();
          String value;
          System.out.print("Insira o seu nome:  ");
@@ -187,14 +187,44 @@ public boolean incluirVendas(Venda venda){
     public static void main(String[] args){
         System.out.println("ola mundo");
         
-       Sistema sistema = new Sistema();
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.IncluirColaborador(sistema.incluirColaborador());
-       sistema.incluirVendas(sistema.incluirVendas());
-       sistema.IncluirCliente(sistema.incluirCliente());
-       sistema.MostrarListaMaterial();/*
-       sistema.open();
+        Scanner input = new Scanner(System.in);
+        Sistema sistema = new Sistema();
+        boolean validar;
+        int opcao = 0;
+        
+
+        
+        do{
+           
+         System.out.println("Escolha uma opção");
+         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || 0 = Cancelar");
+         opcao = input.nextInt();
+         
+         switch(opcao){
+             case 1:
+                validar = sistema.IncluirColaborador(sistema.incluirColaborador());
+                if(!validar){
+                 System.out.println("Colaborador não inserido");
+                }
+                validar = false;
+                break;
+             case 2:
+                validar = sistema.IncluirCliente(sistema.incluirCliente());               
+                if(!validar){
+                    System.out.println("Usuario não inserido");
+                }    
+         }
+            
+        }while(opcao > 0);
+       
+
+       //validar = sistema.incluirVendas(sistema.incluirVendas());  
+       //sistema.IncluirCliente(sistema.incluirCliente());
+       //sistema.MostrarListaMaterial();/*
+       //sistema.open();
        //sistema.readFile();*/
+       
+        System.out.println(sistema.colaboradors.toString());
     
     }
     
