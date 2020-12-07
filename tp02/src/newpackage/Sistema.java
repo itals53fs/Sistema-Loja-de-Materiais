@@ -23,7 +23,8 @@ public class Sistema {
    private Scanner scan = new Scanner(System.in);
     Scanner in;
     
-       public Colaborador  incluirColaborador(){
+    //-- Incluir Colaborador
+    public Colaborador  incluirColaborador(){
          Colaborador colaborador = new Colaborador();
          String value;
          System.out.print("Insira o seu nome:  ");
@@ -38,8 +39,8 @@ public class Sistema {
          System.out.print("Insira seu Telefone:  ");
          value = scan.next();
          colaborador.setTelefone(value);
-          System.out.print("Insira seu Endereço:  ");
-          value = scan.next();
+         System.out.print("Insira seu Endereço:  ");
+         value = scan.next();
          colaborador.setEndereco(value);
          System.out.print("Insira seu Login:  ");
          value = scan.next();
@@ -47,6 +48,7 @@ public class Sistema {
          System.out.print("Insira sua senha:  ");
          value = scan.next();
          colaborador.setSenha(value);
+
          return colaborador;
     }
     public boolean IncluirColaborador(Colaborador colaborador){
@@ -58,6 +60,7 @@ public class Sistema {
             return true;
     }
     
+    //-- Incluir Cliente
     public Cliente incluirCliente(){
         Cliente cli = new Cliente();
         String value;
@@ -87,7 +90,7 @@ public class Sistema {
     return true;
 }
     
-    
+    //-- Realizar Vendas
     public Venda incluirVendas(){
       Venda vendas = new Venda();
        String Svalue;
@@ -104,8 +107,7 @@ public class Sistema {
         return vendas;
   
   }
-    
-public boolean incluirVendas(Venda venda){
+    public boolean incluirVendas(Venda venda){
     try{
         this.venda.add(venda);
     }catch(Exception e){
@@ -114,7 +116,7 @@ public boolean incluirVendas(Venda venda){
     return true;
 }
     
-    
+    //-- Incluir Materiais
     public Material incluirMaterial(){
         Material material = new Material();
         String Svalue;
@@ -145,7 +147,6 @@ public boolean incluirVendas(Venda venda){
        material.setMargemLucro(FloatValue);
        return material;
     }
-    
     public boolean IncluirCliente(Cliente cliente){
          try{
                 this.cliente.add(cliente);
@@ -162,6 +163,8 @@ public boolean incluirVendas(Venda venda){
        }
        return true;
     }
+    
+    //-- Outros Metodos
     public void MostrarListaMaterial(){
            for(int i =0;i<this.estoque.size(); i++){
               this.estoque.get(i).printTodos();
@@ -187,15 +190,69 @@ public boolean incluirVendas(Venda venda){
     public static void main(String[] args){
         System.out.println("ola mundo");
         
-       Sistema sistema = new Sistema();
-       sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.IncluirColaborador(sistema.incluirColaborador());
-       sistema.incluirVendas(sistema.incluirVendas());
-       sistema.IncluirCliente(sistema.incluirCliente());
-       sistema.MostrarListaMaterial();/*
-       sistema.open();
+        //-- Instancias
+        Scanner input = new Scanner(System.in);
+        Sistema sistema = new Sistema();
+        
+        boolean validar;
+        int opcao = 0;
+        
+
+        //-- Menu
+        do{
+           
+         System.out.println("Escolha uma opção");
+         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || || \n"
+                 + " 3= Cadastrar material || 4=Realizar Vend 0 = Cancelar");
+         opcao = input.nextInt();
+         
+         switch(opcao){
+             case 1:
+                validar = sistema.IncluirColaborador(sistema.incluirColaborador());
+                if(!validar){
+                 System.out.println("Colaborador não inserido");
+                }
+                
+              //  validar = false;
+                break;
+             case 2:
+                validar = sistema.IncluirCliente(sistema.incluirCliente());               
+                if(!validar){
+                    System.out.println("Usuario não inserido");
+                }
+               // validar = false;
+                break;
+             case 3:
+                validar = sistema.incluirMaterial(sistema.incluirMaterial());
+                if(!validar){
+                 System.out.println("Materão não inserido");
+                }
+               // validar = false;
+                break;
+             case 4:
+                validar = sistema.incluirVendas(sistema.incluirVendas());               
+                if(!validar){
+                    System.out.println("Venda não Realizada");
+                }
+                //validar = false;
+                break;
+        
+         }
+            
+        }while(opcao > 0);
+       
+
+       //validar = sistema.incluirVendas(sistema.incluirVendas());  
+       //sistema.IncluirCliente(sistema.incluirCliente());
+       //sistema.MostrarListaMaterial();/*
+       //sistema.open();
        //sistema.readFile();*/
-    
+       
+       // System.out.println(sistema.colaboradors.toString());
+        
+        System.out.println(sistema.colaboradors);
+        System.out.println(sistema.colaboradors.size());
+       
     }
     
     

@@ -21,5 +21,14 @@ public class Colaborador extends Pessoa {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Colaborador{" 
+                + "login=" + login 
+                + "senha=" + senha
+                + "nome= " + this.getNome() + '}';
+    }
+    
     
 }
