@@ -23,6 +23,7 @@ public class Sistema {
    private Scanner scan = new Scanner(System.in);
     Scanner in;
     
+    //-- Incluir Colaborador
     public Colaborador  incluirColaborador(){
          Colaborador colaborador = new Colaborador();
          String value;
@@ -59,6 +60,7 @@ public class Sistema {
             return true;
     }
     
+    //-- Incluir Cliente
     public Cliente incluirCliente(){
         Cliente cli = new Cliente();
         String value;
@@ -88,7 +90,7 @@ public class Sistema {
     return true;
 }
     
-    
+    //-- Realizar Vendas
     public Venda incluirVendas(){
       Venda vendas = new Venda();
        String Svalue;
@@ -105,7 +107,6 @@ public class Sistema {
         return vendas;
   
   }
-    
     public boolean incluirVendas(Venda venda){
     try{
         this.venda.add(venda);
@@ -115,7 +116,7 @@ public class Sistema {
     return true;
 }
     
-    
+    //-- Incluir Materiais
     public Material incluirMaterial(){
         Material material = new Material();
         String Svalue;
@@ -146,7 +147,6 @@ public class Sistema {
        material.setMargemLucro(FloatValue);
        return material;
     }
-    
     public boolean IncluirCliente(Cliente cliente){
          try{
                 this.cliente.add(cliente);
@@ -163,6 +163,8 @@ public class Sistema {
        }
        return true;
     }
+    
+    //-- Outros Metodos
     public void MostrarListaMaterial(){
            for(int i =0;i<this.estoque.size(); i++){
               this.estoque.get(i).printTodos();
@@ -188,13 +190,15 @@ public class Sistema {
     public static void main(String[] args){
         System.out.println("ola mundo");
         
+        //-- Instancias
         Scanner input = new Scanner(System.in);
         Sistema sistema = new Sistema();
+        
         boolean validar;
         int opcao = 0;
         
 
-        
+        //-- Menu
         do{
            
          System.out.println("Escolha uma opção");
