@@ -38,8 +38,8 @@ public class Sistema {
          System.out.print("Insira seu Telefone:  ");
          value = scan.next();
          colaborador.setTelefone(value);
-          System.out.print("Insira seu Endereço:  ");
-          value = scan.next();
+         System.out.print("Insira seu Endereço:  ");
+         value = scan.next();
          colaborador.setEndereco(value);
          System.out.print("Insira seu Login:  ");
          value = scan.next();
@@ -47,6 +47,7 @@ public class Sistema {
          System.out.print("Insira sua senha:  ");
          value = scan.next();
          colaborador.setSenha(value);
+
          return colaborador;
     }
     public boolean IncluirColaborador(Colaborador colaborador){
@@ -105,7 +106,7 @@ public class Sistema {
   
   }
     
-public boolean incluirVendas(Venda venda){
+    public boolean incluirVendas(Venda venda){
     try{
         this.venda.add(venda);
     }catch(Exception e){
@@ -197,7 +198,8 @@ public boolean incluirVendas(Venda venda){
         do{
            
          System.out.println("Escolha uma opção");
-         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || 0 = Cancelar");
+         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || || \n"
+                 + " 3= Cadastrar material || 4=Realizar Vend 0 = Cancelar");
          opcao = input.nextInt();
          
          switch(opcao){
@@ -206,13 +208,31 @@ public boolean incluirVendas(Venda venda){
                 if(!validar){
                  System.out.println("Colaborador não inserido");
                 }
-                validar = false;
+                
+              //  validar = false;
                 break;
              case 2:
                 validar = sistema.IncluirCliente(sistema.incluirCliente());               
                 if(!validar){
                     System.out.println("Usuario não inserido");
-                }    
+                }
+               // validar = false;
+                break;
+             case 3:
+                validar = sistema.incluirMaterial(sistema.incluirMaterial());
+                if(!validar){
+                 System.out.println("Materão não inserido");
+                }
+               // validar = false;
+                break;
+             case 4:
+                validar = sistema.incluirVendas(sistema.incluirVendas());               
+                if(!validar){
+                    System.out.println("Venda não Realizada");
+                }
+                //validar = false;
+                break;
+        
          }
             
         }while(opcao > 0);
@@ -224,8 +244,11 @@ public boolean incluirVendas(Venda venda){
        //sistema.open();
        //sistema.readFile();*/
        
-        System.out.println(sistema.colaboradors.toString());
-    
+       // System.out.println(sistema.colaboradors.toString());
+        
+        System.out.println(sistema.colaboradors);
+        System.out.println(sistema.colaboradors.size());
+       
     }
     
     
