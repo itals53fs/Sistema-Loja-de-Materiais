@@ -54,7 +54,8 @@ public class Venda {
     @Override
     public String toString() {
         return "Venda{" + "idVenda=" + idVenda + ", data=" + data + ", valorTotal=" + valorTotal + ", materiais=" + materiais + '}';
-    }
+    } 
+    
    
-   
+ 
 }
