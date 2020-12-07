@@ -58,6 +58,35 @@ public class Sistema {
             return true;
     }
     
+    public Cliente incluirCliente(){
+        Cliente cliente = new Cliente();
+        String value;
+         System.out.print("Insira o seu nome:  ");
+         value = scan.next();
+         cliente.setNome(value);
+         System.out.print("Insira sua CPF:  ");
+         value = scan.next();
+         cliente.setCpf(value);
+         System.out.print("Insira  seu email:  ");
+         value = scan.next();
+         cliente.setEmail(value);
+         System.out.print("Insira seu Telefone:  ");
+         value = scan.next();
+         cliente.setTelefone(value);
+          System.out.print("Insira seu Endereço:  ");
+          value = scan.next();
+          cliente.setEndereco(value);
+        return cliente;
+    }
+    public boolean incluirCliete(Cliente cliente){
+    try{
+        this.cliente.add(cliente);
+    }catch(Exception e){
+        return false;
+    }
+    return true;
+}
+    
     
     public Venda incluirVendas(){
       Venda vendas = new Venda();
@@ -76,14 +105,14 @@ public class Sistema {
   
   }
     
-             public boolean incluirVendas(Venda venda){
-            try{
-                this.venda.add(venda);
-            }catch(Exception e){
-                return false;
-            }
-            return true;
-        }
+public boolean incluirVendas(Venda venda){
+    try{
+        this.venda.add(venda);
+    }catch(Exception e){
+        return false;
+    }
+    return true;
+}
     
     
     public Material incluirMaterial(){
@@ -105,7 +134,7 @@ public class Sistema {
 
        System.out.print("Insira a quantidade:  ");
        IntValue= scan.nextInt();
-       material.setPreco(IntValue);
+       material.setQuantidade(IntValue);
 
        System.out.print("Insira o preco do material:  ");
        FloatValue= scan.nextFloat();
@@ -143,10 +172,10 @@ public class Sistema {
         System.out.println("ola mundo");
         
        Sistema sistema = new Sistema();
-       /*sistema.incluirMaterial(sistema.incluirMaterial());
-       sistema.incluirMaterial(sistema.incluirMaterial());*/
-       sistema.IncluirColaborador(sistema.incluirColaborador());
-        sistema.MostrarListaMaterial();
+       sistema.incluirMaterial(sistema.incluirMaterial());
+       /*sistema.IncluirColaborador(sistema.incluirColaborador());
        sistema.incluirVendas(sistema.incluirVendas());
+       sistema.IncluirCliente(sistema.incluirCliente());*/
+       sistema.MostrarListaMaterial();
     }
 }
