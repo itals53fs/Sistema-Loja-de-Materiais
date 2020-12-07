@@ -59,24 +59,24 @@ public class Sistema {
     }
     
     public Cliente incluirCliente(){
-        Cliente cliente = new Cliente();
+        Cliente cli = new Cliente();
         String value;
          System.out.print("Insira o seu nome:  ");
          value = scan.next();
-         cliente.setNome(value);
+         cli.setNome(value);
          System.out.print("Insira sua CPF:  ");
          value = scan.next();
-         cliente.setCpf(value);
+         cli.setCpf(value);
          System.out.print("Insira  seu email:  ");
          value = scan.next();
-         cliente.setEmail(value);
+         cli.setEmail(value);
          System.out.print("Insira seu Telefone:  ");
          value = scan.next();
-         cliente.setTelefone(value);
+         cli.setTelefone(value);
           System.out.print("Insira seu Endereço:  ");
           value = scan.next();
-          cliente.setEndereco(value);
-        return cliente;
+          cli.setEndereco(value);
+        return cli;
     }
     public boolean incluirCliete(Cliente cliente){
     try{
@@ -167,15 +167,34 @@ public boolean incluirVendas(Venda venda){
               this.estoque.get(i).printTodos();
            }
        }
+    
+    public void open() {
+       
+        try {
+            in = new Scanner(new File("materiais.txt"));
+
+        } catch (FileNotFoundException fileNotFoundException) {
+            System.err.println("erro");
+        }
+    }
+
+    // ler o arquivo
+    public void readFile() {
+        String linha = in.next();
+        System.out.println("aqui");
+    }
          
     public static void main(String[] args){
         System.out.println("ola mundo");
         
        Sistema sistema = new Sistema();
        sistema.incluirMaterial(sistema.incluirMaterial());
-       /*sistema.IncluirColaborador(sistema.incluirColaborador());
+       sistema.IncluirColaborador(sistema.incluirColaborador());
        sistema.incluirVendas(sistema.incluirVendas());
-       sistema.IncluirCliente(sistema.incluirCliente());*/
-       sistema.MostrarListaMaterial();
+       sistema.IncluirCliente(sistema.incluirCliente());
+       sistema.MostrarListaMaterial();/*
+       sistema.open();
+       //sistema.readFile();*/
+    
     }
 }
