@@ -6,6 +6,7 @@
 package newpackage;
 import java.util.Date;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 /**
@@ -74,7 +75,7 @@ public class Material {
         this.fornecedor = fornecedor;
     }
     
-        public void printTodos(){
+        public void printTodos() throws ParseException{
         System.out.println("nome: " + this.getNome() +
                  " \nPreco: " + this.getPreco() +
                 "\nQuantidade: "+ 
@@ -83,8 +84,15 @@ public class Material {
                 this.getEspecificacao() +
                 "\nMargem Lucro: "
                 + this.getMargemLucro() +
-                "\nData de cadastro: "+ this.getCreate_at());
+                "\nData de cadastro: "+ this.getCreate_at() + "\ndata de fabricação: " + this.converterData("12/05/1997"));
     }
-        
+    
+        public Date converterData(String data) throws ParseException 
+        {
+            
+           DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            dateFormat.setLenient(false);
+            return dateFormat.parse(data);
+           }
         
 }

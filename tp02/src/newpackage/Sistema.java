@@ -8,6 +8,7 @@ package newpackage;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -122,6 +123,7 @@ public class Sistema {
     //-- Incluir Materiais
     public Material incluirMaterial(){
         Date data = new Date();
+        
         Material material = new Material();
         String Svalue;
         int IntValue;
@@ -170,7 +172,7 @@ public class Sistema {
     }
     
     //-- Outros Metodos
-    public void MostrarListaMaterial(){
+    public void MostrarListaMaterial() throws ParseException{
            for(int i =0;i<this.estoque.size(); i++){
               this.estoque.get(i).printTodos();
            }
@@ -192,7 +194,7 @@ public class Sistema {
         System.out.println("aqui");
     }
          
-    public static void main(String[] args){
+    public static void main(String[] args) throws ParseException{
         System.out.println("ola mundo");
         
         //-- Instancias
