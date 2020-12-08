@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 /**
  *
@@ -92,6 +93,7 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
+        Date data = new Date();
       Venda vendas = new Venda();
        String Svalue;
        int Intvalue;
@@ -104,6 +106,7 @@ public class Sistema {
         System.out.println("Digite o valor total: ");
         FloatValue = scan.nextInt();
         vendas.setValorTotal(FloatValue);
+        vendas.setData(data);
         return vendas;
   
   }
@@ -118,6 +121,7 @@ public class Sistema {
     
     //-- Incluir Materiais
     public Material incluirMaterial(){
+        Date data = new Date();
         Material material = new Material();
         String Svalue;
         int IntValue;
@@ -145,6 +149,7 @@ public class Sistema {
        System.out.print("Insira a Margem Lucro:  ");
        FloatValue= scan.nextFloat();
        material.setMargemLucro(FloatValue);
+       
        return material;
     }
     public boolean IncluirCliente(Cliente cliente){
@@ -250,8 +255,9 @@ public class Sistema {
        
        // System.out.println(sistema.colaboradors.toString());
         
-        System.out.println(sistema.colaboradors);
-        System.out.println(sistema.colaboradors.size());
+        sistema.MostrarListaMaterial();
+        System.out.println(sistema.venda.toString());
+      
        
     }
     
