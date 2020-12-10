@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -180,19 +182,21 @@ public class Sistema {
     
     public void open() {
        
-        try {
-            in = new Scanner(new File("materiais.txt"));
-
-        } catch (FileNotFoundException fileNotFoundException) {
-            System.err.println("erro");
+  try {
+            scan = new Scanner(new File("materiais"));
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     // ler o arquivo
-    public void readFile() {
-        String linha = in.next();
-        System.out.println("aqui");
-    }
+public void readFile() {;
+    while (scan.hasNextInt()) {
+        String linha = scan.next();
+        System.out.println(linha);
+        }
+}
          
     public static void main(String[] args) throws ParseException{
         System.out.println("ola mundo");
@@ -252,8 +256,8 @@ public class Sistema {
        //validar = sistema.incluirVendas(sistema.incluirVendas());  
        //sistema.IncluirCliente(sistema.incluirCliente());
        //sistema.MostrarListaMaterial();/*
-       //sistema.open();
-       //sistema.readFile();*/
+       sistema.open();
+       sistema.readFile();
        
        // System.out.println(sistema.colaboradors.toString());
         
