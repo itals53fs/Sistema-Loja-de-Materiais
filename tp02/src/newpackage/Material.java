@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package newpackage;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -15,11 +19,16 @@ public class Material {
     private float preco;
     private String especificacao;
     private float margemLucro;
-    // colocar date
+    private Date create_at = new Date();
     private String fornecedor;
 
     public String getNome() {
         return nome;
+    }
+
+    public String getCreate_at() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return dateFormat.format(create_at);
     }
 
     public void setNome(String nome) {
@@ -66,14 +75,24 @@ public class Material {
         this.fornecedor = fornecedor;
     }
     
-        public void printTodos(){
+        public void printTodos() throws ParseException{
         System.out.println("nome: " + this.getNome() +
-                 "  Preco: " + this.getPreco() +
-                " Quantidade: "+ 
+                 " \nPreco: " + this.getPreco() +
+                "\nQuantidade: "+ 
                 this.getQuantidade()+
-                "  Espercificação: "+ 
+                "\nEspercificação: "+ 
                 this.getEspecificacao() +
-                " Margem Lucro: "
-                + this.getMargemLucro());
+                "\nMargem Lucro: "
+                + this.getMargemLucro() +
+                "\nData de cadastro: "+ this.getCreate_at() + "\ndata de fabricação: " + this.converterData("12/05/1997"));
     }
+    
+        public Date converterData(String data) throws ParseException 
+        {
+            
+           DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            dateFormat.setLenient(false);
+            return dateFormat.parse(data);
+           }
+        
 }

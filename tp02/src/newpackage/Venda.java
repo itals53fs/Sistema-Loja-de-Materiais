@@ -4,16 +4,18 @@
  * and open the template in the editor.
  */
 package newpackage;
-
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author gabil
  */
 public class Venda {
    private int idVenda;
-   private int data;
    private float valorTotal;
    private Material[] materiais;
+<<<<<<< HEAD
    private String cpfCliente;
    
 
@@ -24,6 +26,9 @@ public class Venda {
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
+=======
+   private Date data = new Date();
+>>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
 
     public int getIdVenda() {
         return idVenda;
@@ -31,14 +36,6 @@ public class Venda {
 
     public void setIdVenda(int idVenda) {
         this.idVenda = idVenda;
-    }
-
-    public int getData() {
-        return data;
-    }
-
-    public void setData(int data) {
-        this.data = data;
     }
 
     public float getValorTotal() {
@@ -64,11 +61,19 @@ public class Venda {
        System.out.println("Valor total " + valorTotal);
        return false;
    }
+       public String getCreate_at() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return dateFormat.format(data);
+    }
 
     @Override
     public String toString() {
-        return "Venda{" + "idVenda=" + idVenda + ", data=" + data + ", valorTotal=" + valorTotal + ", materiais=" + materiais + '}';
+        return "Venda{" + "idVenda=" + idVenda + ", valorTotal=" + valorTotal + ", materiais=" + materiais +" Data: "+ this.getCreate_at()+'}';
     } 
+
+    public void setData(Date data) {
+        this.data = data;
+    }
     
    
  
