@@ -3,6 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Rodstar/Documents/ub-java/TrabalhoPoo/Trabalho-II/tp02/src/newpackage/Sistema.java</file>
+=======
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Material.java</file>
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Colaborador.java</file>
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Cliente.java</file>
@@ -11,6 +14,7 @@
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Pessoa.java</file>
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Venda.java</file>
             <file>file:/home/tales/Área%20de%20Trabalho/sistemas-de-informacao/POO/Trabalho-II/tp02/src/newpackage/Sistema.java</file>
+>>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
         </group>
     </open-files>
 </project-private>

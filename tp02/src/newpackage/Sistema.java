@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 import java.util.logging.Level;
@@ -96,20 +97,48 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
-        Date data = new Date();
-      Venda vendas = new Venda();
-       String Svalue;
-       int Intvalue;
-       float FloatValue;
-       
-        System.out.println("Digite o id da venda: ");
-        Intvalue = scan.nextInt();
-        vendas.setIdVenda(Intvalue);
+  
+        //Venda vendas = new Venda();
         
+        String Svalue;
+        int Intvalue;
+        float FloatValue;
+        
+        Date data = new Date();
+        Venda vendas = new Venda();
+       
+        //String Svalue;
+       //int Intvalue;
+       //float FloatValue;
+
+       
+        //System.out.println("Digite o id da venda: ");
+        //Intvalue = scan.nextInt(); 
+        vendas.setIdVenda(this.venda.size()+1);
+        
+        System.out.println("Digite o CPF do cliente: ");
+        Svalue = scan.next();
+        
+  
+          for (Cliente clientes : cliente){
+            
+              if(Svalue.equals(clientes.getCpf())){
+                vendas.setCpfCliente(Svalue);
+                System.out.println("Digite o valor total: ");
+                FloatValue = scan.nextInt();
+                vendas.setValorTotal(FloatValue);   
+                
+                //clientes.setRegCompras();
+              }else{
+                  System.out.println("Cliente não existe, registre o mesmo");
+              }
+          } 
+
         System.out.println("Digite o valor total: ");
         FloatValue = scan.nextInt();
         vendas.setValorTotal(FloatValue);
         vendas.setData(data);
+
         return vendas;
   
   }
@@ -180,6 +209,13 @@ public class Sistema {
            }
        }
     
+    //--Mostrar lista de Colaboradores
+    public void mostraColaboradores(){
+        for (Colaborador colaborador : colaboradors) {
+            System.out.println("Colaborador: " + colaborador.getNome());
+        }
+    }
+    
     public void open() {
        
   try {
@@ -208,7 +244,7 @@ public void readFile() {;
         boolean validar;
         int opcao = 0;
         
-
+        
         //-- Menu
         do{
            
@@ -261,10 +297,16 @@ public void readFile() {;
        
        // System.out.println(sistema.colaboradors.toString());
         
+
+        //System.out.println(sistema.colaboradors.get(0));
+        System.out.println(sistema.cliente.get(0));
+        System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
+        //sistema.MostrarListaMaterial();
+        //sistema.mostraColaboradores();
+
         sistema.MostrarListaMaterial();
         System.out.println(sistema.venda.toString());
-      
-       
+     
     }
     
     
