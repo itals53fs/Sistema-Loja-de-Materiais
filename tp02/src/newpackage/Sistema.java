@@ -183,7 +183,7 @@ public class Sistema {
     public void open() {
        
   try {
-            scan = new Scanner(new File("materiais"));
+            scan = new Scanner(new File("../data/mat.txt"));
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
