@@ -97,8 +97,7 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
-  
-        //Venda vendas = new Venda();
+     
         
         String Svalue;
         int Intvalue;
@@ -126,9 +125,7 @@ public class Sistema {
                 vendas.setCpfCliente(Svalue);
                 System.out.println("Digite o valor total: ");
                 FloatValue = scan.nextInt();
-                vendas.setValorTotal(FloatValue);   
-                
-                //clientes.setRegCompras();
+                clientes.setMateriais(venda);
               }else{
                   System.out.println("Cliente não existe, registre o mesmo");
               }
@@ -281,7 +278,9 @@ public void readFile() {;
                 if(!validar){
                     System.out.println("Venda não Realizada");
                 }
-                //validar = false;
+                break;
+             case 5:
+                sistema.cliente.get(0).ImprimirInfoCliente();
                 break;
         
          }
@@ -292,15 +291,15 @@ public void readFile() {;
        //validar = sistema.incluirVendas(sistema.incluirVendas());  
        //sistema.IncluirCliente(sistema.incluirCliente());
        //sistema.MostrarListaMaterial();/*
-       sistema.open();
-       sistema.readFile();
+       //sistema.open();
+       //sistema.readFile();
        
        // System.out.println(sistema.colaboradors.toString());
         
 
         //System.out.println(sistema.colaboradors.get(0));
         System.out.println(sistema.cliente.get(0));
-        System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
+        //System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
         //sistema.MostrarListaMaterial();
         //sistema.mostraColaboradores();
 

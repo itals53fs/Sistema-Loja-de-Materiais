@@ -1,19 +1,25 @@
 
 package newpackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente  extends Pessoa{
     
-    private Venda[] regCompras;
+   private List <Venda> materiais = new ArrayList <Venda>();
 
-    public Venda[] getRegCompras() {
-        return regCompras;
+    public List<Venda> getMateriais() {
+        return materiais;
     }
 
-    public void setRegCompras(Venda[] regCompras) {
-        this.regCompras = regCompras;
+    public void setMateriais(List<Venda> materiais) {
+        this.materiais = materiais;
     }
+
+   
+
  
-    public boolean ImprimirInfoCliente(){
+    public void ImprimirInfoCliente(){
         
         System.out.println("•-----Info do Cliente-----•");
         System.out.println("Nome " + getNome());
@@ -21,9 +27,10 @@ public class Cliente  extends Pessoa{
         System.out.println("E-mail " + getEmail());
         System.out.println("CPF " + getCpf());
         System.out.println("Telefone " + getTelefone());
+        for(Venda venda : materiais){
+            System.out.println("ID Venda: " +venda.getIdVenda()+ " Valor: "+ venda.getValorTotal());
+        }
         System.out.println("•-----Info do Cliente-----•");
-
-        return false;
         
     };
 }
