@@ -97,20 +97,20 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
-<<<<<<< HEAD
-        
-        Venda vendas = new Venda();
+  
+        //Venda vendas = new Venda();
         
         String Svalue;
         int Intvalue;
         float FloatValue;
-=======
+        
         Date data = new Date();
-      Venda vendas = new Venda();
-       String Svalue;
-       int Intvalue;
-       float FloatValue;
->>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
+        Venda vendas = new Venda();
+       
+        //String Svalue;
+       //int Intvalue;
+       //float FloatValue;
+
        
         //System.out.println("Digite o id da venda: ");
         //Intvalue = scan.nextInt(); 
@@ -133,14 +133,12 @@ public class Sistema {
                   System.out.println("Cliente não existe, registre o mesmo");
               }
           } 
-        
-<<<<<<< HEAD
-=======
+
         System.out.println("Digite o valor total: ");
         FloatValue = scan.nextInt();
         vendas.setValorTotal(FloatValue);
         vendas.setData(data);
->>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
+
         return vendas;
   
   }
@@ -299,18 +297,16 @@ public void readFile() {;
        
        // System.out.println(sistema.colaboradors.toString());
         
-<<<<<<< HEAD
+
         //System.out.println(sistema.colaboradors.get(0));
         System.out.println(sistema.cliente.get(0));
         System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
         //sistema.MostrarListaMaterial();
         //sistema.mostraColaboradores();
-=======
+
         sistema.MostrarListaMaterial();
         System.out.println(sistema.venda.toString());
-      
->>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
-       
+     
     }
     
     

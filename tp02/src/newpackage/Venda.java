@@ -15,7 +15,7 @@ public class Venda {
    private int idVenda;
    private float valorTotal;
    private Material[] materiais;
-<<<<<<< HEAD
+
    private String cpfCliente;
    
 
@@ -26,9 +26,9 @@ public class Venda {
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
-=======
+
    private Date data = new Date();
->>>>>>> a45e600e1c992536e4bce4c843ccc241394d9503
+
 
     public int getIdVenda() {
         return idVenda;
