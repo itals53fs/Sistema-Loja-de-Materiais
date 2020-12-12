@@ -14,6 +14,16 @@ public class Venda {
    private int data;
    private float valorTotal;
    private Material[] materiais;
+   private String cpfCliente;
+   
+
+    public String getCpfCliente() {
+        return cpfCliente;
+    }
+
+    public void setCpfCliente(String cpfCliente) {
+        this.cpfCliente = cpfCliente;
+    }
 
     public int getIdVenda() {
         return idVenda;
@@ -48,6 +58,10 @@ public class Venda {
     }
    
    public boolean GerarExtrato() {
+       System.out.println("-----Venda-Realizada-----");
+       System.out.println("Data: -----");
+       System.out.println("Produto " + materiais.toString());
+       System.out.println("Valor total " + valorTotal);
        return false;
    }
 

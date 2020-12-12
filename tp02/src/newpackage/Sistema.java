@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -92,18 +93,35 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
-      Venda vendas = new Venda();
-       String Svalue;
-       int Intvalue;
-       float FloatValue;
-       
-        System.out.println("Digite o id da venda: ");
-        Intvalue = scan.nextInt();
-        vendas.setIdVenda(Intvalue);
         
-        System.out.println("Digite o valor total: ");
-        FloatValue = scan.nextInt();
-        vendas.setValorTotal(FloatValue);
+        Venda vendas = new Venda();
+        
+        String Svalue;
+        int Intvalue;
+        float FloatValue;
+       
+        //System.out.println("Digite o id da venda: ");
+        //Intvalue = scan.nextInt(); 
+        vendas.setIdVenda(this.venda.size()+1);
+        
+        System.out.println("Digite o CPF do cliente: ");
+        Svalue = scan.next();
+        
+  
+          for (Cliente clientes : cliente){
+            
+              if(Svalue.equals(clientes.getCpf())){
+                vendas.setCpfCliente(Svalue);
+                System.out.println("Digite o valor total: ");
+                FloatValue = scan.nextInt();
+                vendas.setValorTotal(FloatValue);   
+                
+                //clientes.setRegCompras();
+              }else{
+                  System.out.println("Cliente não existe, registre o mesmo");
+              }
+          } 
+        
         return vendas;
   
   }
@@ -171,6 +189,13 @@ public class Sistema {
            }
        }
     
+    //--Mostrar lista de Colaboradores
+    public void mostraColaboradores(){
+        for (Colaborador colaborador : colaboradors) {
+            System.out.println("Colaborador: " + colaborador.getNome());
+        }
+    }
+    
     public void open() {
        
         try {
@@ -197,7 +222,7 @@ public class Sistema {
         boolean validar;
         int opcao = 0;
         
-
+        
         //-- Menu
         do{
            
@@ -250,8 +275,11 @@ public class Sistema {
        
        // System.out.println(sistema.colaboradors.toString());
         
-        System.out.println(sistema.colaboradors);
-        System.out.println(sistema.colaboradors.size());
+        //System.out.println(sistema.colaboradors.get(0));
+        System.out.println(sistema.cliente.get(0));
+        System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
+        //sistema.MostrarListaMaterial();
+        //sistema.mostraColaboradores();
        
     }
     

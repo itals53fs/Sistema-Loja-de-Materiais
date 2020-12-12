@@ -25,9 +25,9 @@ public class Colaborador extends Pessoa {
     @Override
     public String toString() {
         return "Colaborador{" 
-                + "login=" + login 
-                + "senha=" + senha
-                + "nome= " + this.getNome() + '}';
+                + " login= " + login 
+                + " senha= " + senha
+                + " nome= " + this.getNome() + '}';
     }
     
     
