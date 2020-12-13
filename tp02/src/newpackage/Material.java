@@ -75,24 +75,16 @@ public class Material {
         this.fornecedor = fornecedor;
     }
     
-        public void printTodos() throws ParseException{
+    public void printTodos() throws ParseException{
         System.out.println("nome: " + this.getNome() +
-                 " \nPreco: " + this.getPreco() +
-                "\nQuantidade: "+ 
-                this.getQuantidade()+
-                "\nEspercificação: "+ 
-                this.getEspecificacao() +
-                "\nMargem Lucro: "
-                + this.getMargemLucro() +
-                "\nData de cadastro: "+ this.getCreate_at() + "\ndata de fabricação: " + this.converterData("12/05/1997"));
+         " \nPreco: " + this.getPreco() +
+        "\nQuantidade: "+ 
+        this.getQuantidade()+
+        "\nEspercificação: "+ 
+        this.getEspecificacao() +
+        "\nMargem Lucro: "
+        + this.getMargemLucro() +
+        "\nData de cadastro: "+ this.getCreate_at() + "\ndata de fabricação: ");
     }
-    
-        public Date converterData(String data) throws ParseException 
-        {
-            
-           DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            dateFormat.setLenient(false);
-            return dateFormat.parse(data);
-           }
         
 }

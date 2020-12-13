@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import java.util.Date;
+
 /**
  *
  * @author tales
@@ -15,6 +17,7 @@ public abstract class Pessoa {
     private String email;
     private String cpf;
     private String telefone;
+    private Date dataCadastro;
     
 
     public String getNome() {
@@ -56,4 +59,7 @@ public abstract class Pessoa {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+    
+    @Override
+    public abstract String toString();
 }

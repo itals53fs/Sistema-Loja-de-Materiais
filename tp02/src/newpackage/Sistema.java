@@ -8,7 +8,9 @@ package newpackage;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -97,35 +99,33 @@ public class Sistema {
     
     //-- Realizar Vendas
     public Venda incluirVendas(){
-     
-        
         String Svalue;
-        int Intvalue;
         float FloatValue;
         
         Date data = new Date();
         Venda vendas = new Venda();
-       
-        //String Svalue;
-       //int Intvalue;
-       //float FloatValue;
-
-       
-        //System.out.println("Digite o id da venda: ");
-        //Intvalue = scan.nextInt(); 
-        vendas.setIdVenda(this.venda.size()+1);
         
         System.out.println("Digite o CPF do cliente: ");
         Svalue = scan.next();
-        
   
-          for (Cliente clientes : cliente){
+          for (Cliente clientes : this.cliente){
             
               if(Svalue.equals(clientes.getCpf())){
+                vendas.setIdVenda(this.venda.size()+1);
                 vendas.setCpfCliente(Svalue);
                 System.out.println("Digite o valor total: ");
-                FloatValue = scan.nextInt();
+                FloatValue = scan.nextFloat();
                 clientes.setMateriais(venda);
+                
+                System.out.println("Digite o nome do marerial: ");
+                Svalue = scan.next();
+                for(Material material : this.estoque){
+                    if(Svalue.equals(material.getNome())){
+                        vendas.setMateriais(estoque);
+                    }
+                }
+                
+                return vendas;
               }else{
                   System.out.println("Cliente não existe, registre o mesmo");
               }
@@ -230,6 +230,18 @@ public void readFile() {;
         System.out.println(linha);
         }
 }
+
+public String converterData(Date data){
+    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return dateFormat.format(data);
+}
+
+public Date converterDate(String data) throws ParseException{
+
+       DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+        return dateFormat.parse(data);
+    }
          
     public static void main(String[] args) throws ParseException{
         System.out.println("ola mundo");
@@ -282,7 +294,7 @@ public void readFile() {;
              case 5:
                 sistema.cliente.get(0).ImprimirInfoCliente();
                 break;
-        
+
          }
             
         }while(opcao > 0);

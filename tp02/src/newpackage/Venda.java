@@ -7,6 +7,8 @@ package newpackage;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author gabil
@@ -14,8 +16,8 @@ import java.text.SimpleDateFormat;
 public class Venda {
    private int idVenda;
    private float valorTotal;
-   private Material[] materiais;
-
+   private List <Material> materiais = new ArrayList<Material>();
+   private Date data = new Date();
    private String cpfCliente;
    
 
@@ -26,8 +28,6 @@ public class Venda {
     public void setCpfCliente(String cpfCliente) {
         this.cpfCliente = cpfCliente;
     }
-
-   private Date data = new Date();
 
 
     public int getIdVenda() {
@@ -46,13 +46,14 @@ public class Venda {
         this.valorTotal = valorTotal;
     }
 
-    public Material[] getMateriais() {
+    public List<Material> getMateriais() {
         return materiais;
     }
 
-    public void setMateriais(Material[] materiais) {
+    public void setMateriais(List<Material> materiais) {
         this.materiais = materiais;
     }
+
    
    public boolean GerarExtrato() {
        System.out.println("-----Venda-Realizada-----");
@@ -70,6 +71,10 @@ public class Venda {
     public String toString() {
         return "Venda{" + "idVenda=" + idVenda + ", valorTotal=" + valorTotal + ", materiais=" + materiais +" Data: "+ this.getCreate_at()+'}';
     } 
+
+    public Date getData() {
+        return data;
+    }
 
     public void setData(Date data) {
         this.data = data;
