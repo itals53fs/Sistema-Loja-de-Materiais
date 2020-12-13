@@ -87,7 +87,7 @@ public class Sistema {
           cli.setEndereco(value);
         return cli;
     }
-    public boolean incluirCliete(Cliente cliente){
+    public boolean incluirCliente(Cliente cliente){
     try{
         this.cliente.add(cliente);
     }catch(Exception e){
@@ -261,7 +261,7 @@ public Date converterDate(String data) throws ParseException{
               //  validar = false;
                 break;
              case 2:
-                validar = sistema.IncluirCliente(sistema.incluirCliente());               
+                validar = sistema.incluirCliente(sistema.incluirCliente());               
                 if(!validar){
                     System.out.println("Usuario não inserido");
                 }
