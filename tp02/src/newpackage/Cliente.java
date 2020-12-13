@@ -6,8 +6,11 @@ import java.util.List;
 
 public class Cliente  extends Pessoa{
     
-   private List <Venda> materiais = new ArrayList <Venda>();
-
+    //Atributos
+    private List <Venda> materiais = new ArrayList <Venda>();
+    
+    
+    // Get and set
     public List<Venda> getMateriais() {
         return materiais;
     }
@@ -16,9 +19,6 @@ public class Cliente  extends Pessoa{
         this.materiais = materiais;
     }
 
-   
-
- 
     public void ImprimirInfoCliente(){
         
         System.out.println("•-----Info do Cliente-----•");

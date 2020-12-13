@@ -69,8 +69,24 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Venda{" + "idVenda=" + idVenda + ", valorTotal=" + valorTotal + ", materiais=" + materiais +" Data: "+ this.getCreate_at()+'}';
-    } 
+       String materialString="";
+        for(Material material : materiais){
+            materialString += "Nome: " + material.getNome() 
+                               + "Quantidade " + material.getQuantidade()
+                               + "Preço: " + material.getPreco()
+                               + "Especificação: " + material.getEspecificacao()
+                               + "Margem de Lucro: " + material.getMargemLucro()
+                               + "DataFabricao: ---" 
+                               + "Fornecedor: " + material.getFornecedor() + "\n";
+        }
+        
+        return "•-----Extrato de Venda-----•"
+                + "\nId da Venda: " + getIdVenda()
+                + "\nValor total: " + getValorTotal()
+                + "\nData da Venda: ---"
+                + "\nMateriais: " +  materialString
+                ;
+    }
 
     public Date getData() {
         return data;
