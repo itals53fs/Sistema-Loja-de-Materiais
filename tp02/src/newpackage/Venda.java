@@ -71,13 +71,13 @@ public class Venda {
     public String toString() {
        String materialString="";
         for(Material material : materiais){
-            materialString += "Nome: " + material.getNome() 
-                               + "Quantidade " + material.getQuantidade()
-                               + "Preço: " + material.getPreco()
-                               + "Especificação: " + material.getEspecificacao()
-                               + "Margem de Lucro: " + material.getMargemLucro()
-                               + "DataFabricao: ---" 
-                               + "Fornecedor: " + material.getFornecedor() + "\n";
+            materialString += "\nNome: " + material.getNome() 
+                               + "\nQuantidade " + material.getQuantidade()
+                               + "\nPreço: " + material.getPreco()
+                               + "\nEspecificação: " + material.getEspecificacao()
+                               + "\nMargem de Lucro: " + material.getMargemLucro()
+                               + "\nDataFabricao: ---" 
+                               + "\nFornecedor: " + material.getFornecedor() + "\n";
         }
         
         return "•-----Extrato de Venda-----•"

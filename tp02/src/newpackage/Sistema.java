@@ -12,7 +12,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 import java.util.logging.Level;
@@ -111,30 +110,34 @@ public class Sistema {
           for (Cliente clientes : this.cliente){
             
               if(Svalue.equals(clientes.getCpf())){
-                vendas.setIdVenda(this.venda.size()+1);
-                vendas.setCpfCliente(Svalue);
-                System.out.println("Digite o valor total: ");
-                FloatValue = scan.nextFloat();
-                clientes.setMateriais(venda);
                 
                 System.out.println("Digite o nome do marerial: ");
                 Svalue = scan.next();
+                
                 for(Material material : this.estoque){
-                    if(Svalue.equals(material.getNome())){
+       
+                    if(Svalue.equals(material.getNome()) && material.getQuantidade() > 0){
+                        
+                        vendas.setIdVenda(this.venda.size()+1);
+                        vendas.setCpfCliente(Svalue);
+
+                        vendas.setValorTotal(material.getPreco() + vendas.getValorTotal());
+                
+                        clientes.setMateriais(venda);
+                        
                         vendas.setMateriais(estoque);
+                        
+                        material.setQuantidade(material.getQuantidade()-1);
+                         System.out.println("Venda realizada!");
                     }
                 }
+               
                 
                 return vendas;
               }else{
                   System.out.println("Cliente não existe, registre o mesmo");
               }
           } 
-
-        System.out.println("Digite o valor total: ");
-        FloatValue = scan.nextInt();
-        vendas.setValorTotal(FloatValue);
-        vendas.setData(data);
 
         return vendas;
   
@@ -294,7 +297,9 @@ public Date converterDate(String data) throws ParseException{
              case 5:
                 sistema.cliente.get(0).ImprimirInfoCliente();
                 break;
-
+                case 6:
+                    System.out.println(sistema.venda.toString());
+                break;
          }
             
         }while(opcao > 0);
