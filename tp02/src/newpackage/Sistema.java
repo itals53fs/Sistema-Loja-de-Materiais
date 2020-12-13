@@ -99,49 +99,41 @@ public class Sistema {
     //-- Realizar Vendas
     public Venda incluirVendas(){
         String Svalue;
-        float FloatValue;
-        
-        Date data = new Date();
+        boolean verificar = false;
         Venda vendas = new Venda();
-        
-        System.out.println("Digite o CPF do cliente: ");
-        Svalue = scan.next();
-  
-          for (Cliente clientes : this.cliente){
-            
-              if(Svalue.equals(clientes.getCpf())){
-                
-                System.out.println("Digite o nome do marerial: ");
-                Svalue = scan.next();
-                
-                for(Material material : this.estoque){
-       
-                    if(Svalue.equals(material.getNome()) && material.getQuantidade() > 0){
+        do{
+            System.out.println("Digite o CPF do cliente: ");
+            Svalue = scan.next();
+            for(int i = 0; i<this.cliente.size(); i++){
+                if(Svalue.equals(cliente.get(i).getCpf())){
+                    
+                    System.out.println("Digite o nome do marerial: ");
+                    Svalue = scan.next();
+                    
+                    for(int j = 0; j<this.estoque.size(); j++){
                         
-                        vendas.setIdVenda(this.venda.size()+1);
-                        vendas.setCpfCliente(Svalue);
+                            if(Svalue.equals(this.estoque.get(j).getNome())){
 
-                        vendas.setValorTotal(material.getPreco() + vendas.getValorTotal());
-                
-                        clientes.setMateriais(venda);
-                        
-                        vendas.setMateriais(estoque);
-                        
-                        material.setQuantidade(material.getQuantidade()-1);
-                         System.out.println("Venda realizada!");
+                            vendas.setIdVenda(this.venda.size()+1);
+                            vendas.setCpfCliente(Svalue);
+
+                            vendas.setValorTotal(this.estoque.get(j).getPreco());
+
+
+                            vendas.setMateriais(this.estoque.get(j));
+                            this.cliente.get(i).setMateriais(vendas);
+                            
+                            this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
+                             System.out.println("Venda realizada!");
+                             return vendas;
+                        }
                     }
                 }
-               
-                
-                return vendas;
-              }else{
-                  System.out.println("Cliente não existe, registre o mesmo");
-              }
-          } 
-
+            }
+        }while(verificar);
         return vendas;
-  
-  }
+    }
+    
     public boolean incluirVendas(Venda venda){
     try{
         this.venda.add(venda);
@@ -153,8 +145,7 @@ public class Sistema {
     
     //-- Incluir Materiais
     public Material incluirMaterial(){
-        Date data = new Date();
-        
+      
         Material material = new Material();
         String Svalue;
         int IntValue;
@@ -183,16 +174,11 @@ public class Sistema {
        FloatValue= scan.nextFloat();
        material.setMargemLucro(FloatValue);
        
+       
+       
        return material;
     }
-    public boolean IncluirCliente(Cliente cliente){
-         try{
-                this.cliente.add(cliente);
-            }catch(Exception e){
-                return false;
-            }
-            return true;
-    }
+    
     public boolean incluirMaterial(Material material){
        try{
            this.estoque.add(material);
@@ -262,7 +248,7 @@ public Date converterDate(String data) throws ParseException{
            
          System.out.println("Escolha uma opção");
          System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || || \n"
-                 + " 3= Cadastrar material || 4=Realizar Vend 0 = Cancelar");
+                 + " 3= Cadastrar material || 4=Realizar Vend\n || 5=consultar extrato clente || 0 = Cancelar");
          opcao = input.nextInt();
          
          switch(opcao){
@@ -295,7 +281,16 @@ public Date converterDate(String data) throws ParseException{
                 }
                 break;
              case 5:
-                sistema.cliente.get(0).ImprimirInfoCliente();
+                    String cpf;
+                    System.out.println("Digite o cpf do cliente");
+                    cpf = input.next();
+                    for(Cliente cliente: sistema.cliente){
+                        if(cpf.equals(cliente.getCpf())){
+                            
+                        
+                            
+                        }
+                    }
                 break;
                 case 6:
                     System.out.println(sistema.venda.toString());

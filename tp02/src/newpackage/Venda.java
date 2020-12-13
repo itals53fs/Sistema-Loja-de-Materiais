@@ -50,17 +50,21 @@ public class Venda {
         return materiais;
     }
 
-    public void setMateriais(List<Material> materiais) {
-        this.materiais = materiais;
+    public void setMateriais(Material materiais) {
+        this.materiais.add(materiais);
     }
 
    
-   public boolean GerarExtrato() {
-       System.out.println("-----Venda-Realizada-----");
-       System.out.println("Data: -----");
-       System.out.println("Produto " + materiais.toString());
-       System.out.println("Valor total " + valorTotal);
-       return false;
+   public String GerarExtrato() {
+       System.out.println("-----Venda-Realizada-----\n");
+        String materialString="";
+        for(Material material : materiais){
+            materialString += 
+            "\nNome: " + material.getNome() 
+            + "\nPreço: " + material.getPreco() 
+            + "\nFornecedor: " + material.getFornecedor() + "\n";
+        }
+       return materialString;
    }
        public String getCreate_at() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -80,11 +84,11 @@ public class Venda {
                                + "\nFornecedor: " + material.getFornecedor() + "\n";
         }
         
-        return "•-----Extrato de Venda-----•"
+        return "\n•-----Extrato de Venda-----•\n"
                 + "\nId da Venda: " + getIdVenda()
                 + "\nValor total: " + getValorTotal()
                 + "\nData da Venda: ---"
-                + "\nMateriais: " +  materialString
+                + "\nMateriais: " +  materialString+"\n\n"
                 ;
     }
 

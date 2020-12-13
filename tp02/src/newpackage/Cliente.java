@@ -7,37 +7,22 @@ import java.util.List;
 public class Cliente  extends Pessoa{
     
     //Atributos
-    private List <Venda> materiais = new ArrayList <Venda>();
+    private List <Venda> regCompras = new ArrayList <Venda>();
     
-    
-    // Get and set
-    public List<Venda> getMateriais() {
-        return materiais;
-    }
+   
 
-    public void setMateriais(List<Venda> materiais) {
-        this.materiais = materiais;
+    public void setMateriais(Venda materiais) {
+        this.regCompras.add(materiais);
     }
 
     public void ImprimirInfoCliente(){
-        
-        System.out.println("•-----Info do Cliente-----•");
-        System.out.println("Nome " + getNome());
-        System.out.println("Endereço " + getEndereco());
-        System.out.println("E-mail " + getEmail());
-        System.out.println("CPF " + getCpf());
-        System.out.println("Telefone " + getTelefone());
-        for(Venda venda : materiais){
-            System.out.println("ID Venda: " +venda.getIdVenda()+ " Valor: "+ venda.getValorTotal());
-        }
-        System.out.println("•-----Info do Cliente-----•");
-        
+        this.toString();
     }
 
     @Override
     public String toString() {
         String vendas="";
-        for(Venda venda : materiais){
+        for(Venda venda : this.regCompras){
             vendas += "ID Venda: " +venda.getIdVenda()+ " Valor: "+ venda.getValorTotal()+"\n";
         }
         return "•-----Info do Cliente-----•"+
