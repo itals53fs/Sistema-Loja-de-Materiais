@@ -16,14 +16,15 @@ public class Cliente  extends Pessoa{
     }
 
     public void ImprimirInfoCliente(){
-        this.toString();
+        System.out.println(this.toString());
     }
 
     @Override
     public String toString() {
         String vendas="";
         for(Venda venda : this.regCompras){
-            vendas += "ID Venda: " +venda.getIdVenda()+ " Valor: "+ venda.getValorTotal()+"\n";
+            vendas += venda.GerarExtrato()+"\n";
+            
         }
         return "•-----Info do Cliente-----•"+
                 "\nNome " + getNome()+
@@ -32,6 +33,7 @@ public class Cliente  extends Pessoa{
                 "\nCPF " + getCpf()+
                 "\nTelefone " + getTelefone()+
                 "\n------Vendas---- \n" + vendas + "------Vendas---- \n"+
+                
                 "\n•-----Info do Cliente-----•";
                 
     }

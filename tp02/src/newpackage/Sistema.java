@@ -99,7 +99,7 @@ public class Sistema {
     //-- Realizar Vendas
     public Venda incluirVendas(){
         String Svalue;
-        boolean verificar = false;
+        boolean verificar = true;
         Venda vendas = new Venda();
         do{
             System.out.println("Digite o CPF do cliente: ");
@@ -125,7 +125,7 @@ public class Sistema {
                             
                             this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
                              System.out.println("Venda realizada!");
-                             return vendas;
+                             return vendas; 
                         }
                     }
                 }
@@ -213,7 +213,7 @@ public class Sistema {
     }
 
     // ler o arquivo
-public void readFile() {;
+public void readFile() {
     while (scan.hasNextInt()) {
         String linha = scan.next();
         System.out.println(linha);
@@ -287,7 +287,7 @@ public Date converterDate(String data) throws ParseException{
                     for(Cliente cliente: sistema.cliente){
                         if(cpf.equals(cliente.getCpf())){
                             
-                        
+                            cliente.ImprimirInfoCliente();
                             
                         }
                     }
