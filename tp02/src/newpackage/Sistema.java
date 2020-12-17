@@ -99,6 +99,7 @@ public class Sistema {
     //-- Realizar Vendas
     public Venda incluirVendas(){
         String Svalue;
+        int quantidade;
         boolean verificar = true;
         Venda vendas = new Venda();
         do{
@@ -109,23 +110,36 @@ public class Sistema {
                     
                     System.out.println("Digite o nome do marerial: ");
                     Svalue = scan.next();
+                   
+                    System.out.println("Digite a quantidade ");
+                    quantidade = scan.nextInt();
                     
+   
                     for(int j = 0; j<this.estoque.size(); j++){
                         
                             if(Svalue.equals(this.estoque.get(j).getNome())){
+                                
+                                if(quantidade > (this.estoque.get(j).getQuantidade())){
+                                    System.out.println("Não há quantidade suficiente no estoque");
+                                    verificar = false;
+                                }else{
+                                    vendas.setIdVenda(this.venda.size()+1);
+                                    vendas.setCpfCliente(Svalue);
 
-                                vendas.setIdVenda(this.venda.size()+1);
-                                vendas.setCpfCliente(Svalue);
-
-                                vendas.setValorTotal(this.estoque.get(j).getPreco());
+                                    vendas.setValorTotal(this.estoque.get(j).getPreco());
 
 
-                                vendas.setMateriais(this.estoque.get(j));
-                                this.cliente.get(i).setMateriais(vendas);
+                                    vendas.setMateriais(this.estoque.get(j));
+                                    this.cliente.get(i).setMateriais(vendas);
 
-                                this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
-                                System.out.println("Venda realizada!");
-                                return vendas;
+                                    //this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
+                                    this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade() - quantidade);
+                                    
+                                    System.out.println("Venda realizada!");
+                                    return vendas;
+                                }
+                                
+
                             }
                     }
                 }
