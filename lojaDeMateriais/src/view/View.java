@@ -17,13 +17,7 @@ public class View {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Routes sis = new Routes();
-        boolean ok = sis.salvarMaetrial("tales", 0, 0, "especificacao", 0, "fornecedor");
         
-        if(ok){
-            sis.mostrar();
-        }
     }
     
 }

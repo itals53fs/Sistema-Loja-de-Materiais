@@ -38,6 +38,14 @@ public class Sistema {
     }
     
     //-- Incluir Cliente
+    public boolean incluirCliente(Cliente cliente){
+        try{
+            this.cliente.add(cliente);
+        }catch(Exception e){
+            return false;
+        }
+        return true;
+    }
     
     //-- Realizar Vendas
     public boolean incluirVendas(Venda venda){
@@ -90,7 +98,12 @@ public class Sistema {
             System.out.println("Colaborador: " + colaborador.getNome());
         }
     }
-    
+    //---Mostrar lista de clientes
+        public void MostrarClientes(){
+        for (Cliente clientes : cliente) {
+            System.out.println("Cliente: " + clientes.getNome());
+        }
+    }
     //--Converter datas
     public String converterData(Date data){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

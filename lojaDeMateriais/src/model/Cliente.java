@@ -2,6 +2,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Cliente  extends Pessoa{
@@ -37,4 +38,12 @@ public class Cliente  extends Pessoa{
                 "\n•-----Info do Cliente-----•";
                 
     }
+
+    public Cliente(String nome, String endereco, String email, String cpf, String telefone, Date dataCadastro) {
+        super(nome, endereco, email, cpf, telefone, dataCadastro);
+    }
+
+    public Cliente() {
+    }
+    
 }
