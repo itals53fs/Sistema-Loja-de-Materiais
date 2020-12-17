@@ -75,6 +75,13 @@ public class Material {
         this.fornecedor = fornecedor;
     }
     
+    public void maisQuantidade(int quantidade){
+        this.quantidade += quantidade;
+    }
+    public void menosQuantidade(int quantidade){
+        this.quantidade -= quantidade;
+    }
+    
     public void printTodos() throws ParseException{
         System.out.println("nome: " + this.getNome() +
          " \nPreco: " + this.getPreco() +

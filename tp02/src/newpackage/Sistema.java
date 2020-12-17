@@ -143,16 +143,43 @@ public class Sistema {
     return true;
 }
     
+    //ConsultarEstoque
+    boolean consultarEstoque(String material){
+        
+ 
+        for(int i= 0; i<this.estoque.size(); i++){
+            if(material.equals(estoque.get(i).getNome())){
+                //System.out.println("Posicao: " + material.toString());
+
+                return true;
+            }
+            
+        }
+        return false;
+    }
+    
+    
     //-- Incluir Materiais
     public Material incluirMaterial(){
       
+        //boolean validar;
+        
         Material material = new Material();
         String Svalue;
-        int IntValue;
+        int IntValue, escolha=0;
         float FloatValue;
        System.out.print("Insira o nome do material:  ");
        Svalue = scan.next();
+
+     
+       if(consultarEstoque(Svalue)){
+           System.out.println("Já existe esse produto no estoque");
+                  
+       }
+        
        material.setNome(Svalue);
+        
+       
 
        System.out.print("Insira a especificação:  ");
        Svalue = scan.next();
@@ -239,16 +266,40 @@ public Date converterDate(String data) throws ParseException{
         Scanner input = new Scanner(System.in);
         Sistema sistema = new Sistema();
         
-        boolean validar;
+        String inputLogin, inputSenha;
+        boolean validar, login=false;
         int opcao = 0;
         
+        // Validar login
+        do{
+            System.out.println("Insira seu Login e Senha");
+            System.out.println("Login: ");
+            inputLogin = input.nextLine();
+            System.out.println("Senha: ");
+            inputSenha = input.nextLine();
+            
+            //System.out.println(inputLogin + inputSenha);
+            if("admin".equals(inputLogin) && "123".equals(inputSenha)){
+                login = true;
+            }else{
+                System.out.println("Algo deu errado, tente novamente");
+            }
+            
+        }while(login == false);
         
+        
+        // Login
+        if(login){
+                
+            System.out.println("•========Seja bem vindo========•");    
+  
         //-- Menu
         do{
            
-         System.out.println("Escolha uma opção");
-         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente || || \n"
-                 + " 3= Cadastrar material || 4=Realizar Vend\n || 5=consultar extrato clente || 0 = Cancelar");
+         System.out.println("----Escolha uma opção----");
+         System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente ||\n"
+                 + "3= Cadastrar material    || 4=Realizar Venda\n5=consultar extrato clente || 0 = Cancelar");
+            System.out.println("");
          opcao = input.nextInt();
          
          switch(opcao){
@@ -299,6 +350,8 @@ public Date converterDate(String data) throws ParseException{
             
         }while(opcao > 0);
        
+        //Aqui termina o if do Login
+        }
 
        //validar = sistema.incluirVendas(sistema.incluirVendas());  
        //sistema.IncluirCliente(sistema.incluirCliente());
