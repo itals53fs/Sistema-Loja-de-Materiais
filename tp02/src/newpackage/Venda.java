@@ -53,6 +53,10 @@ public class Venda {
     public void setMateriais(Material materiais) {
         this.materiais.add(materiais);
     }
+    
+    public boolean cancelarVenda(){
+        return false;
+    }
 
    
    public String GerarExtrato() {

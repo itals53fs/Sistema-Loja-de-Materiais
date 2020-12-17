@@ -114,19 +114,19 @@ public class Sistema {
                         
                             if(Svalue.equals(this.estoque.get(j).getNome())){
 
-                            vendas.setIdVenda(this.venda.size()+1);
-                            vendas.setCpfCliente(Svalue);
+                                vendas.setIdVenda(this.venda.size()+1);
+                                vendas.setCpfCliente(Svalue);
 
-                            vendas.setValorTotal(this.estoque.get(j).getPreco());
+                                vendas.setValorTotal(this.estoque.get(j).getPreco());
 
 
-                            vendas.setMateriais(this.estoque.get(j));
-                            this.cliente.get(i).setMateriais(vendas);
-                            
-                            this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
-                             System.out.println("Venda realizada!");
-                             return vendas; 
-                        }
+                                vendas.setMateriais(this.estoque.get(j));
+                                this.cliente.get(i).setMateriais(vendas);
+
+                                this.estoque.get(j).setQuantidade(this.estoque.get(j).getQuantidade()-1);
+                                System.out.println("Venda realizada!");
+                                return vendas;
+                            }
                     }
                 }
             }
@@ -144,18 +144,18 @@ public class Sistema {
 }
     
     //ConsultarEstoque
-    boolean consultarEstoque(String material){
+    int consultarEstoque(String material){
         
  
         for(int i= 0; i<this.estoque.size(); i++){
             if(material.equals(estoque.get(i).getNome())){
                 //System.out.println("Posicao: " + material.toString());
 
-                return true;
+                return i;
             }
             
         }
-        return false;
+        return -1;
     }
     
     
@@ -166,21 +166,23 @@ public class Sistema {
         
         Material material = new Material();
         String Svalue;
-        int IntValue, escolha=0;
+        int IntValue;
         float FloatValue;
+        
        System.out.print("Insira o nome do material:  ");
        Svalue = scan.next();
 
-     
-       if(consultarEstoque(Svalue)){
+       if(consultarEstoque(Svalue)!=-1){
+           
            System.out.println("Já existe esse produto no estoque");
-                  
-       }
+           System.out.println("Insira a quantidade do amreoal que quer cadastrar");
+           IntValue = scan.nextInt();
+           this.estoque.get(consultarEstoque(Svalue)).maisQuantidade(IntValue);
+          
+           
+       }else{
         
        material.setNome(Svalue);
-        
-       
-
        System.out.print("Insira a especificação:  ");
        Svalue = scan.next();
        material.setEspecificacao(Svalue);
@@ -201,18 +203,21 @@ public class Sistema {
        FloatValue= scan.nextFloat();
        material.setMargemLucro(FloatValue);
        
-       
+       }
        
        return material;
     }
     
     public boolean incluirMaterial(Material material){
-       try{
+       if(material.getNome()!=null){
+        try{
            this.estoque.add(material);
        }catch(Exception e){
            return false;
        }
        return true;
+       }
+       return false;
     }
     
     //-- Outros Metodos
@@ -363,13 +368,13 @@ public Date converterDate(String data) throws ParseException{
         
 
         //System.out.println(sistema.colaboradors.get(0));
-        System.out.println(sistema.cliente.get(0));
+        
         //System.out.println(sistema.cliente.get(0).ImprimirInfoCliente());
         //sistema.MostrarListaMaterial();
         //sistema.mostraColaboradores();
 
         sistema.MostrarListaMaterial();
-        System.out.println(sistema.venda.toString());
+        //System.out.println(sistema.venda.toString());
      
     }
     
