@@ -150,7 +150,7 @@ public class View {
          }
             
         }while(opcao > 0);
-
+        System.out.println("Tales gay");
         System.out.println(sis.ConsultarVendas());
         System.out.println(sis.MostrarClientes());
         sis.MostrarListaMaterial();
