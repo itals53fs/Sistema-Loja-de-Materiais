@@ -35,7 +35,7 @@ public class Cliente  extends Pessoa{
                 "\nTelefone " + getTelefone()+
                 "\n------Vendas---- \n" + vendas + "------Vendas---- \n"+
                 
-                "\n•-----Info do Cliente-----•";
+                "\n•----Fim Client------•";
                 
     }
 

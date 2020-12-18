@@ -21,30 +21,40 @@ import java.util.logging.Logger;
  * @author tales
  */
 public class Sistema {
-    private List<Colaborador> colaboradors = new ArrayList<Colaborador>();
+    private Colaborador[] colaboradors = new Colaborador[50];
     private List<Venda> venda = new ArrayList<Venda>();
     private List<Cliente> cliente = new ArrayList<Cliente>();
     private List<Material> estoque = new ArrayList<Material>();
-   private Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
     Scanner in;
     
-    //-- Incluir Colaborador
+    //-- Incluir Colaborador****************************************************
     public boolean IncluirColaborador(Colaborador colaborador){
          try{
-                this.colaboradors.clear();
-                this.setColaboradors(Arquivo.puxarDados(cliente, "data/colaboradores.json"));
-                this.colaboradors.add(colaborador);
-                Arquivo.liparArquivo("data/colaboradores.json");
-                Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
-                this.colaboradors.clear();
-                
+             colaboradors[0] = colaborador;
+               for(int i =0; i<colaboradors.length; i++){
+                   if(colaboradors[i]==null){
+                       colaboradors[i] = colaborador;
+                       break;
+                   }
+               }
             }catch(Exception e){
                 return false;
             }
         return true;
     }
+    //Alterar colaborador
+    public boolean AlterarColaborador(String cpf, Colaborador colaborador){
+        for(int i =0; i<colaboradors.length; i++){
+            if(cpf.equals(this.colaboradors[i].getCpf())){
+                this.colaboradors[i] = colaborador;
+             return true;
+            }
+        }
+        return false;
+    }
     
-    //-- Incluir Cliente
+    //-- Incluir Cliente********************************************************
     public boolean incluirCliente(Cliente cliente){
         try{
             this.cliente.add(cliente);
@@ -58,7 +68,7 @@ public class Sistema {
     public boolean RealizarVendas(Venda venda){
         try{
                 this.venda.clear();
-                Arquivo.puxarDados(this.venda, "data/vendas.json");
+                Arquivo.puxarDadosVenda(this.venda, "data/vendas.json");
                 Arquivo.liparArquivo("data/vendas.json");
                 this.venda.add(venda);
                 Arquivo.enviarParaEscrita(this.venda, "data/vendas.json");
@@ -113,10 +123,15 @@ public class Sistema {
     }
     
     //--Mostrar lista de Colaboradores
-    public void mostraColaboradores(){
-        for (Colaborador colaborador : colaboradors) {
-            System.out.println("Colaborador: " + colaborador.getNome());
+    public Colaborador MostraColaboradores(String cpf){
+        
+        for(int i =0; i<colaboradors.length; i++){
+            if(cpf.equals(this.colaboradors[i].getCpf())){
+             return this.colaboradors[i];
+            }
         }
+        return null;
+        
     }
     //---Mostrar lista de clientes
         public String MostrarClientes(){
@@ -167,13 +182,7 @@ public class Sistema {
         }
         return -1;
     }
-    public void incluirColaboradorLista(Colaborador e){
-        this.colaboradors.add(e);
-    }
 
-    public List<Colaborador> getColaboradors() {
-        return colaboradors;
-    }
 
     public List<Venda> getVenda() {
         return venda;
@@ -187,8 +196,8 @@ public class Sistema {
         return estoque;
     }
 
-    public void setColaboradors(List<Colaborador> colaboradors) {
-        this.colaboradors = colaboradors;
+    public Colaborador[] getColaboradors() {
+        return colaboradors;
     }
 
     public void setVenda(List<Venda> venda) {

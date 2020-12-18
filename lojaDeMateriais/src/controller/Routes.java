@@ -33,15 +33,21 @@ public class Routes {
     
     
     
-    /***********Início Colaborador***********/
+    /***********Início Colaborador**********************************************/
     
     public boolean IncluirColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone){
         Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone);
         return sistema.IncluirColaborador(colaboradores);
     }
     
-    public void mostrarColaboradores(){
-        sistema.mostraColaboradores();
+    //Alterar Colaborador
+    public boolean AlterarColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone){
+        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone);
+        return sistema.AlterarColaborador(cpf, colaboradores);
+    }
+    
+    public Colaborador MostrarColaboradores(String cpf){
+        return sistema.MostraColaboradores(cpf);
     }
     
     /******Inicio clienet**********/
