@@ -17,7 +17,7 @@ public abstract class Pessoa {
     private String email;
     private String cpf;
     private String telefone;
-    private Date dataCadastro;
+    private Date dataCadastro = new Date();
     
 
     public String getNome() {
@@ -56,13 +56,12 @@ public abstract class Pessoa {
         return telefone;
     }
 
-    public Pessoa(String nome, String endereco, String email, String cpf, String telefone, Date dataCadastro) {
+    public Pessoa(String nome, String endereco, String email, String cpf, String telefone) {
         this.nome = nome;
         this.endereco = endereco;
         this.email = email;
         this.cpf = cpf;
         this.telefone = telefone;
-        this.dataCadastro = dataCadastro;
     }
 
     public Pessoa() {

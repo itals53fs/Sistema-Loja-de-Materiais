@@ -5,6 +5,7 @@
  */
 package model;
 
+import controller.Routes;
 import java.util.Scanner;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,17 +21,23 @@ import java.util.logging.Logger;
  * @author tales
  */
 public class Sistema {
-    private final List<Colaborador> colaboradors = new ArrayList<Colaborador>();
-    private final List<Venda> venda = new ArrayList<Venda>();
-    private final List<Cliente> cliente = new ArrayList<Cliente>();
-    private final List<Material> estoque = new ArrayList<Material>();
+    private List<Colaborador> colaboradors = new ArrayList<Colaborador>();
+    private List<Venda> venda = new ArrayList<Venda>();
+    private List<Cliente> cliente = new ArrayList<Cliente>();
+    private List<Material> estoque = new ArrayList<Material>();
    private Scanner scan = new Scanner(System.in);
     Scanner in;
     
     //-- Incluir Colaborador
     public boolean IncluirColaborador(Colaborador colaborador){
          try{
+                this.colaboradors.clear();
+                this.setColaboradors(Arquivo.puxarDados(cliente, "data/colaboradores.json"));
                 this.colaboradors.add(colaborador);
+                Arquivo.liparArquivo("data/colaboradores.json");
+                Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
+                this.colaboradors.clear();
+                
             }catch(Exception e){
                 return false;
             }
@@ -48,14 +55,27 @@ public class Sistema {
     }
     
     //-- Realizar Vendas
-    public boolean incluirVendas(Venda venda){
-    try{
-        this.venda.add(venda);
-    }catch(Exception e){
-        return false;
+    public boolean RealizarVendas(Venda venda){
+        try{
+                this.venda.clear();
+                Arquivo.puxarDados(this.venda, "data/vendas.json");
+                Arquivo.liparArquivo("data/vendas.json");
+                this.venda.add(venda);
+                Arquivo.enviarParaEscrita(this.venda, "data/vendas.json");
+        }catch(Exception e){
+            return false;
+        }
+        return true;
     }
-    return true;
-}
+    
+    /*Consultar vendas*/
+    public String ConsultarVendas(){
+        String Svendas = null;
+        for(Venda vendas : this.venda){
+            Svendas = vendas.GerarExtrato();
+        }
+        return Svendas;
+    }
     
     //ConsultarEstoque
     int consultarEstoque(String material){
@@ -99,10 +119,12 @@ public class Sistema {
         }
     }
     //---Mostrar lista de clientes
-        public void MostrarClientes(){
+        public String MostrarClientes(){
+            String Sclientes= null;
         for (Cliente clientes : cliente) {
-            System.out.println("Cliente: " + clientes.getNome());
+            Sclientes += clientes.toString();
         }
+        return Sclientes;
     }
     //--Converter datas
     public String converterData(Date data){
@@ -137,7 +159,7 @@ public class Sistema {
     }
     
     //--retornar o indice do elemento que existe
-        public static <T> int indexElentoExite(T[] array, T elemento){
+    public static <T> int indexElentoExite(T[] array, T elemento){
         for(int i=0; i<array.length; i++){
             if(array[i] == elemento){
                 return i;
@@ -145,4 +167,41 @@ public class Sistema {
         }
         return -1;
     }
+    public void incluirColaboradorLista(Colaborador e){
+        this.colaboradors.add(e);
+    }
+
+    public List<Colaborador> getColaboradors() {
+        return colaboradors;
+    }
+
+    public List<Venda> getVenda() {
+        return venda;
+    }
+
+    public List<Cliente> getCliente() {
+        return cliente;
+    }
+
+    public List<Material> getEstoque() {
+        return estoque;
+    }
+
+    public void setColaboradors(List<Colaborador> colaboradors) {
+        this.colaboradors = colaboradors;
+    }
+
+    public void setVenda(List<Venda> venda) {
+        this.venda = venda;
+    }
+
+    public void setCliente(List<Cliente> cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setEstoque(List<Material> estoque) {
+        this.estoque = estoque;
+    }
+        
+        
 }

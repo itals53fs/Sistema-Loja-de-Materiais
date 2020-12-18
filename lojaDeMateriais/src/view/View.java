@@ -116,8 +116,11 @@ public class View {
 
                 break;
              case 4:
-
+                 
                  System.out.println("Realizar Venda");
+                 sis.IncluirCliente("tales", "end", "aa", "123", "ss");
+                 sis.salvarMaetrial("tijolo", 12, 10, "ss", 5, "ss");
+                 sis.RealizarVenda((float) 2.5, 2, "123", "tijolo");
                  
                 break; 
              case 5:
@@ -134,7 +137,7 @@ public class View {
                 break;
                 case 6:
                     System.out.println("");
-                    sis.mostrarListaMaterial();
+                    sis.MostrarListaMaterial();
                 break;
                 case 7:
                     System.out.println("");
@@ -147,7 +150,11 @@ public class View {
          }
             
         }while(opcao > 0);
-       
+
+        System.out.println(sis.ConsultarVendas());
+        System.out.println(sis.MostrarClientes());
+        sis.MostrarListaMaterial();
+
         
     }
     
