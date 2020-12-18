@@ -119,7 +119,7 @@ public class View {
                  
                  System.out.println("Realizar Venda");
                  sis.IncluirCliente("tales", "end", "aa", "123", "ss");
-                 sis.salvarMaetrial("tijolo", 12, 4, "ss", 5, "ss");
+                 sis.salvarMaetrial("tijolo", 12, 10, "ss", 5, "ss");
                  sis.RealizarVenda((float) 2.5, 2, "123", "tijolo");
                  
                 break; 

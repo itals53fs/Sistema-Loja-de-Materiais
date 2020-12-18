@@ -31,11 +31,12 @@ public class Sistema {
     //-- Incluir Colaborador
     public boolean IncluirColaborador(Colaborador colaborador){
          try{
+                this.colaboradors.clear();
+                this.setColaboradors(Arquivo.puxarDados(cliente, "data/colaboradores.json"));
                 this.colaboradors.add(colaborador);
-                
-                Routes.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
-                this.setColaboradors(Routes.puxarDados(cliente, "data/colaboradores.json"));
-                System.out.println("aa"+this.getColaboradors().toString());
+                Arquivo.liparArquivo("data/colaboradores.json");
+                Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
+                this.colaboradors.clear();
                 
             }catch(Exception e){
                 return false;
@@ -56,7 +57,11 @@ public class Sistema {
     //-- Realizar Vendas
     public boolean RealizarVendas(Venda venda){
         try{
-            this.venda.add(venda);
+                this.venda.clear();
+                Arquivo.puxarDados(this.venda, "data/vendas.json");
+                Arquivo.liparArquivo("data/vendas.json");
+                this.venda.add(venda);
+                Arquivo.enviarParaEscrita(this.venda, "data/vendas.json");
         }catch(Exception e){
             return false;
         }
