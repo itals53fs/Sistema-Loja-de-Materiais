@@ -48,14 +48,23 @@ public class Sistema {
     }
     
     //-- Realizar Vendas
-    public boolean incluirVendas(Venda venda){
-    try{
-        this.venda.add(venda);
-    }catch(Exception e){
-        return false;
+    public boolean RealizarVendas(Venda venda){
+        try{
+            this.venda.add(venda);
+        }catch(Exception e){
+            return false;
+        }
+        return true;
     }
-    return true;
-}
+    
+    /*Consultar vendas*/
+    public String ConsultarVendas(){
+        String Svendas = null;
+        for(Venda vendas : this.venda){
+            Svendas = vendas.GerarExtrato();
+        }
+        return Svendas;
+    }
     
     //ConsultarEstoque
     int consultarEstoque(String material){
@@ -99,10 +108,12 @@ public class Sistema {
         }
     }
     //---Mostrar lista de clientes
-        public void MostrarClientes(){
+        public String MostrarClientes(){
+            String Sclientes= null;
         for (Cliente clientes : cliente) {
-            System.out.println("Cliente: " + clientes.getNome());
+            Sclientes += clientes.toString();
         }
+        return Sclientes;
     }
     //--Converter datas
     public String converterData(Date data){
@@ -137,7 +148,7 @@ public class Sistema {
     }
     
     //--retornar o indice do elemento que existe
-        public static <T> int indexElentoExite(T[] array, T elemento){
+    public static <T> int indexElentoExite(T[] array, T elemento){
         for(int i=0; i<array.length; i++){
             if(array[i] == elemento){
                 return i;
@@ -145,4 +156,22 @@ public class Sistema {
         }
         return -1;
     }
+
+    public List<Colaborador> getColaboradors() {
+        return colaboradors;
+    }
+
+    public List<Venda> getVenda() {
+        return venda;
+    }
+
+    public List<Cliente> getCliente() {
+        return cliente;
+    }
+
+    public List<Material> getEstoque() {
+        return estoque;
+    }
+        
+        
 }

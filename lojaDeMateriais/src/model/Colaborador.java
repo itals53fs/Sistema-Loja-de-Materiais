@@ -16,8 +16,8 @@ public class Colaborador extends Pessoa {
         this.login = login;
     }
 
-    public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone, Date dataCadastro) {
-        super(nome, endereco, email, cpf, telefone, dataCadastro);
+    public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone) {
+        super(nome, endereco, email, cpf, telefone);
         this.login = login;
         this.senha = senha;
     }

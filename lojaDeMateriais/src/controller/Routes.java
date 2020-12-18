@@ -6,10 +6,12 @@
 package controller;
 
 import java.util.Date;
+import model.Adm;
 import model.Cliente;
 import model.Colaborador;
 import model.Material;
 import model.Sistema;
+import model.Venda;
 
 /**
  *
@@ -25,7 +27,7 @@ public class Routes {
         
     }
     
-    public void mostrarListaMaterial(){
+    public void MostrarListaMaterial(){
         sistema.MostrarListaMaterial();
     }
     
@@ -34,8 +36,7 @@ public class Routes {
     /***********Início Colaborador***********/
     
     public boolean IncluirColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone){
-        Date dataCadastro = new Date();
-        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone, dataCadastro);
+        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone);
         return sistema.IncluirColaborador(colaboradores);
     }
     
@@ -43,14 +44,57 @@ public class Routes {
         sistema.mostraColaboradores();
     }
     
-    /******In-icio clienet**********/
+    /******Inicio clienet**********/
     public boolean IncluirCliente(String nome, String endereco, String email, String cpf, String telefone){
-        Date dataCadastro = new Date();
-        Cliente clientes = new Cliente(nome, endereco, email, cpf, telefone, dataCadastro);
+        Cliente clientes = new Cliente(nome, endereco, email, cpf, telefone);
         return sistema.incluirCliente(clientes);
     }
     
-    public void MostrarClientes(){
-        sistema.MostrarClientes();
+    public String MostrarClientes(){
+        return sistema.MostrarClientes();
     }
+    
+    /*********Inicio Venda*******************/
+    public boolean RealizarVenda(float valor, int quantidade, String cpfCliente, String Smaterial){
+        boolean verificar = false;
+        Material material = null;
+        Venda venda = new Venda(valor, quantidade, cpfCliente);
+        int indexMaterial=0;
+        for(int i=0;i<sistema.getEstoque().size(); i++){
+            if(Smaterial.equals(sistema.getEstoque().get(i).getNome()) && (quantidade <= sistema.getEstoque().get(i).getQuantidade())){
+                material = sistema.getEstoque().get(i);
+                indexMaterial = i;
+                verificar = true;
+            }
+        }
+        
+        if(verificar){
+            verificar = false;
+            for(Cliente clientes: sistema.getCliente()){
+                if(cpfCliente.equals(clientes.getCpf())){
+                    verificar = true;
+                    if(verificar){
+                    clientes.setMateriais(venda);
+                    }
+                }
+            }
+        }
+                
+        if(verificar){
+            venda.setMateriais(material);
+            venda.setValorTotal(valor*quantidade);
+            sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
+            
+            return sistema.RealizarVendas(venda);
+        }     
+        return CancelarVenda();
+    }
+    
+    public boolean CancelarVenda(){
+        return false;
+    }
+    public String ConsultarVendas(){
+        return sistema.ConsultarVendas();
+    }
+    
 }

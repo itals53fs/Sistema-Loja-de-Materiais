@@ -16,6 +16,8 @@ import java.util.List;
 public class Venda {
    private int idVenda;
    private float valorTotal;
+   private float valor;
+   private int quantidade;
    private List <Material> materiais = new ArrayList<Material>();
    private Date data = new Date();
    private String cpfCliente;
@@ -66,11 +68,12 @@ public class Venda {
             materialString += 
             "\nNome: " + material.getNome() 
             + "\nPreço: " + material.getPreco() 
-            + "\nFornecedor: " + material.getFornecedor() + "\n";
+            + "\nFornecedor: " + material.getFornecedor()
+            + "\nValor Total: " + valorTotal;
         }
        return materialString;
    }
-       public String getCreate_at() {
+    public String getCreate_at() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         return dateFormat.format(data);
     }
@@ -102,6 +105,18 @@ public class Venda {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    public Venda(float valor, int quantidade, String cpfCliente) {
+        this.valor = valor;
+        this.quantidade = quantidade;
+        this.cpfCliente = cpfCliente;
+    }
+
+
+
+
+    public Venda() {
     }
     
    
