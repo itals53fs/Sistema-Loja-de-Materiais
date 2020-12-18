@@ -26,7 +26,10 @@ public class View {
         Routes sis = new Routes();
         
         // Variaveis
-        String inputLogin, inputSenha;
+        
+        String inputNome, inputLogin, inputSenha, end, inputEmail, inputCpf, inputTelefone, espec, fornecedor;
+        int quant, lucro, preco;
+        
         String inputString;
         boolean validar=false, login=false;
         int opcao = 0;
@@ -37,31 +40,59 @@ public class View {
            
          System.out.println("----Escolha uma opção----");
          System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente ||\n"
-                 + "3= Cadastrar material    || 4=Realizar Venda\n5=consultar extrato clente || 0 = Cancelar");
+                 + "3= Cadastrar material    || 4=Realizar Venda\n"
+                 + "5=consultar extrato clente || " + "6= Mostrar Material ||\n"
+                 + "7=Mostrar Colaborador || 8= Mostrar Cliente  0 = Cancelar");
             System.out.println("");
          opcao = input.nextInt();
          
          switch(opcao){
              case 1:
-              /*  validar = sistema.IncluirColaborador(sistema.incluirColaborador());
-                if(!validar){
-                 System.out.println("Colaborador não inserido");
-                }*/
+                 // Cadastrar Colaborador
+                 System.out.println("Digite o seu Login");
+                 inputLogin = input.next();
                 
+                 System.out.println("Digite a sua Senha");
+                 inputSenha = input.next();
+                 
+                 System.out.println("Digite o Nome");
+                 inputNome = input.next();
+                
+                 System.out.println("Digite o Endereço");
+                 end = input.next();
+                 
+                 System.out.println("Digite o seu email");
+                 inputEmail = input.next();
+                 
+                 System.out.println("Digite o CPF");
+                 inputCpf = input.next();
+                 
+                 System.out.println("Digite o seu Telefone");
+                 inputTelefone = input.next();
+                              
+                 sis.IncluirColaborador(inputLogin, inputSenha, inputNome, end, inputEmail, inputCpf, inputTelefone);
            
                 break;
              case 2:
-                /* validar = sistema.incluirCliente(sistema.incluirCliente());               
-                if(!validar){
-                    System.out.println("Usuario não inserido");
-                } */
-             
+                 // Cadastrar Cliente
+                 System.out.println("Digite o Nome do Cliente");
+                 inputNome = input.next();
+                
+                 System.out.println("Digite o CPF do Cliente");
+                 inputCpf = input.next();
+                
+                 System.out.println("Digite o Email do Cliente");
+                 inputEmail = input.next();
+                
+                 System.out.println("Digite o Endereço do Cliente");
+                 end = input.next();
+                 
+                 
+                 sis.IncluirCliente(inputNome, end, inputEmail, inputCpf, "16/16/16");
                 break;
              case 3:
-                 
-                 String inputNome, espec, fornecedor;
-                 int quant, lucro, preco;
-                 
+                 // Cadastrar Material
+
                  System.out.println("Digite o nome do Material");
                  inputNome = input.next();
                 
@@ -80,19 +111,14 @@ public class View {
                  System.out.println("Digite o nome do Fornecedor");
                  fornecedor = input.next();
                  
-                 validar = sis.salvarMaetrial(inputNome, quant, lucro, espec, preco, fornecedor);
+                 sis.salvarMaetrial(inputNome, quant, lucro, espec, preco, fornecedor);
                  
-               /* validar = sistema.incluirMaterial(sistema.incluirMaterial());
-                if(!validar){
-                 System.out.println("Materão não inserido");
-                } */
 
                 break;
              case 4:
-                /* validar = sistema.incluirVendas(sistema.incluirVendas());               
-                if(!validar){
-                    System.out.println("Venda não Realizada");
-                } */
+
+                 System.out.println("Realizar Venda");
+                 
                 break; 
              case 5:
                     String cpf;
@@ -107,7 +133,16 @@ public class View {
                     } */
                 break;
                 case 6:
-                   /* System.out.println(sistema.venda.toString()); */
+                    System.out.println("");
+                    sis.mostrarListaMaterial();
+                break;
+                case 7:
+                    System.out.println("");
+                    sis.mostrarColaboradores();
+                break;
+                case 8:
+                    System.out.println("");
+                    sis.MostrarClientes();
                 break;
          }
             
