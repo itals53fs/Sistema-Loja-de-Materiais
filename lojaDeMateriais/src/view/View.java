@@ -43,7 +43,8 @@ public class View {
          System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente ||\n"
                  + "3= Cadastrar material    || 4=Realizar Venda\n"
                  + "5=consultar extrato clente || " + "6= Mostrar Material ||\n"
-                 + "7=Mostrar Colaborador || 8= Mostrar Cliente  0 = Cancelar");
+                 + "7=Mostrar Colaborador || 8= Mostrar Cliente || 9=Excuir Colaborador\n"+
+                 "10 Alterar Colaborador || 0 = Cancelar");
             System.out.println("");
          opcao = input.nextInt();
          
@@ -71,13 +72,13 @@ public class View {
                  System.out.println("Digite o seu Telefone");
                  inputTelefone = input.next();*/
                               
-                 sis.IncluirColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone");
-                 System.out.println(sis.MostrarColaboradores("123"));
+                 sis.IncluirColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "17", "inputTelefone");
+                 //System.out.println(sis.MostrarColaboradores("123"));
            
                 break;
              case 2:
                  // Cadastrar Cliente
-                 System.out.println("Digite o Nome do Cliente");
+                 /*System.out.println("Digite o Nome do Cliente");
                  inputNome = input.next();
                 
                  System.out.println("Digite o CPF do Cliente");
@@ -87,10 +88,10 @@ public class View {
                  inputEmail = input.next();
                 
                  System.out.println("Digite o Endereço do Cliente");
-                 end = input.next();
+                 end = input.next();*/
                  
                  
-                 sis.IncluirCliente(inputNome, end, inputEmail, inputCpf, "16/16/16");
+                 sis.IncluirCliente("inputNome", "end", "12", "33","aaa");
                 break;
              case 3:
                  // Cadastrar Material
@@ -120,9 +121,9 @@ public class View {
              case 4:
                  
                  System.out.println("Realizar Venda");
-                 sis.IncluirCliente("tales", "end", "aa", "123", "ss");
+                 //sis.IncluirCliente("tales", "end", "aa", "143", "ss");
                  sis.salvarMaetrial("tijolo", 12, 10, "ss", 5, "ss");
-                 sis.RealizarVenda((float) 2.5, 2, "123", "tijolo");
+                 sis.RealizarVenda((float) 2.5, 2, "33", "g");
                  
                 break; 
              case 5:
@@ -149,12 +150,24 @@ public class View {
                     System.out.println("");
                     sis.MostrarClientes();
                 break;
+                    case 9:
+                    System.out.println("");
+                    sis.ExcluirColaborador("127");
+                break;
+                    case 10:
+                sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "127", "inputTelefone", true);
+                break;
+                    case 11:
+                        sis.AlterarMaterial("nome", 10, 6, "especificacao", 10, "fornecedor", false);
+                        sis.ExcluirMaterial("f");
+                        //sis.ExcluirMaterial("nome");
+
          }
             
         }while(opcao > 0);
-        System.out.println("Tales gay");
+        System.out.println("Ulisses gay");
         System.out.println(sis.ConsultarVendas());
-        System.out.println(sis.MostrarClientes());
+        //System.out.println(sis.MostrarClientes());
         sis.MostrarListaMaterial();
 
         

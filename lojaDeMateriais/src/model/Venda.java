@@ -21,6 +21,7 @@ public class Venda {
    private List <Material> materiais = new ArrayList<Material>();
    private Date data = new Date();
    private String cpfCliente;
+   private static int numeroVendas;
    
 
     public String getCpfCliente() {
@@ -111,6 +112,7 @@ public class Venda {
         this.valor = valor;
         this.quantidade = quantidade;
         this.cpfCliente = cpfCliente;
+        numeroVendas++;
     }
 
 

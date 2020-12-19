@@ -21,6 +21,7 @@ public class Material {
     private float margemLucro;
     private Date create_at = new Date();
     private String fornecedor;
+    private static int numeroEstoque;
 
     public String getNome() {
         return nome;
@@ -95,6 +96,15 @@ public class Material {
     }
 
     public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.especificacao = especificacao;
+        this.margemLucro = margemLucro;
+        this.fornecedor = fornecedor;
+        numeroEstoque++;
+    }
+        public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, boolean veri) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;

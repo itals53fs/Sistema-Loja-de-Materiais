@@ -7,6 +7,7 @@ package controller;
 import com.google.gson.Gson;
 import java.io.FileWriter;
 import jdk.nashorn.internal.parser.JSONParser;
+import model.Arquivo;
 import model.Cliente;
 import model.Colaborador;
 import model.Material;
@@ -23,7 +24,7 @@ public class Routes {
     /***********Início Material***********/
     public boolean salvarMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
         Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor);
-        return sistema.incluirMaterial(material);
+        return sistema.IncluirMaterial(material);
         
     }
     
@@ -31,6 +32,14 @@ public class Routes {
         sistema.MostrarListaMaterial();
     }
     
+    public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, boolean veri){
+        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, veri);
+        return sistema.AlterarMaterial(material);
+    }
+    
+    public boolean ExcluirMaterial(String nome){
+        return sistema.ExcluirMaterial(nome);
+    }
     
     
     /***********Início Colaborador**********************************************/
@@ -41,9 +50,13 @@ public class Routes {
     }
     
     //Alterar Colaborador
-    public boolean AlterarColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone){
-        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone);
-        return sistema.AlterarColaborador(cpf, colaboradores);
+    public boolean AlterarColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone, boolean veri){
+        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone, veri);
+        return sistema.AlterarColaborador(colaboradores);
+    }
+    
+    public boolean ExcluirColaborador(String cpf){
+        return sistema.ExcluirColaborador(cpf);
     }
     
     public Colaborador MostrarColaboradores(String cpf){
@@ -66,6 +79,10 @@ public class Routes {
         Material material = null;
         Venda venda = new Venda(valor, quantidade, cpfCliente);
         int indexMaterial=0;
+        
+        sistema.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+       
+        System.out.println(sistema.getCliente());
         for(int i=0;i<sistema.getEstoque().size(); i++){
             if(Smaterial.equals(sistema.getEstoque().get(i).getNome()) && (quantidade <= sistema.getEstoque().get(i).getQuantidade())){
                 material = sistema.getEstoque().get(i);
@@ -76,23 +93,27 @@ public class Routes {
         
         if(verificar){
             verificar = false;
-            for(Cliente clientes: sistema.getCliente()){
-                if(cpfCliente.equals(clientes.getCpf())){
+            for(int i=0; i<sistema.getCliente().size(); i++){
+                
+                if(cpfCliente.equals(sistema.getCliente().get(i).getCpf())){
                     verificar = true;
                     if(verificar){
-                    clientes.setMateriais(venda);
+                        
+                    venda.setMateriais(material);
+                    venda.setValorTotal(valor*quantidade);
+                    sistema.getCliente().get(i).setMateriais(venda);
+                    Arquivo.liparArquivo("data/clientes.json");
+                    Arquivo.enviarParaEscrita(sistema.getCliente(), "data/clientes.json");
+                    
+                    sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
+            
+                    return sistema.RealizarVendas(venda);
                     }
                 }
             }
-        }
-                
-        if(verificar){
-            venda.setMateriais(material);
-            venda.setValorTotal(valor*quantidade);
-            sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
             
-            return sistema.RealizarVendas(venda);
-        }     
+        }
+                   
         return CancelarVenda();
     }
     

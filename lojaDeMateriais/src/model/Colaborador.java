@@ -16,11 +16,22 @@ public class Colaborador extends Pessoa {
         this.login = login;
     }
 
-    public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone) {
+    public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone, boolean veri) {
         super(nome, endereco, email, cpf, telefone);
         this.login = login;
         this.senha = senha;
+        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
     }
+        public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone) {
+        super(nome, endereco, email, cpf, telefone);
+        this.login = login;
+        this.senha = senha;
+       
+        numeroPesssoa[0]++;
+   
+        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
+    }
+
 
     public Colaborador(){
  

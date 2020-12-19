@@ -30,47 +30,200 @@ public class Sistema {
     
     //-- Incluir Colaborador****************************************************
     public boolean IncluirColaborador(Colaborador colaborador){
-         try{
-             colaboradors[0] = colaborador;
+         
+             //Sobrescrever o vetor
+      
+             this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+             for(int i =0; i<colaboradors.length; i++){
+                 if(this.colaboradors[i]!=null){
+                 if(colaborador.getCpf().equals(this.colaboradors[i].getCpf())){
+                     return false;
+                 }
+                 }
+             }
                for(int i =0; i<colaboradors.length; i++){
-                   if(colaboradors[i]==null){
+                   
+                   if((colaboradors[i]==null)){
                        colaboradors[i] = colaborador;
+                    
+                                        
+                        Arquivo.liparArquivo("data/colaboradores.json");
+                        Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
                        break;
                    }
                }
-            }catch(Exception e){
-                return false;
-            }
         return true;
     }
     //Alterar colaborador
-    public boolean AlterarColaborador(String cpf, Colaborador colaborador){
+    public  boolean AlterarColaborador(Colaborador colaborador){
+        this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+        
         for(int i =0; i<colaboradors.length; i++){
+            if(this.colaboradors[i]!=null){
+                if(colaborador.getCpf().equals(this.colaboradors[i].getCpf())){
+                    this.colaboradors[i] = colaborador;
+                    Arquivo.liparArquivo("data/colaboradores.json");
+                    Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
+                 return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    public boolean ExcluirColaborador(String cpf){
+        this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+        
+        for(int i =0; i<colaboradors.length; i++){
+            if (this.colaboradors[i]!=null){
             if(cpf.equals(this.colaboradors[i].getCpf())){
-                this.colaboradors[i] = colaborador;
+                this.colaboradors[i] = null;
+                Arquivo.liparArquivo("data/colaboradores.json");
+                Arquivo.enviarParaEscrita(this.colaboradors, "data/colaboradores.json");
+                
+                Pessoa.setNumeroPesssoa(Arquivo.puxarDadosPessoas("data/numeroPessoas.json"));
+                Pessoa.mudarIndex(0, --Pessoa.getNumeroPesssoa()[0]);
+                Arquivo.liparArquivo("data/numeroPessoas.json");
+                Arquivo.enviarParaEscrita(Pessoa.getNumeroPesssoa(), "data/numeroPessoas.json");
              return true;
+            }
+            }
+        }
+        
+        return false;
+    }
+    
+    //-- Incluir Cliente********************************************************
+    public boolean incluirCliente(Cliente clientes){
+  
+            this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+            for(Cliente cliente: this.cliente){
+                if(cliente.getCpf().equals(clientes.getCpf())){
+                    return false;
+                }
+            }
+            this.cliente.add(clientes);
+      
+            Arquivo.liparArquivo("data/clientes.json");
+            Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
+            
+        return true;
+    }
+    
+    public boolean AterarCliente(Cliente clientes){
+            this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+            for(Cliente cliente: this.cliente){
+                if(cliente.getCpf().equals(clientes.getCpf())){
+                    this.cliente.remove(cliente);
+                    this.cliente.add(clientes);
+                    
+                    Arquivo.liparArquivo("data/clientes.json");
+                    Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
+                    return true;
+                }
+            }
+            
+        return false;
+    }
+    
+        public boolean ExcluirCliente(Cliente clientes){
+            this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+            for(Cliente cliente: this.cliente){
+                if(cliente.getCpf().equals(clientes.getCpf())){
+                    this.cliente.remove(cliente);
+                    Arquivo.liparArquivo("data/clientes.json");
+                    Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
+                    return true;
+                }
+            }
+            
+        return false;
+    }
+        
+        public String ImprimirListaCliente(){
+            String clientes = null;
+            this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+            for(Cliente cliente: this.cliente){
+                clientes = cliente.toString()+"\n";
+            }
+            return clientes;
+        }
+        public String ImprimirInfoCliente(String cpf){
+            this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
+            for(Cliente cliente: this.cliente){
+                if(cpf.equals(cliente.getCpf())){
+
+                    return cliente.toString();
+                }
+            }
+            return null;
+        }
+    
+    
+    /******************Incluir marerial*******************************************/
+    
+       public boolean IncluirMaterial(Material material){
+          this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+        for(int i =0; i<this.estoque.size(); i++){
+            if(material.getNome().equals(this.estoque.get(i).getNome())){
+                System.out.println("aaaaaaa");
+                return false;
+            }
+        }
+                this.estoque.add(material);
+                Arquivo.liparArquivo("data/estoque.json");
+                Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+                return true;
+    
+    }
+    
+    public boolean AlterarMaterial(Material material){
+        this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+        for(int i =0; i<this.estoque.size(); i++){
+            System.out.println(material.getNome());
+            if(material.getNome().equals(this.estoque.get(i).getNome())){
+                this.estoque.remove(i);
+                this.estoque.add(material);
+                Arquivo.liparArquivo("data/estoque.json");
+                Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+                return true;
+            }
+        }
+        System.out.println("nao");
+        return false;
+    }
+    public boolean ExcluirMaterial(String nome){
+        this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+        for(int i =0; i<this.estoque.size(); i++){
+            if(nome.equals(this.estoque.get(i).getNome())){
+                this.estoque.remove(i);
+            Arquivo.liparArquivo("data/estoque.json");
+            Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+                return true;
             }
         }
         return false;
     }
     
-    //-- Incluir Cliente********************************************************
-    public boolean incluirCliente(Cliente cliente){
-        try{
-            this.cliente.add(cliente);
-        }catch(Exception e){
-            return false;
-        }
-        return true;
+        //-- Outros Metodos
+    public String ImprimirEstoque(){
+        String materiais = null;
+            this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+            for(Material material : this.estoque){
+                materiais = material.toString()+"\n";
+            }
+            return materiais;
     }
+    // Alterar clienete
     
-    //-- Realizar Vendas
+    
+    //-- Realizar Vendas*********************************************************
     public boolean RealizarVendas(Venda venda){
         try{
                 this.venda.clear();
-                Arquivo.puxarDadosVenda(this.venda, "data/vendas.json");
-                Arquivo.liparArquivo("data/vendas.json");
+                this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
                 this.venda.add(venda);
+                Arquivo.liparArquivo("data/vendas.json");
                 Arquivo.enviarParaEscrita(this.venda, "data/vendas.json");
         }catch(Exception e){
             return false;
@@ -87,61 +240,7 @@ public class Sistema {
         return Svendas;
     }
     
-    //ConsultarEstoque
-    int consultarEstoque(String material){
-        for(int i= 0; i<this.estoque.size(); i++){
-            if(material.equals(estoque.get(i).getNome())){
-                return i;
-            }    
-        }
-        return -1;
-    }
-    
-    
-    //-- Incluir Materiais
-    public boolean incluirMaterial(Material material){
-       if(material.getNome()!=null){
-            try{
-                this.estoque.add(material);
-            }catch(Exception e){
-                return false;
-            }
-            return true;
-        }
-       return false;
-    }
-    
-    //-- Outros Metodos
-    public void MostrarListaMaterial(){
-        for(int i =0;i<this.estoque.size(); i++){
-            try {
-                this.estoque.get(i).printTodos();
-            } catch (ParseException ex) {
-                Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
-    //--Mostrar lista de Colaboradores
-    public Colaborador MostraColaboradores(String cpf){
-        
-        for(int i =0; i<colaboradors.length; i++){
-            if(cpf.equals(this.colaboradors[i].getCpf())){
-             return this.colaboradors[i];
-            }
-        }
-        return null;
-        
-    }
-    //---Mostrar lista de clientes
-        public String MostrarClientes(){
-            String Sclientes= null;
-        for (Cliente clientes : cliente) {
-            Sclientes += clientes.toString();
-        }
-        return Sclientes;
-    }
-    //--Converter datas
+   
     public String converterData(Date data){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(data);
@@ -182,6 +281,9 @@ public class Sistema {
         }
         return -1;
     }
+    
+    //**********************************Alterar elemento
+    
 
 
     public List<Venda> getVenda() {
@@ -210,6 +312,10 @@ public class Sistema {
 
     public void setEstoque(List<Material> estoque) {
         this.estoque = estoque;
+    }
+
+    public void setColaboradors(Colaborador[] colaboradors) {
+        this.colaboradors = colaboradors;
     }
         
         
