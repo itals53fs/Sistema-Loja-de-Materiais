@@ -7,6 +7,7 @@ package view;
 
 import controller.Routes;
 import java.util.Scanner;
+import model.Colaborador;
 
 /**
  *
@@ -49,7 +50,7 @@ public class View {
          switch(opcao){
              case 1:
                  // Cadastrar Colaborador
-                 System.out.println("Digite o seu Login");
+                 /*System.out.println("Digite o seu Login");
                  inputLogin = input.next();
                 
                  System.out.println("Digite a sua Senha");
@@ -68,9 +69,10 @@ public class View {
                  inputCpf = input.next();
                  
                  System.out.println("Digite o seu Telefone");
-                 inputTelefone = input.next();
+                 inputTelefone = input.next();*/
                               
-                 sis.IncluirColaborador(inputLogin, inputSenha, inputNome, end, inputEmail, inputCpf, inputTelefone);
+                 sis.IncluirColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone");
+                 System.out.println(sis.MostrarColaboradores("123"));
            
                 break;
              case 2:
@@ -141,7 +143,7 @@ public class View {
                 break;
                 case 7:
                     System.out.println("");
-                    sis.mostrarColaboradores();
+                    //sis.mostrarColaboradores();
                 break;
                 case 8:
                     System.out.println("");

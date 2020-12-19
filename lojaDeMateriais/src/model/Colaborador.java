@@ -22,7 +22,7 @@ public class Colaborador extends Pessoa {
         this.senha = senha;
     }
 
-    public Colaborador() {
+    public Colaborador(){
  
     }
 
@@ -42,7 +42,6 @@ public class Colaborador extends Pessoa {
                 + " login= " + login 
                 + " senha= " + senha
                 + " nome= " + this.getNome() + '}';
-    }
-    
+    }  
     
 }

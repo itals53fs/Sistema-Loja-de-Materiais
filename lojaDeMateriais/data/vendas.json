@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"idVenda":0,"valorTotal":5.0,"valor":2.5,"quantidade":2,"materiais":[{"nome":"tijolo","quantidade":10,"preco":10.0,"especificacao":"ss","margemLucro":5.0,"create_at":"Dec 18, 2020 6:15:51 PM","fornecedor":"ss"}],"data":"Dec 18, 2020 6:15:51 PM","cpfCliente":"123"}]
+=======
+[{"idVenda":0,"valorTotal":5.0,"valor":2.5,"quantidade":2,"materiais":[{"nome":"tijolo","quantidade":10,"preco":10.0,"especificacao":"ss","margemLucro":5.0,"create_at":"Dec 18, 2020 5:15:25 PM","fornecedor":"ss"}],"data":"Dec 18, 2020 5:15:25 PM","cpfCliente":"123"}]
+>>>>>>> 49e7a0b00921cea2794f5da898b0e9f309aeac43

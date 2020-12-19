@@ -82,7 +82,7 @@ public class Arquivo {
             gson.fromJson(json, tipoLista);
        
     }*/
-  public static <T> List<Colaborador> puxarDados(List<T> colecao, String arq) {
+  public static <T> List<Colaborador> puxarDadosColaborador(String arq) {
       String linha = null;
       List<Colaborador> obj = new ArrayList<Colaborador>();
       Colaborador col = new Colaborador();
@@ -97,11 +97,10 @@ public class Arquivo {
             }
 
             obj = gson.fromJson(linha, t);
-
-            
             scan.close();
        return obj;
     }
+  
   public static <T> List<Venda> puxarDadosVenda(List<T> colecao, String arq) {
       String linha = null;
       List<Venda> obj = new ArrayList<Venda>();
