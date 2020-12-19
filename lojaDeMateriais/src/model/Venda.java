@@ -16,11 +16,11 @@ import java.util.List;
 public class Venda {
    private int idVenda;
    private float valorTotal;
-   private float valor;
    private int quantidade;
    private List <Material> materiais = new ArrayList<Material>();
    private Date data = new Date();
    private String cpfCliente;
+   private static int numeroVendas;
    
 
     public String getCpfCliente() {
@@ -107,10 +107,10 @@ public class Venda {
         this.data = data;
     }
 
-    public Venda(float valor, int quantidade, String cpfCliente) {
-        this.valor = valor;
+    public Venda(int quantidade, String cpfCliente) {
         this.quantidade = quantidade;
         this.cpfCliente = cpfCliente;
+        numeroVendas++;
     }
 
 

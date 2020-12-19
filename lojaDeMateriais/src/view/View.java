@@ -43,120 +43,65 @@ public class View {
          System.out.println("1=Cadastrar Colaborador || 2=Cadastrar Cliente ||\n"
                  + "3= Cadastrar material    || 4=Realizar Venda\n"
                  + "5=consultar extrato clente || " + "6= Mostrar Material ||\n"
-                 + "7=Mostrar Colaborador || 8= Mostrar Cliente  0 = Cancelar");
+                 + "7=Mostrar Colaborador || 8= Mostrar Cliente || 9=Excuir Colaborador\n"+
+                 "10 Alterar Colaborador || 0 = Cancelar");
             System.out.println("");
          opcao = input.nextInt();
          
          switch(opcao){
-             case 1:
-                 // Cadastrar Colaborador
-                 /*System.out.println("Digite o seu Login");
-                 inputLogin = input.next();
-                
-                 System.out.println("Digite a sua Senha");
-                 inputSenha = input.next();
-                 
-                 System.out.println("Digite o Nome");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite o Endereço");
-                 end = input.next();
-                 
-                 System.out.println("Digite o seu email");
-                 inputEmail = input.next();
-                 
-                 System.out.println("Digite o CPF");
-                 inputCpf = input.next();
-                 
-                 System.out.println("Digite o seu Telefone");
-                 inputTelefone = input.next();*/
-                              
-                 sis.IncluirColaborador("Ulisses", "123", "Ulisses", "tiujucal", "a@a", "123", "966542");
-                 System.out.println(sis.MostrarColaboradores("123"));
+
+
+             case 1:               
+                 sis.IncluirColaborador("tales", "123", "Felix", "end", "tales", "17", "3333");
+
            
                 break;
              case 2:
-                 // Cadastrar Cliente
-                 System.out.println("Digite o Nome do Cliente");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite o CPF do Cliente");
-                 inputCpf = input.next();
-                
-                 System.out.println("Digite o Email do Cliente");
-                 inputEmail = input.next();
-                
-                 System.out.println("Digite o Endereço do Cliente");
-                 end = input.next();
-                 
-                 
-                 sis.IncluirCliente(inputNome, end, inputEmail, inputCpf, "16/16/16");
+                 sis.IncluirCliente("ulisses", "end", "12", "111","aaa");
                 break;
              case 3:
-                 // Cadastrar Material
-
-                 System.out.println("Digite o nome do Material");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite a quantidade");
-                 quant = input.nextInt();
                  
-                 System.out.println("Digite a margem de Lucro");
-                 lucro = input.nextInt();
-                
-                 System.out.println("Digite a especificao");
-                 espec = input.next();
+                 sis.salvarMaetrial("tijolo", 3, 5, "espec", 23, "fornecedor");
                  
-                 System.out.println("Digite o Preço");
-                 preco = input.nextInt();
-                 
-                 System.out.println("Digite o nome do Fornecedor");
-                 fornecedor = input.next();
-                 
-                 sis.salvarMaetrial(inputNome, quant, lucro, espec, preco, fornecedor);
-                 
-
                 break;
              case 4:
-                 
-                 System.out.println("Realizar Venda");
-                 sis.IncluirCliente("tales", "end", "aa", "123", "ss");
-                 sis.salvarMaetrial("tijolo", 12, 10, "ss", 5, "ss");
-                 sis.RealizarVenda((float) 2.5, 2, "123", "tijolo");
+                 sis.RealizarVenda(1, "111", "tijolo");
                  
                 break; 
              case 5:
-                    String cpf;
-                    System.out.println("Digite o cpf do cliente");
-                    cpf = input.next();
-                   /* for(Cliente cliente: sistema.cliente){
-                        if(cpf.equals(cliente.getCpf())){
-                            
-                            cliente.ImprimirInfoCliente();
-                            
-                        }
-                    } */
-                break;
+                 System.out.println(sis.ImprimirListaClientes());
                 case 6:
                     System.out.println("");
-                    sis.MostrarListaMaterial();
+                    System.out.println(sis.ImprimirEstoque());
                 break;
                 case 7:
-                    System.out.println("");
+                    System.out.println(sis.ImprimirListaColaboradores());
                     //sis.mostrarColaboradores();
                 break;
                 case 8:
                     System.out.println("");
-                    sis.MostrarClientes();
+                    sis.ImprimirListaClientes();
                 break;
+                    case 9:
+                    System.out.println("");
+                    sis.ExcluirColaborador("123");
+                break;
+                    case 10:
+                sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone", true);
+                break;
+                    case 11:
+                        sis.AlterarMaterial("tijolo", 10, 6, "especificacao", 10, "fornecedor", false);
+                break;
+                    case 12:
+                        sis.ExcluirMaterial("tijolo");
+                        break;
+ 
          }
             
         }while(opcao > 0);
-        System.out.println("Tales gay");
+        System.out.println("Ulisses gay");
         System.out.println(sis.ConsultarVendas());
-        System.out.println(sis.MostrarClientes());
-        sis.MostrarListaMaterial();
-
+        //System.out.println(sis.MostrarClientes());
         
     }
     

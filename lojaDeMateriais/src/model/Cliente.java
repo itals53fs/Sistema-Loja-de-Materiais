@@ -41,6 +41,11 @@ public class Cliente  extends Pessoa{
 
     public Cliente(String nome, String endereco, String email, String cpf, String telefone) {
         super(nome, endereco, email, cpf, telefone);
+        numeroPesssoa[1]++;
+        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
+    }
+    public Cliente(String nome, String endereco, String email, String cpf, String telefone, boolean veri) {
+        super(nome, endereco, email, cpf, telefone);
     }
 
     public Cliente() {
