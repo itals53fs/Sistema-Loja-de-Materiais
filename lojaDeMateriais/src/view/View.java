@@ -71,7 +71,7 @@ public class View {
                  System.out.println("Digite o seu Telefone");
                  inputTelefone = input.next();*/
                               
-                 sis.IncluirColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone");
+                 sis.IncluirColaborador("Ulisses", "123", "Ulisses", "tiujucal", "a@a", "123", "966542");
                  System.out.println(sis.MostrarColaboradores("123"));
            
                 break;
