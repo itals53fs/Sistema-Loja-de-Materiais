@@ -28,8 +28,8 @@ public class Routes {
         
     }
     
-    public void MostrarListaMaterial(){
-        sistema.MostrarListaMaterial();
+    public String ImprimirEstoque(){
+        return sistema.ImprimirEstoque();
     }
     
     public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, boolean veri){
@@ -59,8 +59,12 @@ public class Routes {
         return sistema.ExcluirColaborador(cpf);
     }
     
-    public Colaborador MostrarColaboradores(String cpf){
-        return sistema.MostraColaboradores(cpf);
+    public String ImprimirColaborador(String cpf){
+        return sistema.ImprimirColaborador(cpf);
+    }
+    
+        public String ImprimirListaColaboradores(){
+        return sistema.ImprimirListaColaboradores();
     }
     
     /******Inicio clienet**********/
@@ -69,15 +73,15 @@ public class Routes {
         return sistema.incluirCliente(clientes);
     }
     
-    public String MostrarClientes(){
-        return sistema.MostrarClientes();
+    public String ImprimirListaClientes(){
+        return sistema.ImprimirListaCliente();
     }
     
     /*********Inicio Venda*******************/
-    public boolean RealizarVenda(float valor, int quantidade, String cpfCliente, String Smaterial){
+    public boolean RealizarVenda(int quantidade, String cpfCliente, String Smaterial){
         boolean verificar = false;
         Material material = null;
-        Venda venda = new Venda(valor, quantidade, cpfCliente);
+        Venda venda = new Venda(quantidade, cpfCliente);
         int indexMaterial=0;
         
         sistema.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
@@ -100,12 +104,15 @@ public class Routes {
                     if(verificar){
                         
                     venda.setMateriais(material);
-                    venda.setValorTotal(valor*quantidade);
+                    venda.setValorTotal(quantidade*material.getPreco());
                     sistema.getCliente().get(i).setMateriais(venda);
                     Arquivo.liparArquivo("data/clientes.json");
                     Arquivo.enviarParaEscrita(sistema.getCliente(), "data/clientes.json");
                     
+                    sistema.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
                     sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
+                    Arquivo.liparArquivo("data/estoque.json");
+                    Arquivo.enviarParaEscrita(sistema.getEstoque(), "data/estoque.json");
             
                     return sistema.RealizarVendas(venda);
                     }

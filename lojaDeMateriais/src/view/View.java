@@ -49,127 +49,56 @@ public class View {
          opcao = input.nextInt();
          
          switch(opcao){
-             case 1:
-                 // Cadastrar Colaborador
-                 /*System.out.println("Digite o seu Login");
-                 inputLogin = input.next();
-                
-                 System.out.println("Digite a sua Senha");
-                 inputSenha = input.next();
-                 
-                 System.out.println("Digite o Nome");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite o Endereço");
-                 end = input.next();
-                 
-                 System.out.println("Digite o seu email");
-                 inputEmail = input.next();
-                 
-                 System.out.println("Digite o CPF");
-                 inputCpf = input.next();
-                 
-                 System.out.println("Digite o seu Telefone");
-                 inputTelefone = input.next();*/
-                              
-                 sis.IncluirColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "17", "inputTelefone");
-                 //System.out.println(sis.MostrarColaboradores("123"));
+             case 1:               
+                 sis.IncluirColaborador("tales", "123", "Felix", "end", "tales", "17", "3333");
            
                 break;
              case 2:
-                 // Cadastrar Cliente
-                 /*System.out.println("Digite o Nome do Cliente");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite o CPF do Cliente");
-                 inputCpf = input.next();
-                
-                 System.out.println("Digite o Email do Cliente");
-                 inputEmail = input.next();
-                
-                 System.out.println("Digite o Endereço do Cliente");
-                 end = input.next();*/
-                 
-                 
-                 sis.IncluirCliente("inputNome", "end", "12", "33","aaa");
+                 sis.IncluirCliente("ulisses", "end", "12", "111","aaa");
                 break;
              case 3:
-                 // Cadastrar Material
-
-                 System.out.println("Digite o nome do Material");
-                 inputNome = input.next();
-                
-                 System.out.println("Digite a quantidade");
-                 quant = input.nextInt();
                  
-                 System.out.println("Digite a margem de Lucro");
-                 lucro = input.nextInt();
-                
-                 System.out.println("Digite a especificao");
-                 espec = input.next();
+                 sis.salvarMaetrial("tijolo", 3, 5, "espec", 23, "fornecedor");
                  
-                 System.out.println("Digite o Preço");
-                 preco = input.nextInt();
-                 
-                 System.out.println("Digite o nome do Fornecedor");
-                 fornecedor = input.next();
-                 
-                 sis.salvarMaetrial(inputNome, quant, lucro, espec, preco, fornecedor);
-                 
-
                 break;
              case 4:
-                 
-                 System.out.println("Realizar Venda");
-                 //sis.IncluirCliente("tales", "end", "aa", "143", "ss");
-                 sis.salvarMaetrial("tijolo", 12, 10, "ss", 5, "ss");
-                 sis.RealizarVenda((float) 2.5, 2, "33", "g");
+                 sis.RealizarVenda(1, "111", "tijolo");
                  
                 break; 
              case 5:
-                    String cpf;
-                    System.out.println("Digite o cpf do cliente");
-                    cpf = input.next();
-                   /* for(Cliente cliente: sistema.cliente){
-                        if(cpf.equals(cliente.getCpf())){
-                            
-                            cliente.ImprimirInfoCliente();
-                            
-                        }
-                    } */
-                break;
+                 System.out.println(sis.ImprimirListaClientes());
                 case 6:
                     System.out.println("");
-                    sis.MostrarListaMaterial();
+                    System.out.println(sis.ImprimirEstoque());
                 break;
                 case 7:
-                    System.out.println("");
+                    System.out.println(sis.ImprimirListaColaboradores());
                     //sis.mostrarColaboradores();
                 break;
                 case 8:
                     System.out.println("");
-                    sis.MostrarClientes();
+                    sis.ImprimirListaClientes();
                 break;
                     case 9:
                     System.out.println("");
-                    sis.ExcluirColaborador("127");
+                    sis.ExcluirColaborador("123");
                 break;
                     case 10:
-                sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "127", "inputTelefone", true);
+                sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone", true);
                 break;
                     case 11:
-                        sis.AlterarMaterial("nome", 10, 6, "especificacao", 10, "fornecedor", false);
-                        sis.ExcluirMaterial("f");
-                        //sis.ExcluirMaterial("nome");
-
+                        sis.AlterarMaterial("tijolo", 10, 6, "especificacao", 10, "fornecedor", false);
+                break;
+                    case 12:
+                        sis.ExcluirMaterial("tijolo");
+                        break;
+ 
          }
             
         }while(opcao > 0);
         System.out.println("Ulisses gay");
         System.out.println(sis.ConsultarVendas());
         //System.out.println(sis.MostrarClientes());
-        sis.MostrarListaMaterial();
-
         
     }
     

@@ -93,6 +93,29 @@ public class Sistema {
         return false;
     }
     
+    public String ImprimirColaborador(String cpf){
+        this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+        
+        for(int i =0; i<colaboradors.length; i++){
+            if (this.colaboradors[i]!=null){
+                if(cpf.equals(this.colaboradors[i].getCpf())){
+
+                    return this.colaboradors[i].toString();
+                }  
+            }
+        }
+        return null;
+    }
+    
+    public String ImprimirListaColaboradores(){
+        this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+        String colaboradores = "";
+        for(int i =0; i<colaboradors.length; i++){
+            colaboradores = this.colaboradors[i].toString();
+        }
+        return colaboradores;
+    }
+    
     //-- Incluir Cliente********************************************************
     public boolean incluirCliente(Cliente clientes){
   
