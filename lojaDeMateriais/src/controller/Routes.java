@@ -84,21 +84,31 @@ public class Routes {
         Venda venda = new Venda(quantidade, cpfCliente);
         int indexMaterial=0;
         
+        sistema.getCliente().clear();;
         sistema.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
        
-        System.out.println(sistema.getCliente());
-        for(int i=0;i<sistema.getEstoque().size(); i++){
-            if(Smaterial.equals(sistema.getEstoque().get(i).getNome()) && (quantidade <= sistema.getEstoque().get(i).getQuantidade())){
-                material = sistema.getEstoque().get(i);
-                indexMaterial = i;
+        sistema.getEstoque().clear();
+        sistema.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+            System.out.println(sistema.getEstoque());
+            
+            if(sistema.getEstoque() != null && sistema.getCliente() !=null){
                 verificar = true;
             }
-        }
+           
+            if(verificar){
+                verificar = false;
+                for(int i=0;i<sistema.getEstoque().size(); i++){
+                    if(Smaterial.equals(sistema.getEstoque().get(i).getNome()) && (quantidade <= sistema.getEstoque().get(i).getQuantidade()) && quantidade > 0){
+                        material = sistema.getEstoque().get(i);
+                        indexMaterial = i;
+                        verificar = true;
+                    }
+                }
+            }
         
         if(verificar){
             verificar = false;
             for(int i=0; i<sistema.getCliente().size(); i++){
-                
                 if(cpfCliente.equals(sistema.getCliente().get(i).getCpf())){
                     verificar = true;
                     if(verificar){
@@ -109,6 +119,7 @@ public class Routes {
                     Arquivo.liparArquivo("data/clientes.json");
                     Arquivo.enviarParaEscrita(sistema.getCliente(), "data/clientes.json");
                     
+                    sistema.getEstoque().clear();
                     sistema.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
                     sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
                     Arquivo.liparArquivo("data/estoque.json");
