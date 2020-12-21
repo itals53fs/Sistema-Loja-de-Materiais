@@ -358,6 +358,25 @@ public class Sistema {
     public void setColaboradors(Colaborador[] colaboradors) {
         this.colaboradors = colaboradors;
     }
+     
+    
+    //++++++++++++++++++ Login
+    
+    public boolean loginColaborador( String nome, String senha){
         
+        this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
+        
+        for(int i =0; i<colaboradors.length; i++){
+          
+            if (this.colaboradors[i]!=null){
+                if(nome.equals(this.colaboradors[i].getLogin()) &&  senha.equals(this.colaboradors[i].getSenha())){
+                    System.out.println("Login concedido!");
+                    
+                    return true;
+                }  
+            }
+        }
+        return false;
+    }
         
 }
