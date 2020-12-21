@@ -141,5 +141,11 @@ public class Routes {
     public String ConsultarVendas(){
         return sistema.ConsultarVendas();
     }
+    
+    public boolean login(String login, String senha){
+
+         return sistema.loginColaborador(login, senha);
+      
+    }
    
 }
