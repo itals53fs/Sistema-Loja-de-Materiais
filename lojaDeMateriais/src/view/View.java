@@ -51,21 +51,23 @@ public class View {
          switch(opcao){
 
 
-             case 1:               
-                 sis.IncluirColaborador("tales", "123", "Felix", "end", "tales", "17", "3333");
+             case 1:
+                 // Incluir Colaborador Login / Senha / Nome / Ende / email / CPF / telefone
+                 sis.IncluirColaborador("ulisses", "123", "Ulisses", "tijucal", "ulisses@ulisses", "123", "99748");
 
            
                 break;
              case 2:
-                 sis.IncluirCliente("ulisses", "end", "12", "111","aaa");
+                 // Incluir Cliente
+                 sis.IncluirCliente("RafaMoreira", "end", "12", "777","aaa");
                 break;
              case 3:
                  
-                 sis.salvarMaetrial("tijolo", 3, 5, "espec", 23, "fornecedor");
+                 sis.salvarMaetrial("cimento", 20, 25, "5Kg", 20, "zeze");
                  
                 break;
              case 4:
-                 sis.RealizarVenda(1, "111", "tijolo");
+                 sis.RealizarVenda(15, "777", "cimento");
                  
                 break; 
              case 5:
