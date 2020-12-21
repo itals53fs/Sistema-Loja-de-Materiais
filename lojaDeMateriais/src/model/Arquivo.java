@@ -51,37 +51,7 @@ public class Arquivo {
         }
         return conteudo;
     }
-    
-    /**
-     *
-     * @param <T>
-     * @param lista
-     * @param arquivo
-     */
-    /*public <T> Object puxarDados(List<T> lista, String arq) {
-      String linha = null;
-      List<T> obj = new ArrayList<T>();
-      Type tipoLista = new TypeToken<ArrayList<Object>>() {private Type getType;
-      }.getType;
-      
-      JsonObject json = new JsonObject();
-      
-            try {
-                scan = new Scanner(new File(arq));
-            } catch (FileNotFoundException fileNotFoundException) {
-                System.err.println("erro");
-            }
-            while (scan.hasNextLine()) {
-                linha = scan.nextLine();  
-            }
-            for(T elemento :lista){
-                obj.add(elemento);
-            }
-      Gson gson = new Gson();
-       scan.close();
-            gson.fromJson(json, tipoLista);
-       
-    }*/
+
      public  static void escrever(String json, String arq) throws IOException{
  
             try {

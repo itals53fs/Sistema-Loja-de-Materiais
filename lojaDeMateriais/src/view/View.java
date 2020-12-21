@@ -18,7 +18,7 @@ public class View {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         
         //------------------------------------•
@@ -58,6 +58,7 @@ public class View {
            
                 break;
              case 2:
+
                  // Incluir Cliente
                  sis.IncluirCliente("RafaMoreira", "end", "12", "777","aaa");
                 break;
@@ -68,6 +69,17 @@ public class View {
                 break;
              case 4:
                  sis.RealizarVenda(15, "777", "cimento");
+
+                 sis.IncluirCliente("gabriel", "end", "12", "222","aaa");
+                break;
+             case 3:
+                 
+                 sis.salvarMaetrial("cimento", 3, 5, "espec", 23, "fornecedor");
+                 
+                break;
+             case 4:
+                 sis.RealizarVenda(2, "222", "cimento");
+
                  
                 break; 
              case 5:
@@ -105,7 +117,7 @@ public class View {
         System.out.println(sis.ConsultarVendas());
         //System.out.println(sis.MostrarClientes());
         
-    }
+    }*/
     
 }
 

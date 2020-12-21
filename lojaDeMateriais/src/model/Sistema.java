@@ -129,7 +129,7 @@ public class Sistema {
       
             Arquivo.liparArquivo("data/clientes.json");
             Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
-            
+            this.cliente.clear();
         return true;
     }
     
@@ -142,10 +142,11 @@ public class Sistema {
                     
                     Arquivo.liparArquivo("data/clientes.json");
                     Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
+                    this.cliente.clear();
                     return true;
                 }
             }
-            
+            this.cliente.clear();
         return false;
     }
     
@@ -156,29 +157,32 @@ public class Sistema {
                     this.cliente.remove(cliente);
                     Arquivo.liparArquivo("data/clientes.json");
                     Arquivo.enviarParaEscrita(this.cliente, "data/clientes.json");
+                    this.cliente.clear();
                     return true;
                 }
             }
-            
+            this.cliente.clear();
         return false;
     }
         
         public String ImprimirListaCliente(){
-            String clientes = null;
+            String clientes = "";
             this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
             for(Cliente cliente: this.cliente){
-                clientes = cliente.toString()+"\n";
+                clientes += cliente.toString()+"\n";
             }
+            this.cliente.clear();
             return clientes;
         }
         public String ImprimirInfoCliente(String cpf){
             this.setCliente(Arquivo.puxarDadosCliente("data/clientes.json"));
             for(Cliente cliente: this.cliente){
                 if(cpf.equals(cliente.getCpf())){
-
+                    this.cliente.clear();
                     return cliente.toString();
                 }
             }
+            this.cliente.clear();
             return null;
         }
     
@@ -186,16 +190,21 @@ public class Sistema {
     /******************Incluir marerial*******************************************/
     
        public boolean IncluirMaterial(Material material){
+           
+          this.estoque.clear();
+
           this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
         for(int i =0; i<this.estoque.size(); i++){
             if(material.getNome().equals(this.estoque.get(i).getNome())){
                 System.out.println("aaaaaaa");
+                this.estoque.clear();
                 return false;
             }
         }
                 this.estoque.add(material);
                 Arquivo.liparArquivo("data/estoque.json");
                 Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+                this.estoque.clear();
                 return true;
     
     }
@@ -209,10 +218,11 @@ public class Sistema {
                 this.estoque.add(material);
                 Arquivo.liparArquivo("data/estoque.json");
                 Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+                this.estoque.clear();
                 return true;
             }
         }
-        System.out.println("nao");
+        this.estoque.clear();
         return false;
     }
     public boolean ExcluirMaterial(String nome){
@@ -222,19 +232,22 @@ public class Sistema {
                 this.estoque.remove(i);
             Arquivo.liparArquivo("data/estoque.json");
             Arquivo.enviarParaEscrita(this.estoque, "data/estoque.json");
+            this.estoque.clear();
                 return true;
             }
         }
+        this.estoque.clear();
         return false;
     }
     
         //-- Outros Metodos
     public String ImprimirEstoque(){
-        String materiais = null;
+        String materiais = "";
             this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
             for(Material material : this.estoque){
-                materiais = material.toString()+"\n";
+                materiais += material.toString()+"\n";
             }
+            this.estoque.clear();
             return materiais;
     }
     // Alterar clienete
@@ -247,19 +260,24 @@ public class Sistema {
                 this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
                 this.venda.add(venda);
                 Arquivo.liparArquivo("data/vendas.json");
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
                 Arquivo.enviarParaEscrita(this.venda, "data/vendas.json");
         }catch(Exception e){
+            this.venda.clear();
             return false;
         }
+        this.venda.clear();
         return true;
     }
     
     /*Consultar vendas*/
     public String ConsultarVendas(){
-        String Svendas = null;
+        String Svendas = "";
+        this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
         for(Venda vendas : this.venda){
-            Svendas = vendas.GerarExtrato();
+            Svendas += vendas.GerarExtrato();
         }
+        this.venda.clear();
         return Svendas;
     }
     
