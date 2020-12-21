@@ -18,7 +18,7 @@ public abstract class Pessoa {
     private String cpf;
     private String telefone;
     private Date dataCadastro = new Date();
-    protected static int[] numeroPesssoa = new int[2];
+    protected static int numeroClientes;
     
     
 
@@ -64,8 +64,6 @@ public abstract class Pessoa {
         this.email = email;
         this.cpf = cpf;
         this.telefone = telefone;
-        Pessoa.setNumeroPesssoa(Arquivo.puxarDadosPessoas("data/numeroPessoas.json"));
-        Arquivo.liparArquivo("data/numeroPessoas.json");
         
     }
 
@@ -77,20 +75,15 @@ public abstract class Pessoa {
         this.dataCadastro = dataCadastro;
     }
 
-    public static int[] getNumeroPesssoa() {
-        return numeroPesssoa;
-    }
-
-    public static void setNumeroPesssoa(int[] numeroPesssoa) {
-        Pessoa.numeroPesssoa = numeroPesssoa;
-    }
-    public static void mudarIndex(int i, int num){
-        Pessoa.getNumeroPesssoa()[i] = num;
-    }
-
-
-
     public Pessoa() {
+    }
+
+    public static int getNumeroClientes() {
+        return numeroClientes;
+    }
+
+    public static void setNumeroClientes(int numeroClientes) {
+        Pessoa.numeroClientes = numeroClientes;
     }
 
     public void setTelefone(String telefone) {

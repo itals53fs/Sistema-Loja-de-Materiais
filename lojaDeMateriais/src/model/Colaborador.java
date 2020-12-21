@@ -7,7 +7,7 @@ public class Colaborador extends Pessoa {
     
     private String login;
     private String senha;
-
+    private static int numeroColaborador;
     public String getLogin() {
         return login;
     }
@@ -20,21 +20,25 @@ public class Colaborador extends Pessoa {
         super(nome, endereco, email, cpf, telefone);
         this.login = login;
         this.senha = senha;
-        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
     }
         public Colaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone) {
         super(nome, endereco, email, cpf, telefone);
         this.login = login;
         this.senha = senha;
-       
-        numeroPesssoa[0]++;
-   
-        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
+        numeroColaborador++;
     }
 
 
     public Colaborador(){
  
+    }
+
+    public static int getNumeroColaborador() {
+        return numeroColaborador;
+    }
+
+    public static void setNumeroColaborador(int numeroColaborador) {
+        Colaborador.numeroColaborador = numeroColaborador;
     }
 
 
@@ -52,7 +56,11 @@ public class Colaborador extends Pessoa {
         return "Colaborador{" 
                 + " login= " + login 
                 + " senha= " + senha
-                + " nome= " + this.getNome() + '}';
+                + " CPF"+ this.getCpf()
+                + " Email"+ this.getEmail()
+                + " Endereço"+ this.getEndereco()
+                + " Telefone"+ this.getTelefone()
+                + " nome= " + this.getNome() + "}\n";
     }  
     
 }
