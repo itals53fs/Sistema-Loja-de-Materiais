@@ -63,27 +63,30 @@ public class Venda {
    
    public String GerarExtrato() {
        System.out.println("-----Venda-Realizada-----\n");
-        String materialString="";
+        String materialString = 
+                " CPF: \t\t " +this.cpfCliente
+                +"\n Valor Total: " + this.getValorTotal()
+                + "\n Quantidade: \t\t" + this.quantidade;
+        
         for(Material material : materiais){
             materialString += 
-            "\nNome: \t" + material.getNome() 
-            + "\nPreço: \t" + material.getPreco() 
-            + "\nFornecedor: \t" + material.getFornecedor()
-            + "\nValor Total: \t" + valorTotal;
+            "\n\t\t--Material--"
+            +"\nNome: \t\t" + material.getNome() 
+            + "\nPreço: \t\t" + material.getPreco() 
+            + "\nFornecedor: \t\t" + material.getFornecedor()
+            + "\nValor Total: \t\t" + valorTotal;
         }
        return materialString;
    }
-    public String getCreate_at() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        return dateFormat.format(data);
-    }
 
     @Override
     public String toString() {
        String materialString="";
         for(Material material : materiais){
-            materialString += "\nNome: \t\t" + material.getNome() 
-                               + "\nQuantidade em Estoque:\t\t" + (material.getQuantidade()-1)
+            materialString += 
+                                "\n\t\t--Material--\n"
+                               +"\nNome: \t\t" + material.getNome() 
+                               + "\nQuantidade em Estoque:\t\t" + (material.getQuantidade())
                                + "\nPreço: \t\t" + material.getPreco()
                                + "\nEspecificação: \t\t" + material.getEspecificacao()
                                + "\nMargem de Lucro: \t\t" + material.getMargemLucro()
@@ -93,6 +96,7 @@ public class Venda {
         
         return "\n•-----Extrato de Venda-----•\n"
                 + "\nId da Venda: \t\t" + getIdVenda()
+                + "\nQuantidade: \t\t" + quantidade
                 + "\nValor total: \t\t" + getValorTotal()
                 + "\nCPF Cliente: \t\t" + getCpfCliente()
                 + "\nData da Venda: \t\t" + getData()

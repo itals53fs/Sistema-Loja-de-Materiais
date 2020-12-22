@@ -280,6 +280,19 @@ public class Sistema {
         return Svendas;
     }
     
+    public String gerarExtratoCliente(String cpf){
+        this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
+        
+        for(Venda vendas : this.venda){
+            if(cpf.equals(vendas.getCpfCliente())){
+                
+                return vendas.GerarExtrato();
+            }
+        }
+        this.venda.clear();
+        return null;
+    }
+    
    
     public static String converterData(Date data){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
