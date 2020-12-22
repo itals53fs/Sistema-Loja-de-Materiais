@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
  *
  * @author tales
  */
-public class Material {
+public class Material implements Comparable<Material>{
     private String nome;
     private int quantidade;
     private float preco;
@@ -130,6 +130,18 @@ public class Material {
                 "\n}\n";
     }
     
+    @Override
+    public int compareTo(Material material) {
+        if(this.getQuantidade() < material.getQuantidade()){
+            return -1;
+        }else if(this.getQuantidade() > material.getQuantidade()){
+            return 1;
+        }
+        
+         return 0;
+    }
+    
+   
     
         
 }

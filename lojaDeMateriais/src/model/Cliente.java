@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Cliente  extends Pessoa{
+public class Cliente  extends Pessoa {
     
     //Atributos
     private List <Venda> regCompras = new ArrayList <Venda>();

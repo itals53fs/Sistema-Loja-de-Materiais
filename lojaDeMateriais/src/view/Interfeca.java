@@ -112,6 +112,13 @@ public class Interfeca extends javax.swing.JFrame {
         alterarMaterial_btn = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         dataFabricacao_c = new javax.swing.JTextField();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        input_cpfExtrato = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        campo_extrato = new javax.swing.JTextArea();
+        gerar_btn = new javax.swing.JButton();
 
         jLabel8.setText("jLabel8");
 
@@ -177,16 +184,16 @@ public class Interfeca extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(240, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(194, 194, 194))
+                .addGap(204, 204, 204))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(99, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGap(82, 82, 82))
         );
 
         jTabbedPane1.addTab("Login", jPanel2);
@@ -742,6 +749,65 @@ public class Interfeca extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Incluir Material", jPanel8);
 
+        jLabel22.setText("Gerar Extrato  de um cliente");
+
+        jLabel23.setText("Informe o CPF:");
+
+        input_cpfExtrato.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_cpfExtratoActionPerformed(evt);
+            }
+        });
+
+        campo_extrato.setColumns(20);
+        campo_extrato.setRows(5);
+        jScrollPane2.setViewportView(campo_extrato);
+
+        gerar_btn.setText("Gerar");
+        gerar_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerar_btnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(input_cpfExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel22)
+                    .addComponent(gerar_btn))
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(jLabel22)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(input_cpfExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(gerar_btn))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Gerar Extrato", jPanel9);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -936,6 +1002,15 @@ public class Interfeca extends javax.swing.JFrame {
         jTextPane1.setText(rotas.MostrarColaboradoresClientes());
     }//GEN-LAST:event_numeroClientesColaboradores_btnActionPerformed
 
+    private void input_cpfExtratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_cpfExtratoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_cpfExtratoActionPerformed
+
+    private void gerar_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerar_btnActionPerformed
+       
+        campo_extrato.setText(rotas.GerarExtratoCliente(input_cpfExtrato.getText()));
+    }//GEN-LAST:event_gerar_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -979,6 +1054,7 @@ public class Interfeca extends javax.swing.JFrame {
     private javax.swing.JButton alterarCliente_c;
     private javax.swing.JButton alterarColaborador_c;
     private javax.swing.JButton alterarMaterial_btn;
+    private javax.swing.JTextArea campo_extrato;
     private javax.swing.JButton castrarClaborador_btn;
     private java.awt.Choice choice1;
     private javax.swing.JTextField cpfCpf_c;
@@ -995,10 +1071,12 @@ public class Interfeca extends javax.swing.JFrame {
     private javax.swing.JButton excluirMaterial_btn;
     private javax.swing.JTextField excluirMaterial_c;
     private javax.swing.JTextField fornecedor_c;
+    private javax.swing.JButton gerar_btn;
     private javax.swing.JButton incluirCliente_btn;
     private javax.swing.JTextField inputCpfVenda_c;
     private javax.swing.JTextField inputNomeMaterial_c;
     private javax.swing.JTextField inputQuantidadeMaterial_c;
+    private javax.swing.JTextField input_cpfExtrato;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1014,6 +1092,8 @@ public class Interfeca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1029,7 +1109,9 @@ public class Interfeca extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;

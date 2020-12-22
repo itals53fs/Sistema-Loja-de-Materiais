@@ -162,4 +162,13 @@ public class Routes {
       
     }
    
+    public void Comparar(){
+        System.out.println("Deu certo");
+        sistema.odernarMaterial();
+    }
+    
+    public String GerarExtratoCliente(String cpf){
+        return sistema.GerarExtratoCliente(cpf);
+    }
+    
 }

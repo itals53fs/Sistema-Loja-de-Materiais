@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Date;
 import java.util.logging.Level;
@@ -280,7 +281,7 @@ public class Sistema {
         return Svendas;
     }
     
-    public String gerarExtratoCliente(String cpf){
+    public String GerarExtratoCliente(String cpf){
         this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
         
         for(Venda vendas : this.venda){
@@ -361,6 +362,13 @@ public class Sistema {
             }
         }
         return false;
+    }
+    
+    public void odernarMaterial(){
+        //Collections.sort(estoque);
+        for(Material m : estoque){
+            System.out.println(m.compareTo(m));
+        }
     }
         
 }
