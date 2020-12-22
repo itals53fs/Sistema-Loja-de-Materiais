@@ -295,11 +295,9 @@ public class Sistema {
     }
     
    public static String MostrarNumeroClientesColaboradores(){
-       
-       return Pessoa.getNumeroClientes() + Colaborador.getNumeroColaborador()+"";
-    }
-    
-    
+       return "N° de Clientes Execução Sistema: "+Pessoa.getNumeroClientes()+
+              "\nN° de Claboradores Execução Sistema: "+Colaborador.getNumeroColaborador();
+   }
     
 
     /**
