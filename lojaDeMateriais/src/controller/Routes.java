@@ -6,6 +6,7 @@
 package controller;
 import com.google.gson.Gson;
 import java.io.FileWriter;
+import java.text.ParseException;
 import jdk.nashorn.internal.parser.JSONParser;
 import model.Arquivo;
 import model.Cliente;
@@ -22,8 +23,8 @@ public class Routes {
     private final Sistema sistema = new Sistema();
     
     /***********Início Material***********/
-    public boolean IncluirMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
-        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor);
+    public boolean IncluirMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, String datafabricacao){
+        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, datafabricacao);
         return sistema.IncluirMaterial(material);
         
     }
@@ -32,8 +33,8 @@ public class Routes {
         return sistema.ImprimirEstoque();
     }
     
-    public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
-        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, false);
+    public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, String datafabricacao){
+        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, datafabricacao, false);
         return sistema.AlterarMaterial(material);
     }
     
@@ -164,6 +165,10 @@ public class Routes {
     public void Comparar(){
         System.out.println("Deu certo");
         sistema.odernarMaterial();
+    }
+    
+    public String GerarExtratoCliente(){
+        return sitema.GerarExtratoCliente();
     }
     
 }

@@ -66,10 +66,10 @@ public class Venda {
         String materialString="";
         for(Material material : materiais){
             materialString += 
-            "\nNome: " + material.getNome() 
-            + "\nPreço: " + material.getPreco() 
-            + "\nFornecedor: " + material.getFornecedor()
-            + "\nValor Total: " + valorTotal;
+            "\nNome: \t" + material.getNome() 
+            + "\nPreço: \t" + material.getPreco() 
+            + "\nFornecedor: \t" + material.getFornecedor()
+            + "\nValor Total: \t" + valorTotal;
         }
        return materialString;
    }
@@ -82,19 +82,20 @@ public class Venda {
     public String toString() {
        String materialString="";
         for(Material material : materiais){
-            materialString += "\nNome: " + material.getNome() 
-                               + "\nQuantidade " + material.getQuantidade()
-                               + "\nPreço: " + material.getPreco()
-                               + "\nEspecificação: " + material.getEspecificacao()
-                               + "\nMargem de Lucro: " + material.getMargemLucro()
-                               + "\nDataFabricao: ---" 
+            materialString += "\nNome: \t\t" + material.getNome() 
+                               + "\nQuantidade em Estoque:\t\t" + (material.getQuantidade()-1)
+                               + "\nPreço: \t\t" + material.getPreco()
+                               + "\nEspecificação: \t\t" + material.getEspecificacao()
+                               + "\nMargem de Lucro: \t\t" + material.getMargemLucro()
+                               + "\nData de Fabricao: \t\t" + material.getDataFabricacao()
                                + "\nFornecedor: " + material.getFornecedor() + "\n";
         }
         
         return "\n•-----Extrato de Venda-----•\n"
-                + "\nId da Venda: " + getIdVenda()
-                + "\nValor total: " + getValorTotal()
-                + "\nData da Venda: ---"
+                + "\nId da Venda: \t\t" + getIdVenda()
+                + "\nValor total: \t\t" + getValorTotal()
+                + "\nCPF Cliente: \t\t" + getCpfCliente()
+                + "\nData da Venda: \t\t" + getData()
                 + "\nMateriais: " +  materialString+"\n\n"
                 ;
     }

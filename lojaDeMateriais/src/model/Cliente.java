@@ -28,11 +28,11 @@ public class Cliente  extends Pessoa {
             
         }
         return
-                " Nome " + getNome()+
-                " Endereço "+getEndereco()+
-                " E-mail " + getEmail()+
-                " CPF " + getCpf()+
-                " Telefone " + getTelefone()+
+                " \nNome: \t\t" + getNome()+
+                " \nEndereço: \t\t"+getEndereco()+
+                " \nE-mail: \t\t" + getEmail()+
+                " \nCPF: \t\t" + getCpf()+
+                " \nTelefone: \t\t" + getTelefone()+
                 "\n------Compras---- \n"+ vendas+"\n\n";
                 
     }
