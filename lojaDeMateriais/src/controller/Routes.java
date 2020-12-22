@@ -156,4 +156,9 @@ public class Routes {
       
     }
    
+    public void Comparar(){
+        System.out.println("Deu certo");
+        sistema.odernarMaterial();
+    }
+    
 }

@@ -104,10 +104,12 @@ public class View {
          }
             
         }while(opcao > 0);
-        System.out.println("Ulisses gay");
-        System.out.println(sis.ConsultarVendas());
+       // System.out.println("Ulisses gay");
+        //System.out.println(sis.ConsultarVendas());
         //System.out.println(sis.MostrarClientes());
         
+        sis.Comparar();
+        System.out.println(sis.ImprimirEstoque());
     }
     
 }
