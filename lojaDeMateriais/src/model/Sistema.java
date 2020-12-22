@@ -197,7 +197,6 @@ public class Sistema {
           this.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
         for(int i =0; i<this.estoque.size(); i++){
             if(material.getNome().equals(this.estoque.get(i).getNome())){
-                System.out.println("aaaaaaa");
                 this.estoque.clear();
                 return false;
             }
@@ -282,12 +281,12 @@ public class Sistema {
     }
     
    
-    public String converterData(Date data){
+    public static String converterData(Date data){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(data);
 }
 
-    public Date converterDate(String data) throws ParseException{
+    public static Date converterDate(String data) throws ParseException{
 
        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
        dateFormat.setLenient(false);
@@ -298,36 +297,6 @@ public class Sistema {
        return "N° de Clientes Execução Sistema: "+Pessoa.getNumeroClientes()+
               "\nN° de Claboradores Execução Sistema: "+Colaborador.getNumeroColaborador();
    }
-    
-
-    /**
-     *
-     * @param <T>
-     * @param array
-     * @param elemento
-     * @return
-     */
-    
-    public static <T> boolean verificarElemento(T[] array, T elemento){
-        for(T element : array){
-            if(element == elemento){
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    //--retornar o indice do elemento que existe
-    public static <T> int indexElentoExite(T[] array, T elemento){
-        for(int i=0; i<array.length; i++){
-            if(array[i] == elemento){
-                return i;
-            }
-        }
-        return -1;
-    }
-    
-    //**********************************Alterar elemento
     
 
 
@@ -374,8 +343,6 @@ public class Sistema {
           
             if (this.colaboradors[i]!=null){
                 if(nome.equals(this.colaboradors[i].getLogin()) &&  senha.equals(this.colaboradors[i].getSenha())){
-                    System.out.println("Login concedido!");
-                    
                     return true;
                 }  
             }

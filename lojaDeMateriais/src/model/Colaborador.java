@@ -54,13 +54,13 @@ public class Colaborador extends Pessoa {
     @Override
     public String toString() {
         return "Colaborador{" 
-                + " login= " + login 
-                + " senha= " + senha
-                + " CPF"+ this.getCpf()
-                + " Email"+ this.getEmail()
-                + " Endereço"+ this.getEndereco()
-                + " Telefone"+ this.getTelefone()
-                + " nome= " + this.getNome() + "}\n";
+                + " \nlogin: \t\t" + login 
+                + " \nsenha: \t\t" + senha
+                + " \nCPF: \t\t"+ this.getCpf()
+                + " \nEmail: \t\t"+ this.getEmail()
+                + " \nEndereço: \t\t"+ this.getEndereco()
+                + " \nTelefone: \t\t"+ this.getTelefone()
+                + " \nnome: \t\t" + this.getNome() + "\n}\n\n";
     }  
     
 }

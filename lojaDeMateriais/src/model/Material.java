@@ -21,6 +21,7 @@ public class Material {
     private float margemLucro;
     private Date create_at = new Date();
     private String fornecedor;
+    private String dataFabricacao;
     private static int numeroEstoque;
 
     public String getNome() {
@@ -82,35 +83,35 @@ public class Material {
     public void menosQuantidade(int quantidade){
         this.quantidade -= quantidade;
     }
-    
-    public void printTodos() throws ParseException{
-        System.out.println("nome: " + this.getNome() +
-         " \nPreco: " + this.getPreco() +
-        "\nQuantidade: "+ 
-        this.getQuantidade()+
-        "\nEspercificação: "+ 
-        this.getEspecificacao() +
-        "\nMargem Lucro: "
-        + this.getMargemLucro() +
-        "\nData de cadastro: "+ this.getCreate_at() + "\ndata de fabricação: ");
+
+    public String getDataFabricacao() {
+        return dataFabricacao;
     }
 
-    public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor) {
+    public void setDataFabricacao(String dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
+    }
+
+
+
+    public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, String dataFabricacao){
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;
         this.especificacao = especificacao;
         this.margemLucro = margemLucro;
         this.fornecedor = fornecedor;
+        this.dataFabricacao = dataFabricacao;
         numeroEstoque++;
     }
-        public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, boolean veri) {
+        public Material(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, String dataFabricacao, boolean veri){
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;
         this.especificacao = especificacao;
         this.margemLucro = margemLucro;
         this.fornecedor = fornecedor;
+        this.dataFabricacao = dataFabricacao;
     }
 
     public Material() {
@@ -118,7 +119,15 @@ public class Material {
 
     @Override
     public String toString() {
-        return "Material{" + "nome=" + nome + ", quantidade=" + quantidade + ", preco=" + preco + ", especificacao=" + especificacao + ", margemLucro=" + margemLucro + ", create_at=" + create_at + ", fornecedor=" + fornecedor + '}';
+        return "Material{"
+                + "\nnome:\t\t" + nome 
+                + "\nquantidade:\t\t" + quantidade 
+                + "\npreco:\t\t" + preco 
+                + "\nespecificacao:\t\t" + especificacao 
+                + "\nmargemLucro:\t\t" + margemLucro 
+                + "\ndata de fabricação:\t\t"+ dataFabricacao
+                + "\nfornecedor:\t\t" + fornecedor + 
+                "\n}\n";
     }
     
     
