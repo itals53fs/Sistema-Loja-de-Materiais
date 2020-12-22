@@ -120,7 +120,7 @@ public class Material implements Comparable<Material>{
     public String toString() {
         return "Material{" + "nome=" + nome + ", quantidade=" + quantidade + ", preco=" + preco + ", especificacao=" + especificacao + ", margemLucro=" + margemLucro + ", create_at=" + create_at + ", fornecedor=" + fornecedor + '}';
     }
-
+    
     @Override
     public int compareTo(Material material) {
         if(this.getQuantidade() < material.getQuantidade()){

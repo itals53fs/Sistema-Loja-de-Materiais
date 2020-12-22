@@ -22,7 +22,7 @@ public class Routes {
     private final Sistema sistema = new Sistema();
     
     /***********Início Material***********/
-    public boolean salvarMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
+    public boolean IncluirMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
         Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor);
         return sistema.IncluirMaterial(material);
         
@@ -32,14 +32,15 @@ public class Routes {
         return sistema.ImprimirEstoque();
     }
     
-    public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, boolean veri){
-        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, veri);
+    public boolean AlterarMaterial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor){
+        Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, false);
         return sistema.AlterarMaterial(material);
     }
     
     public boolean ExcluirMaterial(String nome){
         return sistema.ExcluirMaterial(nome);
     }
+    
     
     
     /***********Início Colaborador**********************************************/
@@ -82,6 +83,10 @@ public class Routes {
     
     public String ImprimirListaClientes(){
         return sistema.ImprimirListaCliente();
+    }
+    
+    public String MostrarColaboradoresClientes(){
+        return Sistema.MostrarNumeroClientesColaboradores();
     }
     
     /*********Inicio Venda*******************/

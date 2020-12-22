@@ -1,1 +1,1 @@
-[{"nome":"tijolo","quantidade":2,"preco":5.0,"especificacao":"espec","margemLucro":23.0,"create_at":"Dec 20, 2020 10:26:24 AM","fornecedor":"fornecedor"},{"nome":"cimento","quantidade":1,"preco":5.0,"especificacao":"espec","margemLucro":23.0,"create_at":"Dec 20, 2020 10:34:12 AM","fornecedor":"fornecedor"}]
+[{"nome":"Bloco","quantidade":200,"preco":1.0,"especificacao":"bloco furado","margemLucro":25.0,"create_at":"Dec 22, 2020 7:49:03 PM","fornecedor":"zezinho"}]

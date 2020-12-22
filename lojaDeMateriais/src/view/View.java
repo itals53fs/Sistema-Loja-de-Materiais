@@ -64,7 +64,7 @@ public class View {
                 break;
              case 3:
                  
-                 sis.salvarMaetrial("cimento", 20, 25, "5Kg", 20, "zeze");
+                 //sis.salvarMaetrial("cimento", 20, 25, "5Kg", 20, "zeze");
                  
                 break;
              case 4:
@@ -95,7 +95,7 @@ public class View {
                 //sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone", true);
                 break;
                     case 11:
-                        sis.AlterarMaterial("tijolo", 10, 6, "especificacao", 10, "fornecedor", false);
+                        //sis.AlterarMaterial("tijolo", 10, 6, "especificacao", 10, "fornecedor", false);
                 break;
                     case 12:
                         sis.ExcluirMaterial("tijolo");
