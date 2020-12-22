@@ -7,6 +7,7 @@ package view;
 
 import controller.Routes;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -20,6 +21,9 @@ public class Interfeca extends javax.swing.JFrame {
     public Interfeca() {
         initComponents();
         jTabbedPane1.enable(false);
+        
+        
+        
     }
     Routes rotas = new Routes();
     /**
@@ -31,6 +35,8 @@ public class Interfeca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        choice1 = new java.awt.Choice();
+        jLabel8 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -40,11 +46,53 @@ public class Interfeca extends javax.swing.JFrame {
         senha_input = new javax.swing.JTextField();
         login_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        btn_ListarVendas = new javax.swing.JButton();
-        btn_ListarClientes = new javax.swing.JButton();
-        btn_ListarEstoque = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        lstarVendas_btn = new javax.swing.JButton();
+        listarClientes_btn = new javax.swing.JButton();
+        ListarEstoque_btn = new javax.swing.JButton();
+        listarColaboradores_btn = new javax.swing.JButton();
         sair_btn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jPanel4 = new javax.swing.JPanel();
+        incluirCliente_btn = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        nome_c = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        email_txt = new javax.swing.JLabel();
+        endereco_txt = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cpf_txt = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        email_c = new javax.swing.JTextField();
+        end_c = new javax.swing.JTextField();
+        telefone_c = new javax.swing.JTextField();
+        telegonetelefone_c = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        login_c = new javax.swing.JTextField();
+        senhasenha_c = new javax.swing.JTextField();
+        cpfCpf_c = new javax.swing.JTextField();
+        castrarClaborador_btn = new javax.swing.JButton();
+        alterarCliente_c = new javax.swing.JButton();
+        alterarColaborador_c = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        excluirColaboradorCliente_c = new javax.swing.JTextField();
+        excluirColaborador_btn = new javax.swing.JButton();
+        excluirCliente_btn = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        inputCpfVenda = new javax.swing.JTextField();
+        inputNomeMaterial = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        inputQuantidadeMaterial = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,36 +165,36 @@ public class Interfeca extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Login", jPanel2);
 
-        btn_ListarVendas.setText("Listar Vendas");
-        btn_ListarVendas.addActionListener(new java.awt.event.ActionListener() {
+        lstarVendas_btn.setText("Listar Vendas");
+        lstarVendas_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ListarVendasActionPerformed(evt);
+                lstarVendas_btnActionPerformed(evt);
             }
         });
 
-        btn_ListarClientes.setText("Listar Clientes");
-        btn_ListarClientes.addActionListener(new java.awt.event.ActionListener() {
+        listarClientes_btn.setText("Listar Clientes");
+        listarClientes_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ListarClientesActionPerformed(evt);
+                listarClientes_btnActionPerformed(evt);
             }
         });
 
-        btn_ListarEstoque.setText("Estoque");
-        btn_ListarEstoque.addActionListener(new java.awt.event.ActionListener() {
+        ListarEstoque_btn.setText("Estoque");
+        ListarEstoque_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ListarEstoqueActionPerformed(evt);
+                ListarEstoque_btnActionPerformed(evt);
             }
         });
 
-        jButton5.setText("jButton5");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        listarColaboradores_btn.setText("Listar Colaboradores");
+        listarColaboradores_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                listarColaboradores_btnActionPerformed(evt);
             }
         });
 
@@ -157,41 +205,353 @@ public class Interfeca extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane1.setViewportView(jTextPane1);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lstarVendas_btn)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(btn_ListarVendas)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_ListarClientes)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_ListarEstoque)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(159, 159, 159))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(sair_btn)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(listarClientes_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(ListarEstoque_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                        .addComponent(listarColaboradores_btn)
+                        .addGap(159, 159, 159))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(sair_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 160, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_ListarVendas)
-                    .addComponent(btn_ListarClientes)
-                    .addComponent(btn_ListarEstoque)
-                    .addComponent(jButton5))
+                    .addComponent(lstarVendas_btn)
+                    .addComponent(listarClientes_btn)
+                    .addComponent(ListarEstoque_btn)
+                    .addComponent(listarColaboradores_btn))
                 .addGap(25, 25, 25))
         );
 
         jTabbedPane1.addTab("Listar", jPanel3);
+
+        incluirCliente_btn.setText("Cadastrar Cliente");
+        incluirCliente_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                incluirCliente_btnActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cadastrar Colaborador");
+
+        jLabel3.setText("Nome");
+
+        email_txt.setText("e-mail");
+
+        endereco_txt.setText("Endereço");
+
+        jLabel6.setText("Telefone");
+
+        cpf_txt.setText("CPF");
+
+        jLabel4.setText("Login");
+
+        jLabel5.setText("Senha");
+
+        end_c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                end_cActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
+
+        castrarClaborador_btn.setText("Castrar Colaborador");
+        castrarClaborador_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                castrarClaborador_btnActionPerformed(evt);
+            }
+        });
+
+        alterarCliente_c.setText("Alterar Cliente");
+        alterarCliente_c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarCliente_cActionPerformed(evt);
+            }
+        });
+
+        alterarColaborador_c.setText("Altera Colaborador");
+        alterarColaborador_c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarColaborador_cActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Obs* Não informe Login e senha para usuários");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cpf_txt)
+                            .addComponent(jLabel3))
+                        .addGap(39, 39, 39)
+                        .addComponent(nome_c, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(endereco_txt)
+                            .addComponent(email_txt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cpfCpf_c, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(email_c, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(end_c, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(incluirCliente_btn))))))
+                .addGap(131, 131, 131)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(telegonetelefone_c, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(61, 61, 61)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(login_c, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(senhasenha_c))))
+                        .addGap(151, 151, 151)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(telefone_c, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(alterarColaborador_c)
+                            .addComponent(castrarClaborador_btn))))
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(alterarCliente_c)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefone_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(telegonetelefone_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(nome_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(cpf_txt))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(cpfCpf_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)))))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(84, 84, 84)
+                                .addComponent(jButton2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(login_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(85, 85, 85)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(castrarClaborador_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(alterarColaborador_c)
+                                .addGap(17, 17, 17))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(email_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email_txt))
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(endereco_txt)
+                            .addComponent(end_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(senhasenha_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(59, 59, 59)
+                        .addComponent(incluirCliente_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(alterarCliente_c)
+                        .addContainerGap(14, Short.MAX_VALUE))))
+        );
+
+        jTabbedPane1.addTab("Cadastrar C/Cl", jPanel4);
+
+        jLabel9.setText("Excluir Clente ou colaborador");
+
+        jLabel10.setText("CPF");
+
+        excluirColaborador_btn.setText("Excluir Colaborador");
+        excluirColaborador_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirColaborador_btnActionPerformed(evt);
+            }
+        });
+
+        excluirCliente_btn.setText("Excluir Cliente");
+        excluirCliente_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirCliente_btnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(29, 29, 29)
+                                .addComponent(excluirColaboradorCliente_c, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(excluirColaborador_btn)
+                        .addGap(18, 18, 18)
+                        .addComponent(excluirCliente_btn)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel9)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(excluirColaboradorCliente_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(excluirColaborador_btn)
+                    .addComponent(excluirCliente_btn))
+                .addGap(73, 73, 73))
+        );
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(383, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Excluir", jPanel5);
+
+        jLabel11.setText("Insire o CPF do Cliente:");
+
+        jLabel12.setText("Insire o nome do Material");
+
+        jLabel13.setText("Insere a quantidade");
+
+        jButton1.setText("Realizar Venda");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(inputQuantidadeMaterial)
+                            .addComponent(inputNomeMaterial)
+                            .addComponent(inputCpfVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jButton1)))
+                .addContainerGap(256, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(inputCpfVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(inputNomeMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(inputQuantidadeMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(89, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Realizar Vendas", jPanel7);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -204,56 +564,129 @@ public class Interfeca extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_ListarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarEstoqueActionPerformed
-         JOptionPane.showMessageDialog(rootPane, rotas.ImprimirEstoque());
-    }//GEN-LAST:event_btn_ListarEstoqueActionPerformed
-
-    private void btn_ListarVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarVendasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_ListarVendasActionPerformed
-
-    private void btn_ListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ListarClientesActionPerformed
-        JOptionPane.showMessageDialog(rootPane, rotas.ImprimirListaClientes());
-                                                    
-    }//GEN-LAST:event_btn_ListarClientesActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
-       //JOptionPane.showMessageDialog(rootPane, rotas.debugarInterface());
-    
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void senha_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senha_inputActionPerformed
-
-    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
-        // TODO add your handling code here:
-        String login=login_input.getText(), senha=senha_input.getText();
-        
-        boolean validar;
-        
-        if(rotas.login(login, senha)){
-            JOptionPane.showMessageDialog(rootPane, "Login efetuado com sucesso!");
-            jTabbedPane1.enable(true);
+    private void excluirCliente_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirCliente_btnActionPerformed
+        if(rotas.ExcluirCliente(excluirColaboradorCliente_c.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Excluido com sucesso!");
         }else{
-           JOptionPane.showMessageDialog(rootPane, "Login ou senha errado. Tente novamente");
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
         }
-        
-        
+    }//GEN-LAST:event_excluirCliente_btnActionPerformed
 
-    }//GEN-LAST:event_login_btnActionPerformed
+    private void excluirColaborador_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirColaborador_btnActionPerformed
+        if(rotas.ExcluirColaborador(excluirColaboradorCliente_c.getText())){
+            JOptionPane.showMessageDialog(rootPane, "Excluido com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
+        }
+    }//GEN-LAST:event_excluirColaborador_btnActionPerformed
+
+    private void alterarColaborador_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarColaborador_cActionPerformed
+        if(rotas.AlterarColaborador(
+            login_c.getText(),
+            senhasenha_c.getText(),
+            nome_c.getText(),
+            end_c.getText(),
+            email_c.getText(),
+            cpfCpf_c.getText(),
+            telegonetelefone_c.getText()))
+    {
+        JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
+        }
+    }//GEN-LAST:event_alterarColaborador_cActionPerformed
+
+    private void alterarCliente_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarCliente_cActionPerformed
+        if(rotas.AlterarCliente(
+            nome_c.getText(),
+            end_c.getText(),
+            email_c.getText(),
+            cpfCpf_c.getText(),
+            telegonetelefone_c.getText()))
+    {
+        JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
+        }
+    }//GEN-LAST:event_alterarCliente_cActionPerformed
+
+    private void castrarClaborador_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castrarClaborador_btnActionPerformed
+        if(rotas.IncluirColaborador(login_c.getText(), senhasenha_c.getText(), nome_c.getText(),
+            endereco_txt.getText(),
+            email_c.getText(),
+            cpfCpf_c.getText(),
+            telegonetelefone_c.getText())){
+        JOptionPane.showMessageDialog(rootPane, "Cadatrado Com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
+        }
+    }//GEN-LAST:event_castrarClaborador_btnActionPerformed
+
+    private void end_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_end_cActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_end_cActionPerformed
+
+    private void incluirCliente_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incluirCliente_btnActionPerformed
+        if(rotas.IncluirCliente(nome_c.getText(),
+            endereco_txt.getText(),
+            email_c.getText(),
+            cpfCpf_c.getText(),
+            telegonetelefone_c.getText())){
+        JOptionPane.showMessageDialog(rootPane, "Cadatrado Com sucesso!");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Erro!");
+        }
+    }//GEN-LAST:event_incluirCliente_btnActionPerformed
 
     private void sair_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sair_btnActionPerformed
+
+    private void listarColaboradores_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarColaboradores_btnActionPerformed
+         jTextPane1.setText(rotas.ImprimirListaColaboradores());
+        //JOptionPane.showMessageDialog(rootPane, rotas.ImprimirListaColaboradores());
+    }//GEN-LAST:event_listarColaboradores_btnActionPerformed
+
+    private void ListarEstoque_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarEstoque_btnActionPerformed
+       // JOptionPane.showMessageDialog(rootPane, rotas.ImprimirEstoque());
+        jTextPane1.setText(rotas.ImprimirEstoque());
+    }//GEN-LAST:event_ListarEstoque_btnActionPerformed
+
+    private void listarClientes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarClientes_btnActionPerformed
+
+        //JOptionPane.showMessageDialog(rootPane, rotas.ImprimirListaClientes());
+        jTextPane1.setText(rotas.ImprimirListaClientes());
+    }//GEN-LAST:event_listarClientes_btnActionPerformed
+
+    private void lstarVendas_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstarVendas_btnActionPerformed
+        JOptionPane.showMessageDialog(rootPane, rotas.ConsultarVendas());
+        jTextPane1.setText(rotas.ConsultarVendas());
+    }//GEN-LAST:event_lstarVendas_btnActionPerformed
+
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+        // TODO add your handling code here:
+        String login=login_input.getText(), senha=senha_input.getText();
+
+        boolean validar;
+
+        if(rotas.login(login, senha)){
+            JOptionPane.showMessageDialog(rootPane, "Login efetuado com sucesso!");
+            jTabbedPane1.enable(true);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Login ou senha errado. Tente novamente");
+        }
+    }//GEN-LAST:event_login_btnActionPerformed
+
+    private void senha_inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha_inputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senha_inputActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,19 +726,61 @@ public class Interfeca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_ListarClientes;
-    private javax.swing.JButton btn_ListarEstoque;
-    private javax.swing.JButton btn_ListarVendas;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton ListarEstoque_btn;
+    private javax.swing.JButton alterarCliente_c;
+    private javax.swing.JButton alterarColaborador_c;
+    private javax.swing.JButton castrarClaborador_btn;
+    private java.awt.Choice choice1;
+    private javax.swing.JTextField cpfCpf_c;
+    private javax.swing.JLabel cpf_txt;
+    private javax.swing.JTextField email_c;
+    private javax.swing.JLabel email_txt;
+    private javax.swing.JTextField end_c;
+    private javax.swing.JLabel endereco_txt;
+    private javax.swing.JButton excluirCliente_btn;
+    private javax.swing.JTextField excluirColaboradorCliente_c;
+    private javax.swing.JButton excluirColaborador_btn;
+    private javax.swing.JButton incluirCliente_btn;
+    private javax.swing.JTextField inputCpfVenda;
+    private javax.swing.JTextField inputNomeMaterial;
+    private javax.swing.JTextField inputQuantidadeMaterial;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JButton listarClientes_btn;
+    private javax.swing.JButton listarColaboradores_btn;
     private javax.swing.JButton login_btn;
+    private javax.swing.JTextField login_c;
     private javax.swing.JTextField login_input;
+    private javax.swing.JButton lstarVendas_btn;
+    private javax.swing.JTextField nome_c;
     private javax.swing.JButton sair_btn;
     private javax.swing.JTextField senha_input;
+    private javax.swing.JTextField senhasenha_c;
+    private javax.swing.JTextField telefone_c;
+    private javax.swing.JTextField telegonetelefone_c;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,8 +50,8 @@ public class Routes {
     }
     
     //Alterar Colaborador
-    public boolean AlterarColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone, boolean veri){
-        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone, veri);
+    public boolean AlterarColaborador(String login, String senha, String nome, String endereco, String email, String cpf, String telefone){
+        Colaborador colaboradores = new Colaborador(login, senha, nome, endereco, email, cpf, telefone, false);
         return sistema.AlterarColaborador(colaboradores);
     }
     
@@ -71,6 +71,13 @@ public class Routes {
     public boolean IncluirCliente(String nome, String endereco, String email, String cpf, String telefone){
         Cliente clientes = new Cliente(nome, endereco, email, cpf, telefone);
         return sistema.incluirCliente(clientes);
+    }
+    public boolean ExcluirCliente(String cpf){
+        return sistema.ExcluirCliente(cpf);
+    }
+        public boolean AlterarCliente(String nome, String endereco, String email, String cpf, String telefone){
+            Cliente cliente = new Cliente(nome, endereco, email, cpf, telefone, true);
+        return sistema.AterarCliente(cliente);
     }
     
     public String ImprimirListaClientes(){
@@ -124,7 +131,8 @@ public class Routes {
                     sistema.getEstoque().get(indexMaterial).menosQuantidade(quantidade);
                     Arquivo.liparArquivo("data/estoque.json");
                     Arquivo.enviarParaEscrita(sistema.getEstoque(), "data/estoque.json");
-            
+                    sistema.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
+                    venda.setIdVenda(sistema.getVenda().size());
                     return sistema.RealizarVendas(venda);
                     }
                 }

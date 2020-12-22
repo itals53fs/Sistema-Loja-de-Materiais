@@ -18,7 +18,7 @@ public class View {
     /**
      * @param args the command line arguments
      */
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
 
         
         //------------------------------------•
@@ -53,7 +53,7 @@ public class View {
 
              case 1:
                  // Incluir Colaborador Login / Senha / Nome / Ende / email / CPF / telefone
-                 sis.IncluirColaborador("ulisses", "123", "Ulisses", "tijucal", "ulisses@ulisses", "123", "99748");
+                 sis.IncluirColaborador("tales", "123", "tales", "serro", "tales", "22", "99748");
 
            
                 break;
@@ -72,16 +72,7 @@ public class View {
 
                  sis.IncluirCliente("gabriel", "end", "12", "222","aaa");
                 break;
-             case 3:
-                 
-                 sis.salvarMaetrial("cimento", 3, 5, "espec", 23, "fornecedor");
-                 
-                break;
-             case 4:
-                 sis.RealizarVenda(2, "222", "cimento");
-
-                 
-                break; 
+ 
              case 5:
                  System.out.println(sis.ImprimirListaClientes());
                 case 6:
@@ -101,7 +92,7 @@ public class View {
                     sis.ExcluirColaborador("123");
                 break;
                     case 10:
-                sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone", true);
+                //sis.AlterarColaborador("inputLogin", "inputSenha", "inputNome", "end", "inputEmail", "123", "inputTelefone", true);
                 break;
                     case 11:
                         sis.AlterarMaterial("tijolo", 10, 6, "especificacao", 10, "fornecedor", false);
@@ -117,7 +108,7 @@ public class View {
         System.out.println(sis.ConsultarVendas());
         //System.out.println(sis.MostrarClientes());
         
-    }*/
+    }
     
 }
 

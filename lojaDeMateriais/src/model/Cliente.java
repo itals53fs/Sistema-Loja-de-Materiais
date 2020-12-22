@@ -27,22 +27,19 @@ public class Cliente  extends Pessoa{
             vendas += venda.GerarExtrato()+"\n";
             
         }
-        return "•-----Info do Cliente-----•"+
-                "\nNome " + getNome()+
-                "\nEndereço "+getEndereco()+
-                "\nE-mail " + getEmail()+
-                "\nCPF " + getCpf()+
-                "\nTelefone " + getTelefone()+
-                "\n------Vendas---- \n" + vendas + "------Vendas---- \n"+
-                
-                "\n•----Fim Client------•";
+        return
+                " Nome " + getNome()+
+                " Endereço "+getEndereco()+
+                " E-mail " + getEmail()+
+                " CPF " + getCpf()+
+                " Telefone " + getTelefone()+
+                "\n------Compras---- \n"+ vendas+"\n\n";
                 
     }
 
     public Cliente(String nome, String endereco, String email, String cpf, String telefone) {
         super(nome, endereco, email, cpf, telefone);
-        numeroPesssoa[1]++;
-        Arquivo.enviarParaEscrita(numeroPesssoa, "data/numeroPessoas.json");
+        numeroClientes++;
     }
     public Cliente(String nome, String endereco, String email, String cpf, String telefone, boolean veri) {
         super(nome, endereco, email, cpf, telefone);
