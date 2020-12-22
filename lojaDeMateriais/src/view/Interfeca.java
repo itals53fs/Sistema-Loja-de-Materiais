@@ -793,7 +793,7 @@ public class Interfeca extends javax.swing.JFrame {
 
     private void castrarClaborador_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castrarClaborador_btnActionPerformed
         if(rotas.IncluirColaborador(login_c.getText(), senhasenha_c.getText(), nome_c.getText(),
-            endereco_txt.getText(),
+            end_c.getText(),
             email_c.getText(),
             cpfCpf_c.getText(),
             telegonetelefone_c.getText())){
@@ -809,7 +809,7 @@ public class Interfeca extends javax.swing.JFrame {
 
     private void incluirCliente_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_incluirCliente_btnActionPerformed
         if(rotas.IncluirCliente(nome_c.getText(),
-            endereco_txt.getText(),
+            end_c.getText(),
             email_c.getText(),
             cpfCpf_c.getText(),
             telegonetelefone_c.getText())){

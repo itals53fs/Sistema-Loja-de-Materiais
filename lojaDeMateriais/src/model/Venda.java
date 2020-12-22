@@ -94,7 +94,8 @@ public class Venda {
         return "\n•-----Extrato de Venda-----•\n"
                 + "\nId da Venda: " + getIdVenda()
                 + "\nValor total: " + getValorTotal()
-                + "\nData da Venda: ---"
+                + "\nCPF Cliente: " + getCpfCliente()
+                + "\nData da Venda: ---" 
                 + "\nMateriais: " +  materialString+"\n\n"
                 ;
     }
