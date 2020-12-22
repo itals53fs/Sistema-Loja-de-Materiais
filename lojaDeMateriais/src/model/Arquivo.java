@@ -29,28 +29,6 @@ public class Arquivo {
     private static JSONParser parser;
     private static Scanner scan = new Scanner(System.in);
     private static final Gson gson = new Gson();
-    public static String readFile(String arquivo){
-        String conteudo = "";
-        try {
-            FileReader arq = new FileReader(arquivo);
-            BufferedReader ler = new BufferedReader(arq);
-            String linha = "";
-            try {
-                linha = ler.readLine();
-                while(linha!=null){
-                    conteudo += linha+"\n";
-                    linha = ler.readLine();
-                }
-                arq.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Arquivo.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Arquivo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return conteudo;
-    }
 
      public  static void escrever(String json, String arq) throws IOException{
  
@@ -91,14 +69,6 @@ public class Arquivo {
             Logger.getLogger(Arquivo.class.getName()).log(Level.SEVERE, null, ex);
         }
      }
-    public static <T> void enviarParaEscrita(T num, String arq){
-        String json = gson.toJson(num);
-        try {
-            Arquivo.escrever(json, arq);
-        } catch (IOException ex) {
-            Logger.getLogger(Arquivo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     
     
     public static Colaborador[] puxarDadosColaborador(String arq){
