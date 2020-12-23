@@ -580,7 +580,7 @@ public class Interfeca extends javax.swing.JFrame {
             }
         });
 
-        jLabel25.setText("Querido User, preenche os capos com seu tipo correspondende ");
+        jLabel25.setText("Querido User, preencha os campos com seu tipo correspondende ");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -607,7 +607,7 @@ public class Interfeca extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
                         .addComponent(jLabel25)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -667,7 +667,7 @@ public class Interfeca extends javax.swing.JFrame {
 
         jLabel21.setText("Data de Fabricão");
 
-        jLabel24.setText("Querido User, preenche os capos com seu tipo correspondende ");
+        jLabel24.setText("Querido User, preencha os campos com seu tipo correspondende ");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
