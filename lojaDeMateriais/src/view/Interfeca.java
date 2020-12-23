@@ -45,12 +45,12 @@ public class Interfeca extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         senha_input = new javax.swing.JTextField();
         login_btn = new javax.swing.JButton();
+        sair_btn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lstarVendas_btn = new javax.swing.JButton();
         listarClientes_btn = new javax.swing.JButton();
         ListarEstoque_btn = new javax.swing.JButton();
         listarColaboradores_btn = new javax.swing.JButton();
-        sair_btn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         numeroClientesColaboradores_btn = new javax.swing.JButton();
@@ -95,6 +95,7 @@ public class Interfeca extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         inputQuantidadeMaterial_c = new javax.swing.JTextField();
         realizarVendas_btn = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -112,6 +113,7 @@ public class Interfeca extends javax.swing.JFrame {
         alterarMaterial_btn = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         dataFabricacao_c = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -179,24 +181,38 @@ public class Interfeca extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
+        sair_btn.setText("Sair");
+        sair_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sair_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(240, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(214, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(204, 204, 204))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(sair_btn)
+                        .addGap(31, 31, 31))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
+                .addComponent(sair_btn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
 
-        jTabbedPane1.addTab("Login", jPanel2);
+        jTabbedPane1.addTab("Login/sair", jPanel2);
 
         lstarVendas_btn.setText("Listar Vendas");
         lstarVendas_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -226,13 +242,6 @@ public class Interfeca extends javax.swing.JFrame {
             }
         });
 
-        sair_btn.setText("SAIR");
-        sair_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sair_btnActionPerformed(evt);
-            }
-        });
-
         jScrollPane1.setViewportView(jTextPane1);
 
         numeroClientesColaboradores_btn.setText("N° Col&cli");
@@ -257,15 +266,9 @@ public class Interfeca extends javax.swing.JFrame {
                             .addComponent(ListarEstoque_btn))
                         .addGap(53, 53, 53))
                     .addComponent(listarColaboradores_btn, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 497, Short.MAX_VALUE)
-                        .addComponent(sair_btn))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +284,7 @@ public class Interfeca extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(numeroClientesColaboradores_btn))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sair_btn)
-                .addGap(9, 9, 9)
+                .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 23, Short.MAX_VALUE))
         );
@@ -579,32 +580,41 @@ public class Interfeca extends javax.swing.JFrame {
             }
         });
 
+        jLabel25.setText("Querido User, preenche os capos com seu tipo correspondende ");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(230, 230, 230)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(inputQuantidadeMaterial_c)
-                            .addComponent(inputNomeMaterial_c)
-                            .addComponent(inputCpfVenda_c, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel13))
+                                .addGap(21, 21, 21)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(inputQuantidadeMaterial_c)
+                                    .addComponent(inputNomeMaterial_c)
+                                    .addComponent(inputCpfVenda_c, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(realizarVendas_btn))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(realizarVendas_btn)))
-                .addContainerGap(256, Short.MAX_VALUE))
+                        .addGap(125, 125, 125)
+                        .addComponent(jLabel25)))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel25)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
                     .addComponent(inputCpfVenda_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -618,7 +628,7 @@ public class Interfeca extends javax.swing.JFrame {
                     .addComponent(inputQuantidadeMaterial_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(realizarVendas_btn)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Realizar Vendas", jPanel7);
@@ -657,6 +667,8 @@ public class Interfeca extends javax.swing.JFrame {
 
         jLabel21.setText("Data de Fabricão");
 
+        jLabel24.setText("Querido User, preenche os capos com seu tipo correspondende ");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -685,30 +697,39 @@ public class Interfeca extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adicionarMaterial_btn)
-                            .addComponent(alterarMaterial_btn))
-                        .addGap(120, 120, 120))
+                        .addComponent(alterarMaterial_btn)
+                        .addGap(145, 145, 145))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(32, 32, 32)
-                                .addComponent(fornecedor_c, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(13, Short.MAX_VALUE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jLabel21)
                                 .addGap(18, 18, 18)
                                 .addComponent(dataFabricacao_c)
-                                .addGap(28, 28, 28))))))
+                                .addGap(28, 28, 28))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(jLabel19)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(fornecedor_c, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(adicionarMaterial_btn)))
+                                .addContainerGap(13, Short.MAX_VALUE))))))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jLabel24)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addContainerGap()
+                        .addComponent(jLabel24)
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
                             .addComponent(nomeMaterial_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -735,7 +756,7 @@ public class Interfeca extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(adicionarMaterial_btn)
-                        .addGap(42, 42, 42)))
+                        .addGap(7, 7, 7)))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(especificacao_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -816,15 +837,17 @@ public class Interfeca extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 47, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -907,10 +930,6 @@ public class Interfeca extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_incluirCliente_btnActionPerformed
 
-    private void sair_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_btnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sair_btnActionPerformed
-
     private void listarColaboradores_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarColaboradores_btnActionPerformed
          jTextPane1.setText(rotas.ImprimirListaColaboradores());
         //JOptionPane.showMessageDialog(rootPane, rotas.ImprimirListaColaboradores());
@@ -955,6 +974,7 @@ public class Interfeca extends javax.swing.JFrame {
     }//GEN-LAST:event_margemLucro_cActionPerformed
 
     private void adicionarMaterial_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarMaterial_btnActionPerformed
+ 
         if(rotas.IncluirMaetrial(
                 nomeMaterial_c.getText(),
                 Integer.parseInt(quantidade_c.getText()),
@@ -1017,6 +1037,10 @@ public class Interfeca extends javax.swing.JFrame {
        
         campo_extrato.setText(rotas.GerarExtratoCliente(input_cpfExtrato.getText()));
     }//GEN-LAST:event_gerar_btnActionPerformed
+
+    private void sair_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sair_btnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_sair_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1101,6 +1125,8 @@ public class Interfeca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

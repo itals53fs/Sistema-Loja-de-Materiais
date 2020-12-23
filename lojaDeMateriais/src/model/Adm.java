@@ -1,10 +1,13 @@
 
 package model;
 
-import java.util.Date;
 
+ 
 
-public class Adm extends Colaborador {
-    private String login = "admin";
-    private String senha = "123";
+public class Adm extends Colaborador{
+
+    public Adm(String login, String senha) {
+        super(login, senha);
+    }
+                
 }

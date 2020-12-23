@@ -21,6 +21,7 @@ public class Sistema {
     private List<Venda> venda = new ArrayList<Venda>();
     private List<Cliente> cliente = new ArrayList<Cliente>();
     private List<Material> estoque = new ArrayList<Material>();
+    private Adm adm = new Adm("admin", "admin");
     //-- Incluir Colaborador****************************************************
     public boolean IncluirColaborador (Colaborador colaborador){
          
@@ -353,7 +354,10 @@ public class Sistema {
     //++++++++++++++++++ Login
     
     public boolean loginColaborador( String nome, String senha){
-        
+        System.out.println(this.adm.getSenha() +" "+this.adm.getLogin());
+        if(nome.equals(this.adm.getLogin()) && senha.equals(this.adm.getSenha())){
+            return true;
+        }
         this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
         
         for(int i =0; i<colaboradors.length; i++){

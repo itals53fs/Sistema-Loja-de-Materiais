@@ -28,7 +28,13 @@ public class Colaborador extends Pessoa {
         numeroColaborador++;
     }
 
+    public Colaborador(String login, String senha) {
+        super();
+        this.login = login;
+        this.senha = senha;
+    }
 
+        
     public Colaborador(){
  
     }
