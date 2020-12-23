@@ -5,17 +5,12 @@
  */
 package model;
 
-import controller.Routes;
-import java.util.Scanner;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,11 +21,8 @@ public class Sistema {
     private List<Venda> venda = new ArrayList<Venda>();
     private List<Cliente> cliente = new ArrayList<Cliente>();
     private List<Material> estoque = new ArrayList<Material>();
-    private Scanner scan = new Scanner(System.in);
-    Scanner in;
-    
     //-- Incluir Colaborador****************************************************
-    public boolean IncluirColaborador(Colaborador colaborador){
+    public boolean IncluirColaborador (Colaborador colaborador){
          
              //Sobrescrever o vetor
    
@@ -311,6 +303,17 @@ public class Sistema {
        return "N° de Clientes Execução Sistema: "+Pessoa.getNumeroClientes()+
               "\nN° de Claboradores Execução Sistema: "+Colaborador.getNumeroColaborador();
    }
+   
+   
+       public int compareTo(Material material) {
+        if(material.getQuantidade() < material.getQuantidade()){
+            return -1;
+        }else if(material.getQuantidade() > material.getQuantidade()){
+            return 1;
+        }
+        
+         return 0;
+    }
     
 
 

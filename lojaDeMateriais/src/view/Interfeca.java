@@ -247,29 +247,23 @@ public class Interfeca extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ListarEstoque_btn)
-                            .addGap(98, 98, 98))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(listarClientes_btn)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lstarVendas_btn)
-                                .addComponent(listarColaboradores_btn, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addComponent(numeroClientesColaboradores_btn))))
+                            .addComponent(listarClientes_btn)
+                            .addComponent(lstarVendas_btn)
+                            .addComponent(numeroClientesColaboradores_btn)
+                            .addComponent(ListarEstoque_btn))
+                        .addGap(53, 53, 53))
+                    .addComponent(listarColaboradores_btn, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 503, Short.MAX_VALUE)
+                        .addGap(0, 497, Short.MAX_VALUE)
                         .addComponent(sair_btn))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -280,11 +274,11 @@ public class Interfeca extends javax.swing.JFrame {
                 .addComponent(lstarVendas_btn)
                 .addGap(36, 36, 36)
                 .addComponent(listarClientes_btn)
-                .addGap(26, 26, 26)
+                .addGap(37, 37, 37)
                 .addComponent(listarColaboradores_btn)
-                .addGap(33, 33, 33)
-                .addComponent(ListarEstoque_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ListarEstoque_btn)
+                .addGap(38, 38, 38)
                 .addComponent(numeroClientesColaboradores_btn))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
@@ -883,7 +877,10 @@ public class Interfeca extends javax.swing.JFrame {
     }//GEN-LAST:event_alterarCliente_cActionPerformed
 
     private void castrarClaborador_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_castrarClaborador_btnActionPerformed
-        if(rotas.IncluirColaborador(login_c.getText(), senhasenha_c.getText(), nome_c.getText(),
+        if(rotas.IncluirColaborador(
+            login_c.getText(),
+            senhasenha_c.getText(),
+            nome_c.getText(),
             end_c.getText(),
             email_c.getText(),
             cpfCpf_c.getText(),

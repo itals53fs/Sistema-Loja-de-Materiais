@@ -109,7 +109,6 @@ public class View {
         //System.out.println(sis.MostrarClientes());
         
         sis.Comparar();
-        System.out.println(sis.ImprimirEstoque());
     }
     
 }
