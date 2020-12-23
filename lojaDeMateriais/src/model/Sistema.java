@@ -275,15 +275,15 @@ public class Sistema {
     
     public String GerarExtratoCliente(String cpf){
         this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
-        
+        String Svendas = "";
         for(Venda vendas : this.venda){
             if(cpf.equals(vendas.getCpfCliente())){
                 
-                return vendas.GerarExtrato();
+                Svendas += vendas.GerarExtrato()+"\n";
             }
         }
         this.venda.clear();
-        return null;
+        return Svendas;
     }
     
    
