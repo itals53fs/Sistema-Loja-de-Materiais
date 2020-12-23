@@ -110,6 +110,8 @@ public class View {
         
         sis.Comparar();
         System.out.println(sis.ImprimirEstoque());
+        
+        
     }
     
 }
