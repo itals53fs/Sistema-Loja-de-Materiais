@@ -5,17 +5,12 @@
  */
 package model;
 
-import controller.Routes;
-import java.util.Scanner;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,11 +21,9 @@ public class Sistema {
     private List<Venda> venda = new ArrayList<Venda>();
     private List<Cliente> cliente = new ArrayList<Cliente>();
     private List<Material> estoque = new ArrayList<Material>();
-    private Scanner scan = new Scanner(System.in);
-    Scanner in;
-    
+    private Adm adm = new Adm("admin", "admin");
     //-- Incluir Colaborador****************************************************
-    public boolean IncluirColaborador(Colaborador colaborador){
+    public boolean IncluirColaborador (Colaborador colaborador){
          
              //Sobrescrever o vetor
    
@@ -283,15 +276,15 @@ public class Sistema {
     
     public String GerarExtratoCliente(String cpf){
         this.setVenda(Arquivo.puxarDadosVenda("data/vendas.json"));
-        
+        String Svendas = "";
         for(Venda vendas : this.venda){
             if(cpf.equals(vendas.getCpfCliente())){
                 
-                return vendas.GerarExtrato();
+                Svendas += vendas.GerarExtrato()+"\n";
             }
         }
         this.venda.clear();
-        return null;
+        return Svendas;
     }
     
    
@@ -311,6 +304,17 @@ public class Sistema {
        return "N° de Clientes Execução Sistema: "+Pessoa.getNumeroClientes()+
               "\nN° de Claboradores Execução Sistema: "+Colaborador.getNumeroColaborador();
    }
+   
+   
+       public int compareTo(Material material) {
+        if(material.getQuantidade() < material.getQuantidade()){
+            return -1;
+        }else if(material.getQuantidade() > material.getQuantidade()){
+            return 1;
+        }
+        
+         return 0;
+    }
     
 
 
@@ -350,7 +354,10 @@ public class Sistema {
     //++++++++++++++++++ Login
     
     public boolean loginColaborador( String nome, String senha){
-        
+        System.out.println(this.adm.getSenha() +" "+this.adm.getLogin());
+        if(nome.equals(this.adm.getLogin()) && senha.equals(this.adm.getSenha())){
+            return true;
+        }
         this.setColaboradors(Arquivo.puxarDadosColaborador("data/colaboradores.json"));
         
         for(int i =0; i<colaboradors.length; i++){

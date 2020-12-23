@@ -1,10 +1,8 @@
 package model;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,8 +24,7 @@ import jdk.nashorn.internal.parser.JSONParser;
  */
 public class Arquivo {
     private static FileWriter escrita = null;
-    private static JSONParser parser;
-    private static Scanner scan = new Scanner(System.in);
+    private static Scanner scan;
     private static final Gson gson = new Gson();
 
      public  static void escrever(String json, String arq) throws IOException{

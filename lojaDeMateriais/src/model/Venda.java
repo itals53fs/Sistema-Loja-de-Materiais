@@ -62,19 +62,18 @@ public class Venda {
 
    
    public String GerarExtrato() {
-       System.out.println("-----Venda-Realizada-----\n");
         String materialString = 
-                " CPF: \t\t " +this.cpfCliente
-                +"\n Valor Total: " + this.getValorTotal()
-                + "\n Quantidade: \t\t" + this.quantidade;
+                " CPF: \t" +this.cpfCliente
+                +"\n Valor Total: \t" + this.getValorTotal()
+                + "\n Quantidade: \t" + this.quantidade;
         
         for(Material material : materiais){
             materialString += 
             "\n\t\t--Material--"
-            +"\nNome: \t\t" + material.getNome() 
-            + "\nPreço: \t\t" + material.getPreco() 
-            + "\nFornecedor: \t\t" + material.getFornecedor()
-            + "\nValor Total: \t\t" + valorTotal;
+            +"\nNome: \t" + material.getNome() 
+            + "\nPreço: \t" + material.getPreco() 
+            + "\nFornecedor: \t" + material.getFornecedor()
+            + "\nValor Total: \t" + valorTotal;
         }
        return materialString;
    }
