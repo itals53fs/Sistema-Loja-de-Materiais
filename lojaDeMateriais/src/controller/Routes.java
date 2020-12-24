@@ -26,8 +26,8 @@ public class Routes {
     public boolean IncluirMaetrial(String nome, int quantidade, float preco, String especificacao, float margemLucro, String fornecedor, String datafabricacao){
         Material material = new Material(nome, quantidade, preco, especificacao, margemLucro, fornecedor, datafabricacao);
         
-        // sistema.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
-        // System.out.println(material.compareTo(sistema.getEstoque().get(0)));
+        sistema.setEstoque(Arquivo.puxarDadosMaterial("data/estoque.json"));
+        System.out.println(material.compareTo(sistema.getEstoque().get(0)));
         return sistema.IncluirMaterial(material);
         
     }

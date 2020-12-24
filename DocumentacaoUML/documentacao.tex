@@ -1,0 +1,519 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper,top=1.0cm,bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}    
+%\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{enumerate}
+\usepackage{pgf}%,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{tikz-uml}
+
+\usepackage{hyperref}
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={My title},    % title
+    pdfauthor={Author},     % author
+    pdfsubject={Subject},   % subject of the document
+    pdfcreator={Creator},   % creator of the document
+    pdfproducer={Producer}, % producer of the document
+    pdfkeywords={keyword1, key2, key3}, % list of keywords
+    pdfnewwindow=true,      % links in new PDF window
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue           % color of external links
+}
+
+\usepackage{listings}
+%\lstset{language=Java,
+%  showspaces=false,
+%  showtabs=false,
+%  breaklines=true,
+%  showstringspaces=false,
+%  breakatwhitespace=true,
+%  commentstyle=\color{pgreen},
+%  keywordstyle=\color{pblue},
+%  stringstyle=\color{pred},
+%  basicstyle=\ttfamily,
+%  moredelim=[il][\textcolor{pgrey}]{$$},
+%  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+%}
+
+\lstset{ %
+  backgroundcolor=\color{white}, 
+  basicstyle=\footnotesize,       
+  breakatwhitespace=false,        
+  breaklines=true,                 
+  captionpos=b,                    
+  commentstyle=\color{pgreen},   
+  escapeinside={\%*}{*)},        
+  extendedchars=true,              
+  frame=single,                  
+  keywordstyle=\color{blue},       
+  language=Java,                
+  numbers=left,                    
+  numbersep=5pt,                   
+  numberstyle=\tiny\color{pgrey},
+  rulecolor=\color{black},        
+  showspaces=false,               
+  showstringspaces=false,          
+  showtabs=false,                  
+  stepnumber=2,                    
+  stringstyle=\color{pred},   
+  tabsize=2,                      
+  title=\lstname, 
+  xleftmargin=\parindent,
+%  xleftmargin=.25in,
+%  xrightmargin=.25in,
+  morekeywords={not,\},\{,preconditions,effects },            
+  deletekeywords={time}            
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{primeira}{
+\fancyhead{}
+\fancyfoot{}
+\lhead{\theauthor}
+\rhead{Bons Estudos! \thetitle}
+\rfoot{\thepage}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}\pagestyle{empty}
+\begin{titlepage}
+  \vfill
+    \begin{center}
+      {\large \textbf{UNIVERSIDADE FEDERAL DOS VALES DO JEQUITINHONHA E MUCURI}} \\[0.5cm]
+      {\large \textbf{SISTEMAS DE INFORMAÇÃO}} \\[2cm]
+
+      {\large \textbf{Gabriel Morais}}\\[0.4cm]
+      {\large \textbf{Tales Félix}}\\[0.4cm]
+      {\large \textbf{Ulisses Brandão}}\\[4cm]
+  
+      {\Large Análise Orientada a Objetos e Uml}\\[4cm]
+  
+      \hspace{.45\textwidth} %posiciona a minipage
+      \begin{minipage}{.5\textwidth}
+      \large
+      Docente: Eduardo Pelli.\\[8cm]
+  \end{minipage}
+  {\large Diamantina, 18 de Outubro de 2020}
+  \end{center}
+\end{titlepage}
+
+\newpage
+\section{Introdução}
+Uma loja de materiais de construção precisa de um sistema para gerenciar
+o negócio. A loja conta com um galpão para estoque de materiais, e atendimento
+presencial a clientes. O sistema deve possibilitar o cadastro de materiais,
+com preço, quantidade em estoque, especificação do produto, margem de lucro,
+data de fabricação, fornecedor e outras informações que considerarem relevantes.
+Além disso, o sistema deverá fazer a gestão do relacionamento com o cliente,
+guardando informações pessoais (Nome, endereço, número do telefone, e-mail e CPF)
+e registro de compras. O sistema deverá ser utilizado pelos colaboradores da
+loja durante o atendimento ao cliente para gerar o extrato de venda e associar
+essas informações aos clientes da loja. O administrador poderá cadastrar
+clientes, colaboradores, produtos (materiais) e consultar as vendas.
+
+
+
+\section{Diagrama de Casos de Uso}
+
+\begin{tikzpicture}
+
+  \begin{umlsystem}{Casos de uso}
+   %Casos de uso
+  \umlusecase[x=-5,y=10]{Realizar Venda}
+  \umlusecase[x=1,y=8]{Gerar Extrato de Vendas}
+  %\umlusecase[x=-8,y=9]{Consultar Estoque}
+  \umlusecase[x=-5,y=8]{cadastrar Colaborador}
+  \umlusecase[x=-5,y=6]{Cadastrar cliente}
+  %\umlusecase[x=1,y=5]{Gerenciar Cliente}
+  \umlusecase[x=-5,y=4]{cadastrar materiais}
+  \umlusecase[x=-5,y=2]{Consultar Vendas}
+  \umlusecase[x=1,y=1]{Consultar Vendas por cliente}
+
+
+  
+  \end{umlsystem}
+  
+  
+  % \umlextend  {usecase-3}{usecase-6}
+  
+  
+  %atores
+  \umlactor[x=-12,y=10]{Colaborador}
+  \umlactor[x=-12,y=5]{Administrador}
+  
+  %include
+  %\umlinclude{usecase-1}{usecase-2}
+  
+  %extend
+  \umlextend{usecase-6}{usecase-7}
+  %\umlextend{usecase-5}{usecase-4}
+
+  %Ator relacionamentos
+  \umlassoc{Colaborador}{usecase-1}
+  \umlassoc{Colaborador}{usecase-2}
+  \umlassoc{Administrador}{usecase-3}
+  \umlassoc{Administrador}{usecase-4}
+  \umlassoc{Administrador}{usecase-5}
+  \umlassoc{Administrador}{usecase-6}
+  %\umlassoc{Administrador}{usecase-8}
+  \umlinherit{Administrador}{Colaborador}
+  
+  
+\end{tikzpicture}\\
+
+  O diagrama de casos de uso corresponde a uma visão externa do sistema
+  e representa graficamente os atores, os casos de uso, e os relacionamentos
+  entre estes elementos. Ele tem como objetivo ilustrar em um nível alto de
+  abstração quais elementos externos interagem com que funcionalidades do sistema,
+  ou seja, a finalidade de um diagrama de caso de uso é apresentar um tipo de diagrama
+  de contexto que apresenta os elementos externos de um sistema e as maneiras segundo
+  as quais eles as utilizam.
+
+\section{Fluxo de Eventos}
+\subsection{Realizar Venda}
+- O Caso de uso começa quando o Colaborador/Administrador acessa a opção “Realizar venda”;\\
+- O Colaborador/Administrador deverá estar logado na aplicação;\\
+- Caso o cliente não esteja cadastrado, o colaborador deverá acessar a opção
+“Solicitar cadastro” para assim o Administrador realizar o cadastro;\\
+- Com o Cliente cadastrado, o Colaborador/Administrador entrar com as
+informações de compras nos campos que aparece no sistema;\\
+- Colaborador/Administrador acessa a opção “Gerar Extrato” para gerar um
+extrato da venda feita para o cliente;\\
+- Sair do Sistema ou escolher outra opção;\\
+
+\subsection{Gerar Extrato de Vendas}
+- O Caso de uso começa quando o Colaborador/Administrador acessa a opção “Gerar Extratos de vendas”;\\
+- O Colaborador/Administrador deverá estar logado na aplicação;\\
+- Com o Cliente cadastrado, o Colaborador/Administrador acessa a opção “Gerar Extrato”;\\
+- Sair do Sistema ou escolher outra opção;\\
+
+\subsection{Cadastrar Colaborador}
+- O caso de uso começa quando o Administrador precisa cadastrar um novo colaborador.\\
+- Com o login efetuado o Administrador deverá acessar o “Cadastro Colaborador”;\\
+- Através de um formulário o administrador deverá informar os seguintes dados:
+nome, CPF, email e senha;\\
+- Sair do sistema ou escolher outra opção;\\
+
+\subsection{Cadastrar Cliente}
+- O caso de uso começa quando o Administrador precisa efetuar o cadastro de um novo cliente;\\
+- Com o login efetuado o Administrador deverá acessar o “Cadastro de Cliente”;\\
+- Através de um formulário o administrador deverá informar os seguintes dados:\\
+nome, endereço, número do telefone, e-mail e CPF;\\
+- Sair do sistema ou escolher outra opção;\\
+
+\subsection{Gerenciar Cliente}
+- O caso de uso começa quando o Administrador/Colaborador precisa efetuar uma
+busca nos dados do cliente;\\
+- Com o login efetuado o Administrador/Colaborador deverá acessar o “Gereciar
+Cliente” e fazer a pesquisa entre os clientes cadastrados;\\
+- Sair do sistema ou escolher outra opção;\\
+
+\subsection{Cadastrar Materiais}
+- O caso de uso começa quando o Administrador precisa cadastrar novos
+produtos(materiais) no sistema;\\
+- Com o login efetuado o Administrador deverá acessar “Cadastrar Materiais”
+informando dados do material.  com preço, quantidade em estoque, especificação
+do produto, margem de lucro, data de fabricação e fornecedor;\\
+- Sair do sistema ou escolher outra opção.\\
+
+\subsection{Consultar Estoque}
+- O caso de uso começa quando o Administrador/Colaborador precisa realizar uma
+consulta de produtos(materiais) no sistema;\\
+- Com o login efetuado o Administrador deverá acessar “Consultar Estoque”
+informando dados para a pesquisa do produto;\\
+- Sair do sistema ou escolher outra opção;\\
+
+\subsection{Consultar Vendas}
+- Com o login efetuado o Administrador deverá acessar “Consultar Vendas” escolhendo
+a opção “consultar todas as vendas”, e esperar uma mensagem mostrando o relatório das vendas;\\
+- Sair do sistema ou escolher outra opção.\\
+
+
+\subsection{Consultar Vendas por Cliente}
+- Com o login efetuado o Administrador deverá acessar “Consultar Vendas”
+escolhendo a opção de consultar “Consultar por cliente”, e esperar uma mensagem 
+mostrando o relatório das vendas;\\
+- Sair do sistema ou escolher outra opção.\\
+
+
+\section{Classes}
+{
+\scalebox{.67}
+{
+\begin{tikzpicture}
+   %SISTEMA
+   \umlclass[x = , y =0]{Sistema} {
+   - colaboradores: Colaborador[25]\\
+   - vendas: Venda[ ]\\
+   - clientes: Cliente[ ]\\
+   - estoque: Material[ ]\\
+   
+    }{
+   + incluirColaborador(colaborador: Colaborador): bool\\
+   + incluirCliente(cliente: Cliente): bool\\
+   + realizarVenda(venda: Venda): bool\\
+   + cancelarVenda(venda: Venda):bool\\
+    + incluirMaterial(material: Material) : bool \\
+   + ConsultarVendas() : bool
+  
+   }
+   
+    %PESSOA
+    \umlclass[x=10, y=-8]{Pessoa}{
+    - nome : String \\
+    - endereco : String \\
+
+    - email : String \\
+    - cpf : String \\
+    - telefone : String \\}{
+    }
+    
+    
+    %Cliente
+    \umlclass[x=3, y=-15]{Cliente}{
+    - regCompras : Venda[ ]}{
+    + ImprimirInfoCliente() : bool}
+    
+    %Colaborador
+    \umlclass[x=11, y=-15]{Colaborador}{
+    - login : String \\
+    - senha : String \\}{}
+    
+     %ADM
+    \umlclass[x=10, y=-20]{Adm}{}{}
+  
+   
+    %Venda
+    \umlclass[x =0, y=-8]{Venda}{
+     - idVenda: int \\
+     - data : Date \\
+    - valorTotal: float \\
+    - materiais: Material[ ] \\ }{
+      + GerarExtrato() : bool
+      }
+     
+
+
+   %Material
+   \umlclass[x=-10, y=-7]{Material} {
+   - nome: String \\
+   - quantidade: int \\
+   - preco: float \\
+   - especificacao: String \\
+   - margemLucro: float \\
+   - dataFabricacao: Date \\
+   - fornecedor: String \\
+   } {
+  
+   }
+   \umlclass[x=-10, y=-12]{Arquivo}{}{}
+\end{tikzpicture}
+}
+}
+
+
+
+\section{Diagrama de Sequência}
+
+\subsection{Diagrama de Sequência Cadrastar Colaborador}
+\begin{tikzpicture} 
+  \begin{umlseqdiag} 
+    \umlactor[]{ADM}
+    \umlobject[stereo=entity]{Login}
+    \umlobject[stereo=entity]{Validar}
+    \umlobject[stereo=entity]{TelaSistema}
+    \umlobject[stereo=entity]{ValidarCodigo}
+    \begin{umlcall}[op={1},return=4]{ADM}{Login}
+    \end{umlcall}
+    \begin{umlcall}[op={2}, return=3]{Login}{Validar}
+    \end{umlcall}
+    \begin{umlcall}[op={5}, dt=10]{ADM}{TelaSistema}
+    \end{umlcall}
+    \begin{umlcall}[op={6}, return=8]{TelaSistema}{ValidarCodigo}
+    \end{umlcall}
+    \begin{umlcall}[op={9}]{TelaSistema}{ADM}
+    \end{umlcall}
+    \begin{umlcallself}[op={7}]{ValidarCodigo} 
+    \end{umlcallself} 
+  \end{umlseqdiag} 
+\end{tikzpicture}\\
+
+{\bf Descrição:}\\
+1. Logar()\\
+2. Validar Login\\
+3. Resposta validação\\
+4. Login Efetuado\\
+5. Formulário\\
+6. CadrastarColaborador()\\
+7. Validar Dados Inseridos\\
+8. Mostrar mensagem de sucesso ou mostrar erro\\
+9. Retonar Início\\
+
+
+No que se refere ao diagrama de seqüência, preocupa-se com a ordem temporal
+em que as mensagens são trocadas entre os objetos envolvidos em determinado
+processo, ou seja, quais condições devem ser satisfeitas e quais métodos devem
+ser disparados entre os objetos envolvidos e em que ordem durante um processo.
+Dessa forma, determinar a ordem em que os eventos ocorrem, as mensagens que são
+enviadas, os métodos que são chamados e como os objetos interagem entre si dentro
+de um determinado processo é o principal objetivo deste diagrama.
+
+
+
+\vspace{3 cm}
+
+
+
+%\include{class} % DIAGRAMA
+\centering
+{
+\scalebox{.67}
+{
+\begin{tikzpicture}
+   %SISTEMA
+   \umlclass[x = , y =0]{Sistema} {
+   - colaboradores: Colaborador[25]\\
+   - vendas: Venda[ ]\\
+   - clientes: Cliente[ ]\\
+   - estoque: Material[ ]\\
+   
+    }{
+   + incluirColaborador(colaborador: Colaborador): bool\\
+   + incluirCliente(cliente: Cliente): bool\\
+   + realizarVenda(venda: Venda): bool\\
+   + cancelarVenda(venda: Venda):bool\\
+    + incluirMaterial(material: Material) : bool \\
+   + ConsultarVendas() : bool
+  
+   }
+   
+    %PESSOA
+    \umlclass[x=10, y=-8]{Pessoa}{
+    - nome : String \\
+    - endereco : String \\
+
+    - email : String \\
+    - cpf : String \\
+    - telefone : String \\}{
+    }
+    
+    
+    %Cliente
+    \umlclass[x=3, y=-15]{Cliente}{
+    - regCompras : Venda[ ]}{
+    + ImprimirInfoCliente() : bool}
+    
+    %Colaborador
+    \umlclass[x=11, y=-15]{Colaborador}{
+    - login : String \\
+    - senha : String \\}{}
+    
+     %ADM
+    \umlclass[x=10, y=-20]{Adm}{}{}
+  
+   
+    %Venda
+    \umlclass[x =0, y=-8]{Venda}{
+     - idVenda: int \\
+     - data : Date \\
+    - valorTotal: float \\
+    - materiais: Material[ ] \\ }{
+      + GerarExtrato() : bool
+      }
+     
+
+
+   %Material
+   \umlclass[x=-10, y=-7]{Material} {
+   - nome: String \\
+   - quantidade: int \\
+   - preco: float \\
+   - especificacao: String \\
+   - margemLucro: float \\
+   - dataFabricacao: Date \\
+   - fornecedor: String \\
+   } {
+     }
+     
+
+
+    
+   %RELACIONAMENTOS
+ 
+ 
+    \umlcompo[]{Sistema}{Pessoa}
+   
+    \umlcompo[]{Sistema}{Venda}
+    \umlcompo[]{Sistema}{Material}
+   
+     \umlcompo[]{Cliente}{Venda}
+     \umlcompo[]{Venda}{Material}
+    \umlinherit[]{Cliente}{Pessoa}
+    \umlinherit[]{Adm}{Colaborador}
+    \umlinherit[]{Colaborador}{Pessoa}
+    %\umlVHassoc{Quarto}{Venda}
+   % \umlVHassoc{Colaborador}{Venda}
+   % \umlVHassoc{Material}{Venda}
+\end{tikzpicture}
+}
+}
+
+
+\newpage
+O diagrama de classes é considerado por muitos autores como o mais importante e
+  o mais utilizado diagrama da UML. Seu principal enfoque está em permitir a visualização
+  das classes que irão compor o sistema com seus respectivos atributos e métodos,
+  bem como em demonstrar como as classes do sistema se relacionam, se complementam e
+  transmitem informações entre si. Este diagrama apresenta uma visão estática de como
+  as classes estão organizadas, preocupando-se em definir a estrutura lógica das mesmas.
+
+  \section{Conclusão}
+  A maior dificuldade estava em fazer um Diagrama e só na implementação do próximo
+  perceber que faltava uma funcionalidade ou classe no sistema. Isso poderia desestruturar
+  o sistema mudando o pensamento lógico de algumas partes.\\
+  Além disso, tivemos dificuldade na implementação do  Diagrama de Sequência,
+  uma vez que não encontramos artigos relacionados que abrangia o tema.
+  Desse modo, percebemos a complexidade de abstrair um problema real,
+  e implementação de tal projeto.
+
+  \newpage
+  \begin{thebibliography}{4}
+    \bibitem{DEVMEDIA}DEVMEDIA.\textbf{O Que é UML e Diagramas de Caso de Uso}: Introdução Prática à UML. 
+    Recuperado em 17 de outubro de 2020,
+    https://www.devmedia.com.br/o-que-e-uml-e-diagramas-de-caso-de-uso-introducao-pratica-a-uml/23408
+
+    \bibitem{DEVMEDIA}DEVMEDIA.\textbf{Artigo SQL Magazine 64 - Utilizando UML}. 
+    Recuperado em 17 de outubro de 2020,
+    https://www.devmedia.com.br/artigo-sql-magazine-64-utilizando-uml/12665
+  
+    \bibitem{DEVMEDIA}DEVMEDIA.\textbf{Diagrama de Classes UML}. 
+    Recuperado em 17 de outubro de 2020,
+    https://www.devmedia.com.br/diagrama-de-classes-uml/12251
+    \end{thebibliography}
+
+\end{document}
